@@ -8,11 +8,6 @@ import orderReducer from './slice/orderSlice';
 
 const rootReducer = combineReducers({
     auth: authReducer,
-    product: productReducer,
-    filter: filterReducer,
-    cart: cartReducer,
-    checkout: checkouReducer,
-    orders: orderReducer,
 })
 
 const store = configureStore({
