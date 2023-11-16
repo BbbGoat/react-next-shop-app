@@ -76,6 +76,17 @@
         }
     }
     .navBar {
-        
+        .category {
+            display: flex;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            justify-content: center;
+            font-size: 1.2rem;
+            
+            ul {
+                display: flex;
+                gap: 25px;
+            }
+        }
     }
 }
