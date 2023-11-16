@@ -1,7 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
-import { emitWarning } from "process";
-
 
 interface IAuthState {
     isLoggedIn: boolean;
