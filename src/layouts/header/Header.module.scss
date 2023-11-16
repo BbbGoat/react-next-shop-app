@@ -1,8 +1,10 @@
-.navBar {
+.header {
     background: #f3f3f3;
 
     .wrapper {
         display: flex;
+        margin: 0 auto;
+        max-width: 1400px;
         justify-content: space-between;
         align-items: center;
     
@@ -28,12 +30,6 @@
                 user-select: none;
                 color: inherit;
                 background-color: transparent;
-
-                .searchIcon {
-                    width: 2rem;
-                    height: 2rem;
-                    vertical-align: middle;
-                }
             }
             .searchInput {
                 height: 2rem;
@@ -60,26 +56,26 @@
                 transition: all .4s;
                 justify-content: flex-end;
             }
+            .adminButton {
+                border: 0;
+                cursor: pointer;
+                user-select: none;
+                color: inherit;
+                background-color: transparent;
+                margin-right: 20px;
+            }
             .loginButton {
-                margin-right: 35px;
-
-                .loginIcon {
-                    width: 2rem;
-                    height: 2rem;
-                    vertical-align: middle;
-                }
+                margin-right: 20px;
             }
             .cartButton {
-                .cartIcon {
-                    width: 2rem;
-                    height: 2rem;
-                    vertical-align: middle;
-                }
-                .cartProductCount {
+                strong {
                     font-size: 1.5rem;
-                    vertical-align: middle;
+                    line-height: 1.5;
                 }
             }
         }
+    }
+    .navBar {
+        
     }
 }
