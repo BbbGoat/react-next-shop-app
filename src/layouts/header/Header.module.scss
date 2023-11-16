@@ -2,30 +2,83 @@
     background: #f3f3f3;
 
     .wrapper {
-
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     
-        .searchButton {
-            border: 0;
-            cursor: pointer;
-            user-select: none;
-            color: inherit;
-            background-color: transparent;
+        .logo {
+            padding-top: 20px;
+            padding-left: 25px;
+            padding-right: 25px;
         }
-        .searchInput {
-            width: 194px;
-            height: 2rem;
-            
-            input {
-                outline: 0;
-                border: 0;
-                width: 100%;
-                height: 100%;
-                padding: 1rem 1rem 1.2rem;
+        .list {
+            display: flex;
+            align-items: center;
+
+            &.left {
+                position: relative;
+                width: 220px;
+                top: 0;
+                left: 20px;
+                transition: all .4s;
             }
-            input::placeholder {
-                font-size: 1rem;
-                line-height: 1.2;
-                color: var(--dark-gray);
+            .searchButton {
+                border: 0;
+                cursor: pointer;
+                user-select: none;
+                color: inherit;
+                background-color: transparent;
+
+                .searchIcon {
+                    width: 2rem;
+                    height: 2rem;
+                    vertical-align: middle;
+                }
+            }
+            .searchInput {
+                height: 2rem;
+                
+                input {
+                    outline: 0;
+                    border: 0;
+                    width: 100%;
+                    height: 100%;
+                    padding: 1rem 1rem 1.2rem;
+                }
+                input::placeholder {
+                    font-size: 1rem;
+                    line-height: 1.2;
+                    color: var(--dark-gray);
+                }
+            }
+
+            &.right {
+                position: relative;
+                width: 220px;
+                top: 0;
+                right: 20px;
+                transition: all .4s;
+                justify-content: flex-end;
+            }
+            .loginButton {
+                margin-right: 35px;
+
+                .loginIcon {
+                    width: 2rem;
+                    height: 2rem;
+                    vertical-align: middle;
+                }
+            }
+            .cartButton {
+                .cartIcon {
+                    width: 2rem;
+                    height: 2rem;
+                    vertical-align: middle;
+                }
+                .cartProductCount {
+                    font-size: 1.5rem;
+                    vertical-align: middle;
+                }
             }
         }
     }
