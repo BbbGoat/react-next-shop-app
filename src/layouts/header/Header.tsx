@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import styles from './Header.module.scss'
 import { usePathname, useRouter } from 'next/navigation'
 import { useDispatch } from 'react-redux'
@@ -20,7 +20,8 @@ const Header = () => {
   const [displayName, setDisplayName] = useState('');
   const [search, setSearch] = useState('');
   const [cartProductCount, setCartProductCount] = useState(0);
-
+  const [active, setActive] = useState('');
+  
   // 검색 버튼 클릭시
   const handleClick = () => {}
 
@@ -88,7 +89,7 @@ const Header = () => {
               headerData.map((item, idx)=>{
                 const {href, cat} = item;
                 return (
-                  <li className={styles.menuItem} role='menuitem' key={idx}>
+                  <li className={active == cat ? 'active' : ''} role='menuitem' key={idx} onMouseOver={()=>{setActive(cat)}} onMouseOut={()=>{setActive('')}}>
                     <Link href={href}>
                       <span>{cat}</span>
                     </Link>
