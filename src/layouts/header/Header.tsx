@@ -89,7 +89,7 @@ const Header = () => {
               headerData.map((item, idx)=>{
                 const {href, cat} = item;
                 return (
-                  <li className={active == cat ? 'active' : ''} role='menuitem' key={idx} onMouseOver={()=>{setActive(cat)}} onMouseOut={()=>{setActive('')}}>
+                  <li className={active == cat ? `${styles.active}` : ''} role='menuitem' key={idx} onMouseOver={()=>{setActive(cat)}} onMouseOut={()=>{setActive('')}}>
                     <Link href={href}>
                       <span>{cat}</span>
                     </Link>

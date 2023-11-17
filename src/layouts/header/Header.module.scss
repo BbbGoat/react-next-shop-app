@@ -87,6 +87,13 @@
                 display: flex;
                 gap: 25px;
             }
+            li {
+                // color: var(--dark-gray);
+                font-weight: 300;
+            }
+            li.active {
+                color: var(--dark-gray);
+            }
         }
     }
 }
