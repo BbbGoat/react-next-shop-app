@@ -90,9 +90,10 @@
             li {
                 // color: var(--dark-gray);
                 font-weight: 300;
+                color: var(--dark-gray);
             }
             li.active {
-                color: var(--dark-gray);
+                color: #000;
             }
         }
     }
