@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useState } from 'react'
 import styles from './Input.module.scss'
 import classNames from 'classnames';
+import Icon from '../icon/Icon';
 
 interface IInputProps {
   id: string;
@@ -39,6 +40,7 @@ const Input = ({
 }: IInputProps) => {
 
   const [inputValue, setInputValue] = useState(value? value : '');
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   
   const checkType = () => {
     if (email) {
@@ -57,9 +59,11 @@ const Input = ({
     setInputValue(e.target.value);
     onChange(e)
   }
+
+  const iconType = isPasswordVisible ? 'show' : 'hide';
+  const iconLabel = `비밀번호 ${isPasswordVisible ? '표시' : '감춤'}`;
   
   return (
-
     <div>
       <label htmlFor={id} className={classNames(styles.label, labelVisible || styles.labelHidden)}>
         {label}
@@ -78,7 +82,28 @@ const Input = ({
           onChange={handleChange}
           {...restProps}
         />
+        {
+          password ?
+          (
+            <button
+              type='button'
+              className={styles.button}
+              onClick={()=>{setIsPasswordVisible(status => !status)}}
+              disabled={disabled}
+            >
+              <Icon type={iconType} alt={iconLabel} title={iconLabel} />
+            </button>
+          )
+          : null
+        }
       </div>
+      {
+        errorProp && (
+          <span role='alert' className={styles.error}>
+            {errorProp.message}
+          </span>
+        )
+      }
     </div>
   )
 }
