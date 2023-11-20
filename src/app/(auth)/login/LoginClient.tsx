@@ -51,7 +51,6 @@ const LoginClient = () => {
                         value={email}
                         onChange={(e)=>setEmail(e.target.value)}
                     />
-
                     <Input
                         password
                         icon="lock"
@@ -77,7 +76,7 @@ const LoginClient = () => {
                                 xmlns="http://www.w3.org/2000/svg"
                                 className={styles.findLinkArrow}
                             >
-                                <path d="M1.5 1L9.5 9L1.5 17" stroke="#0074E9" strokeWidth="2" />
+                                <path d="M1.5 1L9.5 9L1.5 17" stroke="#7a0303" strokeWidth="2" />
                             </svg>
                         </Link>
                     </div>

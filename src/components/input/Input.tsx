@@ -64,7 +64,7 @@ const Input = ({
   const iconLabel = `비밀번호 ${isPasswordVisible ? '표시' : '감춤'}`;
   
   return (
-    <div>
+    <div className={classNames(styles.formControl, className)}>
       <label htmlFor={id} className={classNames(styles.label, labelVisible || styles.labelHidden)}>
         {label}
       </label>
