@@ -2,11 +2,11 @@ import React from "react";
 import styles from "./Loader.module.scss";
 import { ThreeDots } from 'react-loader-spinner';
 
-interface ILoader {
+interface ILoaderProps {
     basic?: boolean;
 }
 
-const Loader = ({ basic }: ILoader) => {
+const Loader = ({ basic }: ILoaderProps) => {
 
     if (basic) {
         return (
@@ -28,7 +28,7 @@ const Loader = ({ basic }: ILoader) => {
             <div className={styles.loader}>
                 <ThreeDots 
                     // height="80" 
-                    width="30" 
+                    width="55" 
                     radius="9"
                     color="grey" 
                     ariaLabel="three-dots-loading"

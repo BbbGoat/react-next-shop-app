@@ -8,6 +8,7 @@ import Input from '@/components/input/Input';
 import LogoPath from '@/assets/logo.png';
 import Link from 'next/link';
 import Button from '@/components/button/Button';
+import { toast } from 'react-toastify';
 
 const LoginClient = () => {
 
@@ -22,9 +23,16 @@ const LoginClient = () => {
         router.push('/');
     }
 
-    const loginUser = () => {}
+    const loginUser = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        toast.info('성공');
+        setIsLoading(true);
+        
+    }
 
-    const signInWithGoogle = () => {}
+    const signInWithGoogle = () => {
+        
+    }
     
   return (
     <>
