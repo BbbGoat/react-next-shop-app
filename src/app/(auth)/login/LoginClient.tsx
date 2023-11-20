@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import styles from './LoginClient.module.scss'
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import Loader from '@/components/loader/Loader';
 import Image from 'next/image';
 import Input from '@/components/input/Input';
@@ -28,7 +28,7 @@ const LoginClient = () => {
         <section className={styles.page}>
             <div className={styles.container}>
                 <h1 className={styles.logo}>
-                    <Image src={'./'} alt="logo" />
+                    {/* <Image src={'./'} alt="logo" /> */}
                 </h1>
 
                 <form onSubmit={loginUser} className={styles.form}>
