@@ -47,7 +47,7 @@ const Input = ({
       return 'email'
     }
     if (password) {
-      return 'password'
+      return isPasswordVisible ? 'text' : 'password'
     }
 
     return 'text';
@@ -70,6 +70,9 @@ const Input = ({
       </label>
 
       <div className={classNames(styles.inputWrapper, errorProp && styles.inputWrapperError)}>
+
+        {icon ? <Icon type={icon} /> : null}
+        
         <input
           id={id}
           type={checkType()}
@@ -82,6 +85,7 @@ const Input = ({
           onChange={handleChange}
           {...restProps}
         />
+        
         {
           password ?
           (
