@@ -11,16 +11,18 @@ const NavbarProvider = ({children}: {children: React.ReactNode}) => {
     
   return (
     <>
-        {isAdmin 
-        ? <div className={styles.admin}>
-            <div className={styles.navbar}>
-                <Navbar />
-            </div>
-            <div className={styles.content}>
-                {children}
-            </div>
-        </div> 
-        : <>{children}</>}
+        {
+            isAdmin ? 
+                <div className={styles.admin}>
+                    <div className={styles.navbar}>
+                        <Navbar />
+                    </div>
+                    <div className={styles.content}>
+                        {children}
+                    </div>
+                </div> 
+            : <>{children}</>
+        }
     </>
   )
 }

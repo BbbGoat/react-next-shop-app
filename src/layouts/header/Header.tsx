@@ -15,6 +15,7 @@ const Header = () => {
 
   const router = useRouter();
   const pathname = usePathname();
+  const isAdmin = pathname.startsWith('/admin');
   const dispatch = useDispatch();
 
   const [displayName, setDisplayName] = useState('');

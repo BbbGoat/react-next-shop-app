@@ -14,10 +14,14 @@ const Navbar = () => {
   
   return (
     <div className={styles.navbar}>
+      
+      {/* 관리자 정보 */}
       <div className={styles.user}>
         <FaUserCircle size={40} color='#fff' />
         <h4>{userName}</h4>
       </div>
+
+      {/* 네비게이션 */}
       <nav>
         <ul>
           <li>

@@ -30,7 +30,7 @@ const Chart = () => {
       {
         label: '주문건수',
         // data: [placed, processing, shipped, deliverd],
-        data: [1,2,3,4],
+        data: [1,7,3,5],
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       }
     ]

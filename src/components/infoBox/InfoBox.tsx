@@ -5,7 +5,7 @@ interface IInfoBoxProps {
     cardClass: string;
     title: string;
     count: string;
-    icon: React.JSX.Element
+    icon: React.JSX.Element;
 }
 
 const InfoBox = ({

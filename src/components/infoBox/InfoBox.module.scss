@@ -1,0 +1,12 @@
+.infoBox {
+    width: 100%;
+    max-width: 25rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    
+    span {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
