@@ -2,16 +2,20 @@
 import React, { useState, FormEvent } from 'react'
 import styles from './Footer.module.scss'
 import Link from 'next/link'
-import { BiLogoFacebookCircle, BiLogoInstagramAlt, BiLogoPinterest, BiLogoTwitter, BiLogoYoutube } from 'react-icons/bi'
+import { BiLogoFacebookCircle, BiLogoInstagramAlt, BiLogoPinterest, BiLogoTwitter, BiLogoYoutube, BiSolidPhone } from 'react-icons/bi'
 import Button from '@/components/button/Button'
 import { toast } from 'react-toastify'
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
+import classNames from 'classnames'
 
 const Footer = () => {
 
   const [value, setValue] = useState('');
   const [errorMessage, setErrorMessage] = useState(false);
   const router = useRouter();
+
+  const pathname = usePathname();
+  const isAdmin = pathname.startsWith('/admin')
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -27,45 +31,50 @@ const Footer = () => {
     router.push('/login');
   }
 
+  if (isAdmin) return null;
+  
   return(
     <footer>
       {/* 중단 */}
       <div className={styles.contact}>
         <div className={styles.grid}>
-          <div className={styles.col}>
-            <h3>Let's stay in touch</h3>
-            <p>Sign up to our newsletter so we can welcome you to the Diptyque community and keep you posted on new launches, events, special offers and more.</p>
+          <div className={classNames(styles.cols, styles.col1)}>
+            <div style={{maxWidth:'400px'}}>
+              <h3>Let's stay in touch</h3>
+              <p>Sign up to our newsletter so we can welcome you to the Diptyque community and keep you posted on new launches, events, special offers and more.</p>
 
-            <form onSubmit={handleSubmit}>
-              <div className={styles.inputBox}>
-                <label htmlFor='contact'>ENTER YOUR EMAIL ADDRESS</label>
-                <input 
-                  type='email'
-                  id='contact'
-                  placeholder='Enter your email address'
-                  value={value}
-                  onChange={(e)=>setValue(e.target.value)}
-                />
-              </div>
-              <div>
-                {
-                  errorMessage ? <div className={styles.errorMessage}>This is a required field</div> : null
-                }
-              </div>
-              <Button type='submit' width='100%'>
-                SUBSCRIBE
-              </Button>
-            </form>
+              <form onSubmit={handleSubmit}>
+                <div className={styles.inputBox}>
+                  <label htmlFor='contact'>ENTER YOUR EMAIL ADDRESS</label>
+                  <input 
+                    type='email'
+                    id='contact'
+                    placeholder='Enter your email address'
+                    value={value}
+                    onChange={(e)=>setValue(e.target.value)}
+                  />
+                </div>
+                <div>
+                  {
+                    errorMessage ? <div className={styles.errorMessage}>This is a required field</div> : null
+                  }
+                </div>
+                <Button type='submit' width='100%'>
+                  SUBSCRIBE
+                </Button>
+              </form>
+            </div>
           </div>
 
-          <div className={styles.col}>
+          <div className={classNames(styles.cols, styles.col2)}>
             <h3>Need help?</h3>
             <p>We are here to assist you</p>
             <Button type='button' onClick={handleClick}>
               CONTACT US
             </Button>
-            <div>
-              <span>0800 840 0010</span>
+            <div className={styles.tel}>
+              <i><BiSolidPhone size={16} /></i>
+              <span>0800 - 840 - 0010</span>
             </div>
             <div>
               <span>Monday - Friday : 10 am to 7 pm</span>
@@ -73,7 +82,7 @@ const Footer = () => {
             <div>
               <span>Saturday: 10 am to 5 pm</span>
             </div>
-            <Link href={'/'}>Help Center</Link>
+            <Link href={'/'} className={styles.help}>Help Center</Link>
           </div>
         </div>
       </div>
