@@ -2,6 +2,7 @@
 import React from 'react'
 import styles from './Footer.module.scss'
 import Link from 'next/link'
+import { BiLogoFacebookCircle, BiLogoInstagramAlt, BiLogoPinterest, BiLogoTwitter, BiLogoYoutube } from 'react-icons/bi'
 
 const Footer = () => {
   return (
@@ -51,18 +52,23 @@ const Footer = () => {
           </div>
           <ul className={styles.menulist}>
             <li className={styles.menuitem}>
+              <i><BiLogoFacebookCircle size={16} /></i>
               <span><Link href={"/"}>Facebook</Link></span>
             </li>
             <li className={styles.menuitem}>
+              <i><BiLogoTwitter size={16} /></i>
               <span><Link href={"/"}>Twitter</Link></span>
             </li>
             <li className={styles.menuitem}>
+              <i><BiLogoInstagramAlt size={16} /></i>
               <span><Link href={"/"}>Instagram</Link></span>
             </li>
             <li className={styles.menuitem}>
+              <i><BiLogoYoutube size={16} /></i>
               <span><Link href={"/"}>Youtube</Link></span>
             </li>
             <li className={styles.menuitem}>
+              <i><BiLogoPinterest size={16} /></i>
               <span><Link href={"/"}>Pinterest</Link></span>
             </li>
           </ul>

@@ -1,5 +1,6 @@
 .footer {
     background: #f3f3f3;
+    padding: 60px 40px;
 
     .wrapper {
         display: flex;
@@ -8,20 +9,27 @@
         justify-content: space-between;
         
         .menuwrap {
-            width: 200px;
+            width: 300px;
         }
         .title {
-            padding: 5px;
-            font-size: 1.4rem;
+            padding: 10px 10px 5px;
+            font-size: 16px;
             text-transform: uppercase;
+            font-weight: 300;
         }
         .menulist {
         }
         .menuitem {
-            padding: 5px;
-            font-size: 1.2rem;
+            padding: 10px;
+            font-size: 14px;
             font-weight: 300;
             color: #5f5f5f;
+
+            i {
+                margin-right: 10px;
+                color: #000;
+                vertical-align: middle;
+            }
         }
     }
 }
