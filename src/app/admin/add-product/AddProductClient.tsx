@@ -14,7 +14,7 @@ const AddProductClient = () => {
         e.preventDefault();
         setIsLoading(true);
     }
-    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const {name, value} = e.target;
     }
     const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
