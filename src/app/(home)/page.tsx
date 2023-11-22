@@ -1,7 +1,9 @@
 export default function Home() {
   return (
-    <>
-    <h3>home</h3>
-    </>
+    <main>
+      <div style={{height:'400px'}}>
+        내용
+      </div>
+    </main>
   )
 }

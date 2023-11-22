@@ -1,5 +1,8 @@
 .header {
-    background: #f3f3f3;
+    background: #fff;
+    border-bottom: 1px solid var(--border-gray);
+    // position: fixed;
+    // width: 100%;
 
     .wrapper {
         display: flex;

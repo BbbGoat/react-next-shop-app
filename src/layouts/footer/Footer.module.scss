@@ -16,7 +16,7 @@
             margin: 0 auto;
             text-align: center;
             background-color: #fff;
-            border-top: 1px solid var(--light-gray);
+            border-top: 1px solid var(--border-gray);
             
             h3 {
                 font-size: 1.75rem;
@@ -47,7 +47,7 @@
                     font-size: 14px;
                     padding: 1rem;
                     text-align: center;
-                    border: 1px solid var(--light-gray);
+                    border: 1px solid var(--border-gray);
                 }
             }
             .errorMessage {
@@ -63,7 +63,7 @@
             }
         }
         .col1 {
-            border-right: 1px solid var(--light-gray);
+            border-right: 1px solid var(--border-gray);
 
         }
         .col2 {
@@ -91,7 +91,7 @@
 
 .info {
     padding: 60px 40px;
-    border-top: 1px solid #e5e7eb;
+    border-top: 1px solid var(--border-gray);
 
     .wrapper {
         display: flex;
