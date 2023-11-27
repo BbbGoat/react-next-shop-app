@@ -28,12 +28,12 @@ const Slider = () => {
   }, [currentSlide, sliderLength]);
 
   // 자동 슬라이드 등록
-  useEffect(()=>{
-    const interval = setInterval(nextSlide, intervalTime);
-    return ()=>(
-      clearInterval(interval)
-    )
-  }, [nextSlide]);
+  // useEffect(()=>{
+  //   const interval = setInterval(nextSlide, intervalTime);
+  //   return ()=>(
+  //     clearInterval(interval)
+  //   )
+  // }, [nextSlide]);
   
   return (
     <div className={styles.slider}>
@@ -54,7 +54,11 @@ const Slider = () => {
             >
               {
                 idx === currentSlide ? 
-                <Image src={image} alt={heading} />
+                <>
+                  <Image src={`http://localhost:3000/${image}`} alt={heading} fill />
+                  <h3>{heading}</h3>
+                  <span>{desc}</span>
+                </>
                 : null
               }
             </div>

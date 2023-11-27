@@ -1,5 +1,7 @@
 .slider {
     width: 100%;
+    max-width: 1640px;
+    margin: 0 auto;
     height: 50vh;
     position: relative;
     overflow: hidden;
@@ -37,14 +39,14 @@
         left: 0;
         width: 100%;
         height: 100%;
-        opacity: 0;
-        transition: all .5s ease;
+        opacity: 1;
+        transition: all .5s ease-out;
 
         &.prev {
-            transform: translateX(-50%);
+            transform: translateX(-100%);
         }
         &.next {
-            transform: translateX(50%);
+            transform: translateX(100%);
         }
     }
     .slide img {
