@@ -50,7 +50,7 @@ const Slider = () => {
               className={
                 idx === currentSlide 
                 ? `${styles.slide} ${styles.current}` 
-                : idx < currentSlide ? `${styles.slide} ${styles.prevSlide}`: `${styles.slide} ${styles.nextSlide}`}
+                : idx < currentSlide ? `${styles.slide} ${styles.prev}`: `${styles.slide} ${styles.next}`}
             >
               {
                 idx === currentSlide ? 

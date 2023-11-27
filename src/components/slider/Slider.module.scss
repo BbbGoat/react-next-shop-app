@@ -38,8 +38,14 @@
         width: 100%;
         height: 100%;
         opacity: 0;
-        // transform: translateX(-50%);
         transition: all .5s ease;
+
+        &.prev {
+            transform: translateX(-50%);
+        }
+        &.next {
+            transform: translateX(50%);
+        }
     }
     .slide img {
         height: 100%;
@@ -48,11 +54,5 @@
     .current {
         opacity: 1;
         transform: translateX(0);
-    }
-    .prevSlide {
-        transform: translateX(-50%);
-    }
-    .nextSlide {
-        transform: translateX(50%);
     }
 }
