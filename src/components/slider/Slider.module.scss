@@ -1,0 +1,58 @@
+.slider {
+    width: 100%;
+    height: 50vh;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-dark);
+
+    // 버튼
+    .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2.5rem;
+        height: 2.5rem;
+        border: 2px solid var(--color-primary);
+        color: var(--color-white);
+        cursor: pointer;
+        z-index: 2;
+
+    }
+    .arrow:hover {
+        background: var(--color-white);
+    }
+    .prev {
+        left: 1.5rem;
+        color: var(--color-primary);
+    }
+    .next {
+        right: 1.5rem;
+        color: var(--color-primary);
+    }
+
+    // 슬라이드
+    .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        // transform: translateX(-50%);
+        transition: all .5s ease;
+    }
+    .slide img {
+        height: 100%;
+        object-fit: cover;
+    }
+    .current {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    .prevSlide {
+        transform: translateX(-50%);
+    }
+    .nextSlide {
+        transform: translateX(50%);
+    }
+}

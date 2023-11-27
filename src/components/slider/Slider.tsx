@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import styles from './Slider.module.scss'
 import sliderData from './SliderData'
 import Image from 'next/image'
@@ -10,10 +10,11 @@ const Slider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderLength = sliderData.length;
 
+  const intervalTime = 5000;
   
   const prevSlide = useCallback(() => {
-    // 슬라이드가 0이 되면 맨끝으로, 아닐경우 현재 슬라이드에서 -1
     setCurrentSlide(
+      // 슬라이드가 0이 되면 맨끝으로, 아닐경우 현재 슬라이드에서 -1
       currentSlide === 0 ? sliderLength -1 : currentSlide -1
     )
   }, [currentSlide, sliderLength]);
@@ -23,7 +24,16 @@ const Slider = () => {
       // 슬라이드가 맨 마지막일 경우 0으로, 아닐경우 현재 슬라이드에서 +1
       currentSlide === sliderLength -1 ? 0 : currentSlide +1
     )
-  }, []);
+
+  }, [currentSlide, sliderLength]);
+
+  // 자동 슬라이드 등록
+  useEffect(()=>{
+    const interval = setInterval(nextSlide, intervalTime);
+    return ()=>(
+      clearInterval(interval)
+    )
+  }, [nextSlide]);
   
   return (
     <div className={styles.slider}>
@@ -36,10 +46,17 @@ const Slider = () => {
           return (
             <div
               key={heading}
-              // className={idx === }
+              // className={idx === currentSlide ? `${styles.slide} ${styles.current}` : `${styles.slide}`}
+              className={
+                idx === currentSlide 
+                ? `${styles.slide} ${styles.current}` 
+                : idx < currentSlide ? `${styles.slide} ${styles.prevSlide}`: `${styles.slide} ${styles.nextSlide}`}
             >
-              <Image src={image} alt={heading} />
-              {desc}
+              {
+                idx === currentSlide ? 
+                <Image src={image} alt={heading} />
+                : null
+              }
             </div>
           )
         })
