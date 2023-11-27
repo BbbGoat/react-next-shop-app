@@ -9,34 +9,5 @@
 
     .mySwiper {
         background-color: red;
-
-        /* 스와이퍼 */
-        .swiper-button-next::after,
-        .swiper-button-prev::after {
-            display: none;
-        }
-
-        .swiper-button-prev {
-            background: url(../../assets/logo.png) no-repeat;
-        }
-        .swiper-button-next {
-            background: url(../../assets/logo.png) no-repeat !important;
-        }
-
-        /* 투명도 및 크기 조정 */
-        .swiper-button-prev,
-        .swiper-button-next {
-            opacity: .7;
-            background-size: 70% auto;
-            background-position: center;
-        }
-
-
-        .swiper-pagination-bullet {
-
-        }
-        .swiper-pagination-bullet-active {
-        background: red;
-        }
     }
 }
