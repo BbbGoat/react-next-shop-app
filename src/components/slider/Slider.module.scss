@@ -7,8 +7,107 @@
     overflow: hidden;
     background-color: var(--color-dark);
 
-    .mySwiper {
-        // background-color: red;
-        border-radius: 26px;
+    .mainSwiper {
+        border-radius: 0 30px;
+    }
+
+    .titWrap {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: 20px;
+        color: #fff;
+        
+        span {
+            padding: 3rem 2rem;
+            font-size: 1.4rem;
+        }
+        .titInner {
+            padding: 0 2rem 3rem;
+            
+            .title {
+                font-size: 2rem;
+                margin-bottom: 20px;
+            }   
+            .description {
+                font-size: 1.4rem;
+            }
+        }
+    }
+
+    .navWrap {
+        display: flex;
+        max-width: 150px;
+        margin: 0 auto;
+        padding-top: 2rem;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+
+        // 네비게이션 버튼
+        .swiperBtn {
+            border: 0;
+            background-color: transparent;
+            background-size: 100% auto ;
+            background-repeat: no-repeat;
+            object-fit: cover;
+        }
+        .prevBtn {
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            
+            &::after {
+                content: '';
+                display: inline-block;
+                width: 19px;
+                height: 12px;
+                background-repeat: no-repeat;
+                background-image: url(../../assets/icon_navi_arrow_left_disabled.svg);
+                vertical-align: middle;
+            }
+            &:hover::after {
+                background-image: url(../../assets/icon_navi_arrow_left_active.svg);
+                transform: rotateY(180deg);
+            }
+        }
+        .nextBtn {
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            transform: rotateY(180deg);
+
+            &::after {
+                content: '';
+                display: inline-block;
+                width: 19px;
+                height: 12px;
+                background-repeat: no-repeat;
+                background-image: url(../../assets/icon_navi_arrow_left_disabled.svg);
+                vertical-align: middle;
+            }
+            &:hover::after {
+                background-image: url(../../assets/icon_navi_arrow_left_active.svg);
+                transform: rotateY(180deg);
+            }            
+        }
+    }
+    .pagination {
+        font-size: 2rem;
+
+        span {
+            display: inline-block;
+            width: 1.5rem;
+        }
+        .divider {
+            height: 1px;
+            margin-right: 5px;
+            vertical-align: middle;
+            background: #000;
+            transform: rotate(120deg) translate(-10%, 50%);
+        }
     }
 }
