@@ -19,8 +19,6 @@ const Slider = () => {
   const [swiperIndex, setSwiperIndex] = useState(0);
   const [swiper, setSwiper] = useState<SwiperClass>();
 
-  // const [swiperRef, setSwiperRef] = useState(null);
-
   const sliderLength = sliderData.length;
   
 
@@ -44,38 +42,32 @@ const Slider = () => {
         onActiveIndexChange={(e)=>setSwiperIndex(e.realIndex)}
         onSwiper={(e) => {setSwiper(e)}}
       >
-        <SwiperSlide>
-          <Link href={'/'}>
-            <Image src={img} alt='이미지' />
+        {
+          sliderData.map((data, idx)=>{
 
-            <div className={styles.titWrap}>
-              <span>PRE-ORDER</span>
-              <div className={styles.titInner}>
-                <div className={styles.title}>
-                  <strong>타이틀 이름 이름</strong>
-                </div>
-                <div className={styles.description}>
-                  <p>설명하는 내용 설명하는 내용 설명하는 내용asdfsadf</p>
-                </div>
-              </div>
-            </div>
-          </Link>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Link href={'/'}>
-            <Image src={img} alt='이미지' />
-          </Link>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Link href={'/'}>
-            <Image src={img} alt='이미지' />
-          </Link>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Link href={'/'}>
-            <Image src={img} alt='이미지' />
-          </Link>
-        </SwiperSlide>
+            const { image, heading, title, desc } = data;
+
+            return(
+              <SwiperSlide key={idx}>
+                <Link href={'/'}>
+                  <Image src={img} alt='이미지' />
+                  <div className={styles.titWrap}>
+                    <span>{heading.toUpperCase()}</span>
+                    <div className={styles.titInner}>
+                      <div className={styles.title}>
+                        <strong>{title.toUpperCase()}</strong>
+                      </div>
+                      <div className={styles.description}>
+                        <p>{desc}</p>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </SwiperSlide>
+            )
+          })
+        }
+        
       </Swiper>
       
       <div className={styles.navWrap}>
@@ -83,7 +75,7 @@ const Slider = () => {
         <div className={styles.pagination}>
           <span>{swiperIndex + 1}</span>
           <span className={styles.divider}></span>
-          <span>6</span>     
+          <span>{sliderLength}</span>     
         </div>
         <button onClick={handleNext} className={`${styles.swiperBtn} ${styles.nextBtn}`}></button>
       </div>
