@@ -45,12 +45,14 @@ const Slider = () => {
         {
           sliderData.map((data, idx)=>{
 
-            const { image, heading, title, desc } = data;
+            const { image, heading, title, desc, name } = data;
 
             return(
               <SwiperSlide key={idx}>
-                <Link href={'/'}>
-                  <Image src={img} alt='이미지' />
+                <Link href={`/product-details/${name}`}>
+
+                  {/* !!!이미지 주소 배포시 수정해야함!!! */}
+                  <Image src={img} alt={name} />
                   <div className={styles.titWrap}>
                     <span>{heading.toUpperCase()}</span>
                     <div className={styles.titInner}>
