@@ -2,15 +2,16 @@
     width: 100%;
     max-width: 1640px;
     margin: 0 auto;
-    // height: 50vh;
     position: relative;
     overflow: hidden;
     background-color: var(--color-dark);
 
     .mainSwiper {
         border-radius: 0 30px;
+        margin-top: 5rem;
     }
 
+    // 1. 타이틀 영역
     .titWrap {
         position: absolute;
         top: 0;
@@ -40,6 +41,7 @@
         }
     }
 
+    // 2. 네비게이션 영역
     .navWrap {
         display: flex;
         max-width: 150px;
@@ -49,7 +51,7 @@
         justify-content: space-between;
         gap: 10px;
 
-        // 네비게이션 버튼
+        // 버튼
         .swiperBtn {
             border: 0;
             background-color: transparent;
@@ -97,6 +99,7 @@
             }            
         }
     }
+    // 3. 페이지네이션 영역
     .pagination {
         font-size: 2rem;
 

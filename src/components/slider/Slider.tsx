@@ -32,6 +32,7 @@ const Slider = () => {
   return (
     <div className={styles.slider}>
 
+      {/* 1. 스와이프 영역 */}
       <Swiper
         className={styles.mainSwiper}
         modules={[Navigation, Pagination, A11y, Autoplay]}
@@ -44,13 +45,10 @@ const Slider = () => {
       >
         {
           sliderData.map((data, idx)=>{
-
             const { image, heading, title, desc, name } = data;
-
             return(
               <SwiperSlide key={idx}>
                 <Link href={`/product-details/${name}`}>
-
                   {/* !!!이미지 주소 배포시 수정해야함!!! */}
                   <Image src={img} alt={name} />
                   <div className={styles.titWrap}>
@@ -72,6 +70,7 @@ const Slider = () => {
         
       </Swiper>
       
+      {/* 2. 네비게이션(+페이지네이션) 영역 */}
       <div className={styles.navWrap}>
         <button onClick={handlePrev} className={`${styles.swiperBtn} ${styles.prevBtn}`}></button>
         <div className={styles.pagination}>
