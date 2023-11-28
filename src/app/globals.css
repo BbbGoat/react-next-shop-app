@@ -56,7 +56,7 @@ html,body,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,figure,p,blockquote{
 }
 
 
-/* 스와이퍼 */
+/**************** 스와이퍼 ****************/
 .swiper-button-next::after,
 .swiper-button-prev::after {
     display: none;
@@ -77,10 +77,8 @@ html,body,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,figure,p,blockquote{
     background-position: center;
 }
 
-
-.swiper-pagination-bullet {
-
-}
-.swiper-pagination-bullet-active {
-  background: red;
+.swiper-pagination-main {
+  position: relative !important;
+  top: 0 !important;
+  font-size: 3rem;
 }

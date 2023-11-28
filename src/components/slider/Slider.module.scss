@@ -2,12 +2,13 @@
     width: 100%;
     max-width: 1640px;
     margin: 0 auto;
-    height: 50vh;
+    // height: 50vh;
     position: relative;
     overflow: hidden;
     background-color: var(--color-dark);
 
     .mySwiper {
-        background-color: red;
+        // background-color: red;
+        border-radius: 26px;
     }
 }
