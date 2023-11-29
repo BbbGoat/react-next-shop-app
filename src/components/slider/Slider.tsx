@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import 'swiper/css/navigation';
 import styles from './Slider.module.scss'
 import sliderData from './SliderData'
