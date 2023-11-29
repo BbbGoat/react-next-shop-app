@@ -69,8 +69,6 @@ const CustomSlider = ({
                 onSwiper={(e)=>setSwiper(e)}
             >
                 { data.map((item, idx)=>{
-                // const { imageURL, brand, name, price, discount, src } = item;
-                
 
                 return(
                     <SwiperSlide key={idx}>
@@ -114,8 +112,7 @@ const CustomSlider = ({
                             )   
                         })}
                     </div>
-                   
-                    </SwiperSlide>
+                </SwiperSlide>
                 )
                 })}
             </Swiper>

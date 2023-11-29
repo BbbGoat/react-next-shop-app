@@ -39,15 +39,15 @@ const ProductSlider = ({
 
       {/* 타이틀 영역 */}
       <div className={styles.heading}>
-        <div className={styles.title}>{title}</div>
+        <div className={styles.title}>{title.toUpperCase()}</div>
         <div className={styles.subtitle}>{subtitle}</div>
       </div>
       
       <div className={styles.container}>
         <div className={styles.list}>
           <Swiper
-            className={styles.listSwiper}
             modules={[Navigation, A11y]}
+            spaceBetween={30}
             slidesPerView={slidesPerView}
           >
             { data.map((item, idx)=>{

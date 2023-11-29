@@ -1,11 +1,99 @@
 .slider {
+    position: relative;
     width: 100%;
-    background-color: #ccc;
-}
-.listSwiper {
-    background-color: rgb(56, 28, 28);
-    padding: 32px;
-}
-.bannerSwiper {
+    max-width: 1640px;
+    margin: 0 auto;
+    overflow: hidden;
 
+    margin-top: 3rem;   
+
+    .heading {
+
+        color: #000;
+        
+        .title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            padding-bottom: 20px;
+        }
+        .subtitle {
+            font-size: 1.4rem;
+            padding-bottom: 20px;
+        }
+    }
+    
+}
+.container {
+    border: 1px solid #000;
+    margin-top: 30px;
+}
+.list {
+}
+.item {
+    width: 157px;
+
+    .thumb {
+        background-color: #ccc;    
+        // 임시
+        height: 200px;
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    .info {
+        position: relative;
+        margin-top: 12px;
+        overflow-wrap: break-word;
+        word-break: keep-all;
+        white-space: normal;
+
+        .brand {
+            font-size: 1.4rem;
+            margin-bottom: 3px;
+        }
+        .name {
+            font-size: 1.2rem;
+            max-height: 37px;
+            margin-bottom: 3px;
+            font-weight: 300;
+            color: rgb(86, 86, 86);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        .priceBox {
+            margin-bottom: 8px;
+            
+            .originPrice {
+                font-size: 12px;
+                font-weight: 300;
+                color: rgb(137, 137, 137);
+                text-decoration-line: line-through;
+                margin-bottom: 1px;
+            }
+            .salePrice {
+                display: flex;
+                flex-direction: row-reverse;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+
+                .discount {
+                    font-size: 15px;
+                    font-weight: 700;
+                    color: var(--color-red);
+                }
+                .totalPrice {
+                    font-size: 15px;
+                    font-weight: 700;
+                    color: rgb(86, 86, 86);
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
 }
