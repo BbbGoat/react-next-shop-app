@@ -1,13 +1,14 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './ProductSlider.module.scss'
 import Link from 'next/link';
 import Image from 'next/image';
 import priceFormat from '@/utils/priceFormat';
+import promotionImg from '@/assets/images/ban1.jpg';
 
 // 스와이퍼 라이브러리
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules';
+import { Navigation, Pagination, A11y } from 'swiper/modules';
 
 interface IProductSliderProps {
     sliderName: string;
@@ -21,6 +22,7 @@ interface IProductSliderProps {
       discount?: number;
       src: string;
     }[];
+    slidesPerView?: number;
     [x: string]: any;
 }
 
@@ -29,12 +31,25 @@ const ProductSlider = ({
     title,
     subtitle,
     data,
+    slidesPerView,
     ...restProps
 }: IProductSliderProps) => {
+
+  const [swiperIndex, setSwiperIndex] = useState(0);
+  const [swiper, setSwiper] = useState<SwiperClass>();
+  const sliderLength = data.length;
+
+  const handlePrev = () => {
+    swiper?.slidePrev()
+  }
+  const handleNext = () => {
+    swiper?.slideNext()
+  }
 
   return (
     <div className={`${styles.slider} ${sliderName}`}>
 
+      {/* 타이틀 영역 */}
       <div className={styles.heading}>
         <div className={styles.title}>{title}</div>
         <div className={styles.subtitle}>{subtitle}</div>
@@ -42,14 +57,12 @@ const ProductSlider = ({
       
       <div className={styles.container}>
         <div className={styles.list}>
-
           <Swiper
-            className={styles.subSwiper}
+            className={styles.listSwiper}
             modules={[Navigation, A11y]}
-            slidesPerView={4}
+            slidesPerView={slidesPerView}
           >
-          {
-            data.map((item, idx)=>{
+            { data.map((item, idx)=>{
               const { imageURL, brand, name, price, discount, src  } = item;
               const totalPrice = discount === undefined ? price 
               : price - ((price * discount ) / 100)
@@ -80,13 +93,10 @@ const ProductSlider = ({
                   </div>
                 </SwiperSlide>
               )
-            })
-          }
+            })}
           </Swiper>
         </div>
       </div>
-
-      {/* 네비게이션 */}
     </div>
   )
 }
