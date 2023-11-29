@@ -1,14 +1,13 @@
 'use client'
-import React, { useState } from 'react'
+import React from 'react'
 import styles from './ProductSlider.module.scss'
 import Link from 'next/link';
 import Image from 'next/image';
 import priceFormat from '@/utils/priceFormat';
-import promotionImg from '@/assets/images/ban1.jpg';
 
 // 스와이퍼 라이브러리
-import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, A11y } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, A11y } from 'swiper/modules';
 
 interface IProductSliderProps {
     sliderName: string;
@@ -34,17 +33,6 @@ const ProductSlider = ({
     slidesPerView,
     ...restProps
 }: IProductSliderProps) => {
-
-  const [swiperIndex, setSwiperIndex] = useState(0);
-  const [swiper, setSwiper] = useState<SwiperClass>();
-  const sliderLength = data.length;
-
-  const handlePrev = () => {
-    swiper?.slidePrev()
-  }
-  const handleNext = () => {
-    swiper?.slideNext()
-  }
 
   return (
     <div className={`${styles.slider} ${sliderName}`}>
