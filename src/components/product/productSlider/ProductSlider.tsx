@@ -9,8 +9,8 @@ import priceFormat from '@/utils/priceFormat';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, A11y } from 'swiper/modules';
 // 스와이퍼 CSS
-import 'swiper/css';
-import 'swiper/css/pagination';
+// import 'swiper/css';
+// import 'swiper/css/pagination';
 
 interface IProductSliderProps {
     sliderName: string;
@@ -50,30 +50,28 @@ const ProductSlider = ({
         <div className={styles.list}>
           <Swiper
             modules={[Navigation, A11y]}
+            watchSlidesProgress={true}
             breakpoints={{
               '320': {
-                  slidesPerView: 3,
-                  spaceBetween: 10,
+                  slidesPerView: 2,
                   },
-              '660': {
+              '540': {
+                  slidesPerView: 3,
+                  },
+              '700': {
                   slidesPerView: 4,
-                  spaceBetween: 10,
                   },
               '860': {
                   slidesPerView: 5,
-                  spaceBetween: 10,
                   },
               '1200': {
                   slidesPerView: 7,
-                  spaceBetween: 10,
                   },
               '1540': {
                   slidesPerView: 9,
-                  spaceBetween: 10,
                   }
             }}
-            spaceBetween={25}
-            watchSlidesProgress={true}
+            spaceBetween={10}
             slidesPerView={slidesPerView}
           >
             { data.map((item, idx)=>{
@@ -86,7 +84,7 @@ const ProductSlider = ({
                   <div className={styles.item}>
                     <Link href={src}>
                       <div className={styles.thumb}>
-                        <Image src={imageURL} alt={name} />
+                        <Image src={imageURL} alt={name} width={157} height={200}/>
                       </div>
                       <div className={styles.info}>
                         <div className={styles.brand}>{brand}</div>

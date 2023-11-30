@@ -1,6 +1,6 @@
 const NewArrivalsData = [
     {
-        imageURL: '',
+        imageURL: 'https://images.unsplash.com/photo-1616895428703-598b1d6fe4f7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fCVFQiVBQyVCNCVFQiVBMyU4QyUyMCVFQyU4MiVBQyVFQyVBNyU4NHxlbnwwfHwwfHx8MA%3D%3D',
         brand: 'COSMOS STUDIO',
         name: '[페이백이벤트] 23FW CSMS 01 DONUT',
         price: 265000,
@@ -8,7 +8,7 @@ const NewArrivalsData = [
         src: '/product-details/item1',
     },
     {
-        imageURL: '',
+        imageURL: 'https://images.unsplash.com/photo-1558570648-37364c82ad13?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fCVFQiVBQyVCNCVFQiVBMyU4QyUyMCVFQyU4MiVBQyVFQyVBNyU4NHxlbnwwfHwwfHx8MA%3D%3D',
         brand: 'COSMOS STUDIO',
         name: '[페이백이벤트] 23FW CSMS 03 AVOCADO',
         price: 245000,
@@ -16,7 +16,7 @@ const NewArrivalsData = [
         src: '/product-details/item2',
     },
     {
-        imageURL: '',
+        imageURL: 'https://images.unsplash.com/photo-1646958562084-c0e1a6c89349?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzh8fCVFQiVBQyVCNCVFQiVBMyU4QyUyMCVFQyU4MiVBQyVFQyVBNyU4NHxlbnwwfHwwfHx8MA%3D%3D',
         brand: 'SALTRAIN',
         name: '[선물추천] 솔트레인 홀리데이 리미티드 에디션',
         price: 19500,
@@ -24,7 +24,7 @@ const NewArrivalsData = [
         src: '/product-details/item3',
     },
     {
-        imageURL: '',
+        imageURL: 'https://images.unsplash.com/photo-1561647786-771e04f32018?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fCVFQiVBQyVCNCVFQiVBMyU4QyUyMCVFQyU4MiVBQyVFQyVBNyU4NHxlbnwwfHwwfHx8MA%3D%3D',
         brand: 'SALTRAIN',
         name: '[선물추천]BEST SALTRAIN 치약 SET',
         price: 25000,
@@ -32,7 +32,7 @@ const NewArrivalsData = [
         src: '/product-details/item4',
     },
     {
-        imageURL: '',
+        imageURL: 'https://images.unsplash.com/photo-1628151896101-8277b50b6d0c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODZ8fCVFQiVBQyVCNCVFQiVBMyU4QyUyMCVFQyU4MiVBQyVFQyVBNyU4NHxlbnwwfHwwfHx8MA%3D%3D',
         brand: 'COSMOS STUDIO',
         name: '[페이백이벤트] 23FW CSMS 01 DONUT',
         price: 265000,
@@ -40,7 +40,7 @@ const NewArrivalsData = [
         src: '/product-details/item1',
     },
     {
-        imageURL: '',
+        imageURL: 'https://images.unsplash.com/photo-1646614700385-b43d7effc791?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODh8fCVFQiVBQyVCNCVFQiVBMyU4QyUyMCVFQyU4MiVBQyVFQyVBNyU4NHxlbnwwfHwwfHx8MA%3D%3D',
         brand: 'COSMOS STUDIO',
         name: '[페이백이벤트] 23FW CSMS 03 AVOCADO',
         price: 245000,
@@ -48,7 +48,7 @@ const NewArrivalsData = [
         src: '/product-details/item2',
     },
     {
-        imageURL: '',
+        imageURL: 'https://images.unsplash.com/photo-1636364821321-20906f618151?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTE5fHwlRUIlQUMlQjQlRUIlQTMlOEMlMjAlRUMlODIlQUMlRUMlQTclODR8ZW58MHx8MHx8fDA%3D',
         brand: 'SALTRAIN',
         name: '[선물추천] 솔트레인 홀리데이 리미티드 에디션',
         price: 19500,
@@ -56,7 +56,7 @@ const NewArrivalsData = [
         src: '/product-details/item3',
     },
     {
-        imageURL: '',
+        imageURL: 'https://images.unsplash.com/photo-1598993947191-58e49166849e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTk4fHwlRUIlQUMlQjQlRUIlQTMlOEMlMjAlRUMlODIlQUMlRUMlQTclODR8ZW58MHx8MHx8fDA%3D',
         brand: 'SALTRAIN',
         name: '[선물추천]BEST SALTRAIN 치약 SET',
         price: 25000,
@@ -64,15 +64,23 @@ const NewArrivalsData = [
         src: '/product-details/item4',
     },
     {
-        imageURL: '',
-        brand: 'SALTRAIN',
-        name: '[선물추천]BEST SALTRAIN 치약 SET',
-        price: 25000,
-        discount: 22,
-        src: '/product-details/item4',
+        imageURL: 'https://images.unsplash.com/photo-1628151896101-8277b50b6d0c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODZ8fCVFQiVBQyVCNCVFQiVBMyU4QyUyMCVFQyU4MiVBQyVFQyVBNyU4NHxlbnwwfHwwfHx8MA%3D%3D',
+        brand: 'COSMOS STUDIO',
+        name: '[페이백이벤트] 23FW CSMS 01 DONUT',
+        price: 265000,
+        discount: 20,
+        src: '/product-details/item1',
     },
     {
-        imageURL: '',
+        imageURL: 'https://images.unsplash.com/photo-1646614700385-b43d7effc791?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODh8fCVFQiVBQyVCNCVFQiVBMyU4QyUyMCVFQyU4MiVBQyVFQyVBNyU4NHxlbnwwfHwwfHx8MA%3D%3D',
+        brand: 'COSMOS STUDIO',
+        name: '[페이백이벤트] 23FW CSMS 03 AVOCADO',
+        price: 245000,
+        discount: 20,
+        src: '/product-details/item2',
+    },
+    {
+        imageURL: 'https://images.unsplash.com/photo-1636364821321-20906f618151?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTE5fHwlRUIlQUMlQjQlRUIlQTMlOEMlMjAlRUMlODIlQUMlRUMlQTclODR8ZW58MHx8MHx8fDA%3D',
         brand: 'SALTRAIN',
         name: '[선물추천] 솔트레인 홀리데이 리미티드 에디션',
         price: 19500,
@@ -80,15 +88,7 @@ const NewArrivalsData = [
         src: '/product-details/item3',
     },
     {
-        imageURL: '',
-        brand: 'SALTRAIN',
-        name: '[선물추천]BEST SALTRAIN 치약 SET',
-        price: 25000,
-        discount: 22,
-        src: '/product-details/item4',
-    },
-    {
-        imageURL: '',
+        imageURL: 'https://images.unsplash.com/photo-1598993947191-58e49166849e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTk4fHwlRUIlQUMlQjQlRUIlQTMlOEMlMjAlRUMlODIlQUMlRUMlQTclODR8ZW58MHx8MHx8fDA%3D',
         brand: 'SALTRAIN',
         name: '[선물추천]BEST SALTRAIN 치약 SET',
         price: 25000,

@@ -22,10 +22,11 @@
 .container {
     margin-top: 30px;
     padding: 0 10px;
-
 }
 .item {
-    max-width: 157px;
+    min-width: 157px;
+    // max-width: 200px;
+    // width: 157px;
 
     .thumb {
         background-color: #ccc;    
@@ -33,7 +34,7 @@
         height: 200px;
         
         img {
-            // width: 100%;
+            width: 100%;
             height: 100%;
             object-fit: cover;
         }

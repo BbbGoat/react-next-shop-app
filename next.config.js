@@ -3,6 +3,7 @@ const nextConfig = {
     images: {
         domains: [
             'localhost',
+            'images.unsplash.com',
             'firebasestorage.googleapis.com'
         ]
     }
