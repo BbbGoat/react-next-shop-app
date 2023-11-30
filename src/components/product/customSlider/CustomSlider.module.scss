@@ -1,0 +1,190 @@
+.slider {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 3rem;
+    overflow: hidden;
+
+    .heading {
+        color: #000;
+        
+        .title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            padding-bottom: 20px;
+        }
+        .subtitle {
+            font-size: 1.4rem;
+            padding-bottom: 20px;
+        }
+    }
+
+
+    
+    .container {
+        margin-top: 30px;
+        // padding: 0 10px;
+    
+        .thumbSwiperWrap {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .listSwiperWrap {
+            width: 100%;
+        }
+
+        .navWrap {
+            position: absolute;
+            top: 50px;
+            color: #fff;
+            font-size: 3rem;
+            z-index: 2;
+
+            display: flex;
+            width: 100%;
+            max-width: 150px;
+            margin: 0 auto;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+
+
+            // 버튼
+            .swiperBtn {
+                border: 0;
+                background-color: transparent;
+                background-size: 100% auto ;
+                background-repeat: no-repeat;
+                object-fit: cover;
+            }
+            .prevBtn {
+                cursor: pointer;
+                width: 32px;
+                height: 32px;
+                
+                &::after {
+                    content: '';
+                    display: inline-block;
+                    width: 19px;
+                    height: 12px;
+                    background-repeat: no-repeat;
+                    background-image: url(../../../assets/icon_navi_arrow_left_disabled.svg);
+                    vertical-align: middle;
+                }
+                &:hover::after {
+                    background-image: url(../../../assets/icon_navi_arrow_left_active.svg);
+                    transform: rotateY(180deg);
+                }
+            }
+            .nextBtn {
+                cursor: pointer;
+                width: 32px;
+                height: 32px;
+                transform: rotateY(180deg);
+
+                &::after {
+                    content: '';
+                    display: inline-block;
+                    width: 19px;
+                    height: 12px;
+                    background-repeat: no-repeat;
+                    background-image: url(../../../assets/icon_navi_arrow_left_disabled.svg);
+                    vertical-align: middle;
+                }
+                &:hover::after {
+                    background-image: url(../../../assets/icon_navi_arrow_left_active.svg);
+                    transform: rotateY(180deg);
+                }            
+            }
+            // 페이지네이션 영역
+            .pagination {
+                font-size: 2rem;
+    
+                span {
+                    display: inline-block;
+                    width: 1.5rem;
+                }
+                .divider {
+                    height: 1px;
+                    margin-right: 5px;
+                    vertical-align: middle;
+                    background: #000;
+                    transform: rotate(120deg) translate(-10%, 50%);
+                }
+            }
+        }
+
+
+        .item {
+            min-width: 157px;
+            
+            .thumb {
+                background-color: #ccc;    
+                height: 200px;
+                
+                img {
+                    -webkit-user-drag: none;
+                    -webkit-user-select: none;
+                    user-select: none;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            .info {
+                position: relative;
+                margin-top: 12px;
+                overflow-wrap: break-word;
+                word-break: keep-all;
+                white-space: normal;
+        
+                .brand {
+                    font-size: 1.4rem;
+                    margin-bottom: 3px;
+                }
+                .name {
+                    font-size: 1.2rem;
+                    max-height: 37px;
+                    margin-bottom: 3px;
+                    font-weight: 300;
+                    color: rgb(86, 86, 86);
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }
+                .priceBox {
+                    margin-bottom: 8px;
+                    
+                    .originPrice {
+                        font-size: 12px;
+                        font-weight: 300;
+                        color: rgb(137, 137, 137);
+                        text-decoration-line: line-through;
+                        margin-bottom: 1px;
+                    }
+                    .salePrice {
+                        display: flex;
+                        flex-direction: row-reverse;
+                        flex-wrap: wrap;
+                        justify-content: flex-end;
+        
+                        .discount {
+                            font-size: 15px;
+                            font-weight: 700;
+                            color: var(--color-red);
+                        }
+                        .totalPrice {
+                            font-size: 15px;
+                            font-weight: 700;
+                            color: rgb(86, 86, 86);
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}

@@ -9,11 +9,11 @@ const Product = () => {
   return (
     <>
       <ProductSlider
-       sliderName='newArrival' 
-       title='new arrivals' 
-       subtitle='새로운 상품' 
-       data={NewArrivalsData} 
-       slidesPerView={9}
+        sliderName='newArrival' 
+        title='new arrivals' 
+        subtitle='새로운 상품' 
+        data={NewArrivalsData} 
+        slidesPerView={9}
       />
       
       <CustomSlider

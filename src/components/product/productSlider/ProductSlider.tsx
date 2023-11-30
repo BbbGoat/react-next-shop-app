@@ -47,7 +47,7 @@ const ProductSlider = ({
       </div>
       
       <div className={styles.container}>
-        <div className={styles.list}>
+        <div>
           <Swiper
             modules={[Navigation, A11y]}
             watchSlidesProgress={true}
@@ -84,7 +84,7 @@ const ProductSlider = ({
                   <div className={styles.item}>
                     <Link href={src}>
                       <div className={styles.thumb}>
-                        <Image src={imageURL} alt={name} width={157} height={200}/>
+                        <Image src={imageURL} alt={name} width={157} height={200} />
                       </div>
                       <div className={styles.info}>
                         <div className={styles.brand}>{brand}</div>

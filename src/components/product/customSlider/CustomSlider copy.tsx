@@ -7,9 +7,8 @@ import priceFormat from '@/utils/priceFormat';
 
 // 스와이퍼 라이브러리
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, A11y, Controller, EffectFlip } from 'swiper/modules';
+import { Navigation, Pagination, A11y, Controller } from 'swiper/modules';
 
-import 'swiper/css/effect-fade';
 
 interface ICustomSliderProps {
     sliderName: string;
@@ -41,8 +40,6 @@ const CustomSlider = ({
 
   const [swiperIndex, setSwiperIndex] = useState(0);
   const [swiper, setSwiper] = useState<SwiperClass>();
-  const [controlledSwiper, setControlledSwiper] = useState<SwiperClass>();
-  
   const sliderLength = data.length;
 
   const handlePrev = () => {
@@ -62,11 +59,11 @@ const CustomSlider = ({
       </div>
       
       <div className={styles.container}>
-        <div className={styles.thumbSwiperWrap}>
+        <div>
             {/* 메인이미지 슬라이드 */}
             <Swiper
-                modules={[Navigation, Pagination, Controller, A11y, EffectFlip]}
-                controller={{ control: controlledSwiper }}
+                className={styles.bannerSwiper}
+                modules={[Navigation, Pagination, Controller, A11y]}
                 slidesPerView={slidesPerView}
                 onActiveIndexChange={(e)=>setSwiperIndex(e.realIndex)}
                 onSwiper={(e)=>setSwiper(e)}
@@ -75,49 +72,21 @@ const CustomSlider = ({
 
                 return(
                     <SwiperSlide key={idx}>
-                        {/* 메인이미지 */}
-                        <Link href={'/'}>
-                            <div className={styles.thumb}>
-                                <Image src={item.thumb} alt={'메인이미지'} priority width={500} height={420}/>
-                            </div>
-                        </Link>
-                    </SwiperSlide>
-                )
-                })}
+                    {/* 메인이미지 */}
+                    <Link href={'/'}>
+                        <div className={styles.thumb}>
+                            <Image src={item.thumb} alt={'메인이미지'} priority width={500} height={420}/>
+                        </div>
+                    </Link>
 
-                {/* 네비게이션(+페이지네이션) 영역 */}
-                <div className={styles.navWrap}>
-                    <button onClick={handlePrev} className={`${styles.swiperBtn} ${styles.prevBtn}`}></button>
-                    <div className={styles.pagination}>
-                        <span>{swiperIndex + 1}</span>
-                        <span className={styles.divider}></span>
-                        <span>{sliderLength}</span>     
-                    </div>
-                    <button onClick={handleNext} className={`${styles.swiperBtn} ${styles.nextBtn}`}></button>
-                </div>
-            </Swiper>
-        </div>
-
-        <div className={styles.listSwiperWrap}>
-            {/* 리스트 슬라이드 */}
-            <Swiper
-                modules={[Navigation, Pagination, Controller, A11y, EffectFlip]}
-                slidesPerView={3}
-                slidesPerGroup={3}
-                spaceBetween={10}
-                onSwiper={(e)=>setControlledSwiper(e)}
-                allowTouchMove={false}
-            >
-                {
-                    data.map((item)=>
-                        <>
-                        {item.list.map((list,idx)=>{
+                    {/* 리스트 영역 */}
+                    <div className={styles.list}>
+                        {item.list.map((list)=>{
                             const { imageURL, brand, name, price, discount, src } = list
                             const totalPrice = discount === undefined ? price 
                             : price - ((price * discount ) / 100)
-
+                            
                             return(
-                                <SwiperSlide key={idx}>
                                 <div className={styles.item}>
                                     <Link href={src}>
                                         <div className={styles.thumb}>
@@ -140,13 +109,25 @@ const CustomSlider = ({
                                         </div>
                                     </Link>
                                 </div>
-                                </SwiperSlide>
-                            )
+                            )   
                         })}
-                        </> 
-                    )
-                }
+                    </div>
+                </SwiperSlide>
+                )
+                })}
             </Swiper>
+
+            {/* 네비게이션(+페이지네이션) 영역 */}
+            <div className={styles.navWrap}>
+                <button onClick={handlePrev} className={`${styles.swiperBtn} ${styles.prevBtn}`}></button>
+                <div className={styles.pagination}>
+                    <span>{swiperIndex + 1}</span>
+                    <span className={styles.divider}></span>
+                    <span>{sliderLength}</span>     
+                </div>
+                <button onClick={handleNext} className={`${styles.swiperBtn} ${styles.nextBtn}`}></button>
+            </div>
+        
         </div>
       </div>
     </div>
