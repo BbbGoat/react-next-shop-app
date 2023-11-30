@@ -8,6 +8,8 @@ import priceFormat from '@/utils/priceFormat';
 // 스와이퍼 라이브러리
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, A11y } from 'swiper/modules';
+// 스와이퍼 CSS
+import 'swiper/css';
 
 interface IProductSliderProps {
     sliderName: string;
@@ -47,7 +49,7 @@ const ProductSlider = ({
         <div className={styles.list}>
           <Swiper
             modules={[Navigation, A11y]}
-            spaceBetween={30}
+            // spaceBetween={30}
             slidesPerView={slidesPerView}
           >
             { data.map((item, idx)=>{

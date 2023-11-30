@@ -13,7 +13,7 @@ const Product = () => {
        title='new arrivals' 
        subtitle='새로운 상품' 
        data={NewArrivalsData} 
-       slidesPerView={4}  
+       slidesPerView={8}  
       />
       
       <CustomSlider

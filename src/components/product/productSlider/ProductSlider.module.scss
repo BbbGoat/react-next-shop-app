@@ -4,11 +4,9 @@
     max-width: 1640px;
     margin: 0 auto;
     overflow: hidden;
-
     margin-top: 3rem;   
 
     .heading {
-
         color: #000;
         
         .title {
@@ -21,16 +19,14 @@
             padding-bottom: 20px;
         }
     }
-    
 }
 .container {
     border: 1px solid #000;
     margin-top: 30px;
 }
-.list {
-}
 .item {
     width: 157px;
+    margin-right: 50px;
 
     .thumb {
         background-color: #ccc;    
