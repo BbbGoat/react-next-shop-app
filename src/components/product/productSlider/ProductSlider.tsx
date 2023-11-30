@@ -10,6 +10,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, A11y } from 'swiper/modules';
 // 스와이퍼 CSS
 import 'swiper/css';
+import 'swiper/css/pagination';
 
 interface IProductSliderProps {
     sliderName: string;
@@ -49,7 +50,30 @@ const ProductSlider = ({
         <div className={styles.list}>
           <Swiper
             modules={[Navigation, A11y]}
-            // spaceBetween={30}
+            breakpoints={{
+              '320': {
+                  slidesPerView: 3,
+                  spaceBetween: 10,
+                  },
+              '660': {
+                  slidesPerView: 4,
+                  spaceBetween: 10,
+                  },
+              '860': {
+                  slidesPerView: 5,
+                  spaceBetween: 10,
+                  },
+              '1200': {
+                  slidesPerView: 7,
+                  spaceBetween: 10,
+                  },
+              '1540': {
+                  slidesPerView: 9,
+                  spaceBetween: 10,
+                  }
+            }}
+            spaceBetween={25}
+            watchSlidesProgress={true}
             slidesPerView={slidesPerView}
           >
             { data.map((item, idx)=>{
