@@ -8,3 +8,16 @@
     grid-auto-flow: dense;
     justify-content: space-between;
 }
+
+// 미디어쿼리
+@import '../../styles/mixin';
+
+@include mobile {
+}
+@include tablet {
+}
+@include desktop {
+    .wrapper {
+        grid-template-columns: repeat(3, 500px);
+    }
+}

@@ -12,7 +12,7 @@ import { Navigation, Pagination, A11y } from 'swiper/modules';
 import 'swiper/css/effect-fade';
 
 interface ICustomSliderProps {
-    sliderName: string;
+    sliderName?: string;
     title: string;
     subtitle?: string;
     data: {
@@ -43,8 +43,7 @@ const CustomSlider = ({
 
   const [swiperIndex, setSwiperIndex] = useState(0);
   const [swiper, setSwiper] = useState<SwiperClass>();
-  const [controlledSwiper, setControlledSwiper] = useState<SwiperClass>();
-  
+
   const sliderLength = data.length;
 
   const handlePrev = () => {
