@@ -16,13 +16,29 @@ const Product = () => {
         slidesPerView={9}
       />
       
-      <CustomSlider
-        sliderName='preOrder'
-        title='pre order' 
-        subtitle='한 시즌 빠른 예약 주문' 
-        data={PreOrderData} 
-        slidesPerView={1} 
-      />
+      <div className={styles.wrapper}>
+        <CustomSlider
+          sliderName='preOrder'
+          title='pre order' 
+          subtitle='한 시즌 빠른 예약 주문' 
+          data={PreOrderData} 
+          slidesPerView={1} 
+        />
+        <CustomSlider
+          sliderName='preOrder'
+          title='pre order' 
+          subtitle='한 시즌 빠른 예약 주문' 
+          data={PreOrderData} 
+          slidesPerView={1} 
+        />
+        <CustomSlider
+          sliderName='preOrder'
+          title='pre order' 
+          subtitle='한 시즌 빠른 예약 주문' 
+          data={PreOrderData} 
+          slidesPerView={1} 
+        />
+      </div>
     </>
   )
 }
