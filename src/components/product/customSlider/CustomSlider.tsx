@@ -121,36 +121,36 @@ const CustomSlider = ({
             >
                 {
                     data[swiperIndex].list.map((item, idx)=>{
-                            const { imageURL, brand, name, price, discount, src } = item
-                            const totalPrice = discount === undefined ? price 
-                            : price - ((price * discount ) / 100)
+                        const { imageURL, brand, name, price, discount, src } = item
+                        const totalPrice = discount === undefined ? price 
+                        : price - ((price * discount ) / 100)
 
-                            return(
-                                <SwiperSlide key={idx} style={{width: 'auto'}}>
-                                <div className={styles.item}>
-                                    <Link href={src}>
-                                        <div className={styles.thumb}>
-                                            <Image src={imageURL} alt={name} width={157} height={200} />
+                        return(
+                            <SwiperSlide key={idx} style={{width: 'auto'}}>
+                            <div className={styles.item}>
+                                <Link href={src}>
+                                    <div className={styles.thumb}>
+                                        <Image src={imageURL} alt={name} width={157} height={200} />
+                                    </div>
+                                    <div className={styles.info}>
+                                        <div className={styles.brand}>{brand.toUpperCase()}</div>
+                                        <div className={styles.name}>{name}</div>
+                                        <div className={styles.priceBox}>
+                                        <div className={styles.originPrice}>
+                                            {priceFormat(price)}
                                         </div>
-                                        <div className={styles.info}>
-                                            <div className={styles.brand}>{brand.toUpperCase()}</div>
-                                            <div className={styles.name}>{name}</div>
-                                            <div className={styles.priceBox}>
-                                            <div className={styles.originPrice}>
-                                                {priceFormat(price)}
-                                            </div>
-                                            <div className={styles.salePrice}>
-                                                <span className={styles.discount}>{discount}%</span>
-                                                <span className={styles.totalPrice}>
-                                                {priceFormat(totalPrice)}
-                                                </span>
-                                            </div>
-                                            </div>
+                                        <div className={styles.salePrice}>
+                                            <span className={styles.discount}>{discount}%</span>
+                                            <span className={styles.totalPrice}>
+                                            {priceFormat(totalPrice)}
+                                            </span>
                                         </div>
-                                    </Link>
-                                </div>
-                                </SwiperSlide>
-                            )
+                                        </div>
+                                    </div>
+                                </Link>
+                            </div>
+                            </SwiperSlide>
+                        )
                     })
                 }
             </Swiper>

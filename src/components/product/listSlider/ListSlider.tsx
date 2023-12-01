@@ -4,8 +4,14 @@ import styles from './ListSlider.module.scss'
 
 // 스와이퍼 라이브러리
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Pagination, Grid } from 'swiper/modules';
 import Link from 'next/link';
+import Image from 'next/image';
+import priceFormat from '@/utils/priceFormat';
+
+import 'swiper/css';
+import 'swiper/css/grid';
+import 'swiper/css/pagination';
 
 
 interface IListSliderProps {
@@ -13,17 +19,12 @@ interface IListSliderProps {
   title: string;
   subtitle?: string;
   data: {
-    thumb: string;
-    title: string;
-    description: string;
-    list: {
-        imageURL: string;
-        brand: string;
-        name: string;
-        price: number;
-        discount?: number;
-        src: string;
-    }[]
+    imageURL: string;
+    brand: string;
+    name: string;
+    price: number;
+    discount?: number;
+    src: string;
   }[];
   slidesPerView?: number;
   [x: string]: any;
@@ -53,64 +54,21 @@ const ListSlider = ({
       </div>
       
       <div className={styles.container}>
-        <div className={styles.thumbSwiperWrap}>
-          {/* 메인이미지 슬라이드 */}
-          <Swiper
-            modules={[Navigation, Pagination]}
-            slidesPerView={slidesPerView}
-            onActiveIndexChange={(e)=>setSwiperIndex(e.realIndex)}
-            onSwiper={(e)=>setSwiper(e)}
-            loop={true}
-          >
-            { data.map((item, idx)=>{
-
-              const { title, description } = item;
-
-            return(
-              <SwiperSlide key={idx}>
-                {/* 메인이미지 */}
-                <Link href={'/'}>
-                  <div className={styles.thumb}>
-                    <Image src={item.thumb} alt={'대표이미지'} width={500} height={375} />
-                    <div className={styles.titWrap}>
-                      <div className={styles.titInner}>
-                      <div className={styles.title}>
-                          <strong>{title.toUpperCase()}</strong>
-                      </div>
-                      <div className={styles.description}>
-                          <p>{description}</p>
-                      </div>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </SwiperSlide>
-            )
-            })}
-
-            {/* 네비게이션(+페이지네이션) 영역 */}
-            <div className={styles.navWrap}>
-              <button onClick={handlePrev} className={`${styles.swiperBtn} ${styles.prevBtn}`}></button>
-              <div className={styles.pagination}>
-                  <span>{swiperIndex + 1}</span>
-                  <span className={styles.divider}></span>
-                  <span>{sliderLength}</span>     
-              </div>
-              <button onClick={handleNext} className={`${styles.swiperBtn} ${styles.nextBtn}`}></button>
-            </div>
-          </Swiper>
-        </div>
-
         <div className={styles.listSwiperWrap}>
           {/* 리스트 슬라이드 */}
           <Swiper
-              modules={[Navigation, Pagination]}
+              modules={[Grid, Pagination]}
+              // slidesPerView={3}
+              grid={{
+                rows: 2,
+                fill: "row",
+              }}
               slidesPerView={'auto'}
               spaceBetween={15}
-              freeMode={true}
+              // freeMode={true}
           >
             {
-              data[swiperIndex].list.map((item, idx)=>{
+              data.map((item, idx)=>{
                 const { imageURL, brand, name, price, discount, src } = item
                 const totalPrice = discount === undefined ? price 
                 : price - ((price * discount ) / 100)
