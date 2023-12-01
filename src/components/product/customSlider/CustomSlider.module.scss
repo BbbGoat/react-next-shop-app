@@ -65,67 +65,79 @@
         }
 
         .navWrap {
-            position: absolute;
-            top: 50px;
+            
+            width: 100%;
+            margin: 0 auto;
             color: #fff;
             font-size: 3rem;
             z-index: 2;
 
-            display: flex;
-            width: 100%;
-            max-width: 150px;
-            margin: 0 auto;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-
-
             // 버튼
             .swiperBtn {
+                position: absolute;
+                top: 0;
+                z-index: 2;
+                
                 border: 0;
                 background-color: transparent;
-                background-size: 100% auto ;
-                background-repeat: no-repeat;
                 object-fit: cover;
-            }
-            .prevBtn {
-                cursor: pointer;
-                width: 32px;
-                height: 32px;
-                
-                &::after {
-                    content: '';
-                    display: inline-block;
-                    width: 19px;
-                    height: 12px;
-                    background-repeat: no-repeat;
-                    background-image: url(../../../assets/icon_navi_arrow_left_disabled.svg);
-                    vertical-align: middle;
-                }
-                &:hover::after {
-                    background-image: url(../../../assets/icon_navi_arrow_left_active.svg);
-                    transform: rotateY(180deg);
-                }
-            }
-            .nextBtn {
-                cursor: pointer;
-                width: 32px;
-                height: 32px;
-                transform: rotateY(180deg);
 
-                &::after {
-                    content: '';
-                    display: inline-block;
-                    width: 19px;
-                    height: 12px;
-                    background-repeat: no-repeat;
-                    background-image: url(../../../assets/icon_navi_arrow_left_disabled.svg);
-                    vertical-align: middle;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &.prevBtn {
+                    cursor: pointer;
+                    top: 50%;
+                    left: 0;
+                    transform: translateY(-50%);
+                    width: 18px;
+                    height: 50px;
+                    
+                    &::before {
+                        content: '';
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(0, 0, 0, 0.5);
+                    }
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        width: 6px;
+                        height: 12px;
+                        background-repeat: no-repeat;
+                        background-image: url(../../../assets/icon_banner_navi_btn.svg);
+                    }
+                    &:hover::before {
+                        background-color: rgba(0, 0, 0, 1);
+                    }
                 }
-                &:hover::after {
-                    background-image: url(../../../assets/icon_navi_arrow_left_active.svg);
-                    transform: rotateY(180deg);
-                }            
+                &.nextBtn {
+                    cursor: pointer;
+                    top: 50%;
+                    right: 0;
+                    transform: translateY(-50%) rotateY(180deg);
+                    width: 18px;
+                    height: 50px;
+    
+                    &::before {
+                        content: '';
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgb(0, 0, 0, 0.5);
+                    }
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        width: 6px;
+                        height: 12px;
+                        background-repeat: no-repeat;
+                        background-image: url(../../../assets/icon_banner_navi_btn.svg);
+                    }
+                    &:hover::before {
+                        background-color: rgba(0, 0, 0, 1);
+                    }            
+                }
             }
             // 페이지네이션 영역
             .pagination {
