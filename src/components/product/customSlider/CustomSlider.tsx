@@ -7,7 +7,7 @@ import priceFormat from '@/utils/priceFormat';
 
 // 스와이퍼 라이브러리
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, A11y, EffectFlip } from 'swiper/modules';
+import { Navigation, Pagination, A11y } from 'swiper/modules';
 
 import 'swiper/css/effect-fade';
 
@@ -67,7 +67,7 @@ const CustomSlider = ({
         <div className={styles.thumbSwiperWrap}>
             {/* 메인이미지 슬라이드 */}
             <Swiper
-                modules={[Navigation, Pagination, A11y, EffectFlip]}
+                modules={[Navigation, Pagination, A11y]}
                 slidesPerView={slidesPerView}
                 onActiveIndexChange={(e)=>setSwiperIndex(e.realIndex)}
                 onSwiper={(e)=>setSwiper(e)}
@@ -115,7 +115,7 @@ const CustomSlider = ({
         <div className={styles.listSwiperWrap}>
             {/* 리스트 슬라이드 */}
             <Swiper
-                modules={[Navigation, Pagination, A11y, EffectFlip]}
+                modules={[Navigation, Pagination, A11y]}
                 slidesPerView={'auto'}
                 spaceBetween={15}
                 freeMode={true}
