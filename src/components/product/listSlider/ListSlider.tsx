@@ -47,6 +47,11 @@ const ListSlider = ({
   return (
     <div className={`${styles.slider} ${sliderName}`}>
 
+      {/* 1. PC 노출 컴포넌트 */}
+      {/* 
+        => 하드코딩으로 위 3줄 아래 3줄 해서 grid로 만들기
+      */}
+
       {/* 타이틀 영역 */}
       <div className={styles.heading}>
         <div className={styles.title}>{title.toUpperCase()}</div>
@@ -104,6 +109,15 @@ const ListSlider = ({
           </Swiper>
         </div>
       </div>
+
+      {/* 2. mobile 노출 컴포넌트 */}
+      {/* 
+        => 모바일용은 Swiper 슬라이드 사용.
+        사이즈는 CustomSlider 하단 슬라이드와 동일하도록 설정
+        기본 설정은 display: none
+        미디어쿼리로 모바일 진입시 display: block
+      */}
+
     </div>
   )
 }

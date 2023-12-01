@@ -15,6 +15,9 @@
 @include mobile {
 }
 @include tablet {
+    .wrapper {
+        grid-template-columns: repeat(2, 500px);
+    }
 }
 @include desktop {
     .wrapper {
