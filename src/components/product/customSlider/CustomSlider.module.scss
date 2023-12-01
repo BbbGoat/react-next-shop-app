@@ -98,7 +98,7 @@
                         content: '';
                         width: 100%;
                         height: 100%;
-                        background-color: rgba(0, 0, 0, 0.5);
+                        background-color: rgba(0, 0, 0, 0.3);
                     }
                     &::after {
                         content: '';
@@ -109,7 +109,7 @@
                         background-image: url(../../../assets/icon_banner_navi_btn.svg);
                     }
                     &:hover::before {
-                        background-color: rgba(0, 0, 0, 1);
+                        background-color: rgba(0, 0, 0, 0.7);
                     }
                 }
                 &.nextBtn {
@@ -124,7 +124,7 @@
                         content: '';
                         width: 100%;
                         height: 100%;
-                        background-color: rgb(0, 0, 0, 0.5);
+                        background-color: rgb(0, 0, 0, 0.3);
                     }
                     &::after {
                         content: '';
@@ -135,23 +135,32 @@
                         background-image: url(../../../assets/icon_banner_navi_btn.svg);
                     }
                     &:hover::before {
-                        background-color: rgba(0, 0, 0, 1);
+                        background-color: rgba(0, 0, 0, 0.7);
                     }            
                 }
             }
             // 페이지네이션 영역
             .pagination {
-                font-size: 2rem;
-    
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                z-index: 2;
+
+                width: 52px;
+                text-align: center;
+                padding: 5px;
+                font-size: 1.2rem;
+                background-color: rgba(0, 0, 0, 0.3);
+                
                 span {
+                    font-weight: 500;
                     display: inline-block;
-                    width: 1.5rem;
+                    width: 10px;
                 }
                 .divider {
                     height: 1px;
-                    margin-right: 5px;
                     vertical-align: middle;
-                    background: #000;
+                    background: #fff;
                     transform: rotate(120deg) translate(-10%, 50%);
                 }
             }

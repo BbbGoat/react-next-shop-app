@@ -71,6 +71,7 @@ const CustomSlider = ({
                 slidesPerView={slidesPerView}
                 onActiveIndexChange={(e)=>setSwiperIndex(e.realIndex)}
                 onSwiper={(e)=>setSwiper(e)}
+                loop={true}
             >
                 { data.map((item, idx)=>{
 
