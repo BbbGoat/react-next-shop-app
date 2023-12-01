@@ -65,8 +65,7 @@ const CustomSlider = ({
         <div className={styles.thumbSwiperWrap}>
             {/* 메인이미지 슬라이드 */}
             <Swiper
-                modules={[Navigation, Pagination, Controller, A11y, EffectFlip]}
-                controller={{ control: controlledSwiper }}
+                modules={[Navigation, Pagination, A11y, EffectFlip]}
                 slidesPerView={slidesPerView}
                 onActiveIndexChange={(e)=>setSwiperIndex(e.realIndex)}
                 onSwiper={(e)=>setSwiper(e)}
@@ -78,7 +77,7 @@ const CustomSlider = ({
                         {/* 메인이미지 */}
                         <Link href={'/'}>
                             <div className={styles.thumb}>
-                                <Image src={item.thumb} alt={'메인이미지'} priority width={500} height={420}/>
+                                <Image src={item.thumb} alt={'메인이미지'} width={500} height={420} priority />
                             </div>
                         </Link>
                     </SwiperSlide>
@@ -101,27 +100,23 @@ const CustomSlider = ({
         <div className={styles.listSwiperWrap}>
             {/* 리스트 슬라이드 */}
             <Swiper
-                modules={[Navigation, Pagination, Controller, A11y, EffectFlip]}
-                slidesPerView={3}
-                slidesPerGroup={3}
-                spaceBetween={10}
-                onSwiper={(e)=>setControlledSwiper(e)}
-                allowTouchMove={false}
+                modules={[Navigation, Pagination, A11y, EffectFlip]}
+                slidesPerView={'auto'}
+                spaceBetween={15}
+                freeMode={true}
             >
                 {
-                    data.map((item)=>
-                        <>
-                        {item.list.map((list,idx)=>{
-                            const { imageURL, brand, name, price, discount, src } = list
+                    data[swiperIndex].list.map((item, idx)=>{
+                            const { imageURL, brand, name, price, discount, src } = item
                             const totalPrice = discount === undefined ? price 
                             : price - ((price * discount ) / 100)
 
                             return(
-                                <SwiperSlide key={idx}>
+                                <SwiperSlide key={idx} style={{width: 'auto'}}>
                                 <div className={styles.item}>
                                     <Link href={src}>
                                         <div className={styles.thumb}>
-                                            <Image src={imageURL} alt={name} width={157} height={200} />
+                                            <Image src={imageURL} alt={name} width={157} height={200} priority />
                                         </div>
                                         <div className={styles.info}>
                                             <div className={styles.brand}>{brand.toUpperCase()}</div>
@@ -142,9 +137,7 @@ const CustomSlider = ({
                                 </div>
                                 </SwiperSlide>
                             )
-                        })}
-                        </> 
-                    )
+                    })
                 }
             </Swiper>
         </div>

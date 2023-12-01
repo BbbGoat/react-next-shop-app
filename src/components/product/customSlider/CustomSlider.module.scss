@@ -1,6 +1,6 @@
 .slider {
     width: 100%;
-    max-width: 500px;
+    // max-width: 500px;
     margin: 0 auto;
     margin-top: 3rem;
     overflow: hidden;
@@ -24,13 +24,22 @@
     .container {
         margin-top: 30px;
         // padding: 0 10px;
+        width: 500px;
     
         .thumbSwiperWrap {
             width: 100%;
             margin-bottom: 20px;
+
+            .thumb {
+                img {
+                    width: 100%;
+                    // height: 100%;
+                    object-fit: cover;
+                }
+            }
         }
         .listSwiperWrap {
-            width: 100%;
+            // width: 100%;
         }
 
         .navWrap {
@@ -116,7 +125,7 @@
 
 
         .item {
-            min-width: 157px;
+            width: 157px;
             
             .thumb {
                 background-color: #ccc;    
