@@ -7,7 +7,7 @@ import priceFormat from '@/utils/priceFormat';
 
 // 스와이퍼 라이브러리
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, A11y, Controller, EffectFlip } from 'swiper/modules';
+import { Navigation, Pagination, A11y, EffectFlip } from 'swiper/modules';
 
 import 'swiper/css/effect-fade';
 
@@ -17,6 +17,8 @@ interface ICustomSliderProps {
     subtitle?: string;
     data: {
         thumb: string;
+        title: string;
+        description: string;
         list: {
             imageURL: string;
             brand: string;
@@ -72,12 +74,24 @@ const CustomSlider = ({
             >
                 { data.map((item, idx)=>{
 
+                    const { title, description } = item;
+
                 return(
                     <SwiperSlide key={idx}>
                         {/* 메인이미지 */}
                         <Link href={'/'}>
                             <div className={styles.thumb}>
-                                <Image src={item.thumb} alt={'메인이미지'} width={500} height={420} priority />
+                                <Image src={item.thumb} alt={'대표이미지'} width={500} height={375} />
+                                <div className={styles.titWrap}>
+                                    <div className={styles.titInner}>
+                                    <div className={styles.title}>
+                                        <strong>{title.toUpperCase()}</strong>
+                                    </div>
+                                    <div className={styles.description}>
+                                        <p>{description}</p>
+                                    </div>
+                                    </div>
+                                </div>
                             </div>
                         </Link>
                     </SwiperSlide>
@@ -116,7 +130,7 @@ const CustomSlider = ({
                                 <div className={styles.item}>
                                     <Link href={src}>
                                         <div className={styles.thumb}>
-                                            <Image src={imageURL} alt={name} width={157} height={200} priority />
+                                            <Image src={imageURL} alt={name} width={157} height={200} />
                                         </div>
                                         <div className={styles.info}>
                                             <div className={styles.brand}>{brand.toUpperCase()}</div>
