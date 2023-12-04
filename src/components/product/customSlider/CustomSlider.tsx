@@ -126,7 +126,7 @@ const CustomSlider = ({
                         : price - ((price * discount ) / 100)
 
                         return(
-                            <SwiperSlide key={idx} style={{width: 'auto'}}>
+                            <SwiperSlide key={idx} style={{width: 'auto'}} className={styles.swiperSlide}>
                             <div className={styles.item}>
                                 <Link href={src}>
                                     <div className={styles.thumb}>
