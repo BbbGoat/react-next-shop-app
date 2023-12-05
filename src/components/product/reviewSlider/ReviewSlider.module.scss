@@ -91,6 +91,11 @@
             color: var(--dark-gray);
 
             span:nth-child(1) {
+              display: -webkit-box;
+              -webkit-line-clamp: 1;
+              -webkit-box-orient: vertical;
+              text-overflow: ellipsis;
+              overflow: hidden;
               font-weight: 600;
             }
           }
