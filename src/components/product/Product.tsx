@@ -67,8 +67,7 @@ const Product = () => {
       </div>
 
       {/* 리뷰란 */}
-      <ReviewSlider 
-        sliderName=''
+      <ReviewSlider
         title='review'
         subtitle='베스트 리뷰'
         data={ReviewData}
