@@ -5,6 +5,9 @@ import Link from "next/link";
 import { Rating } from "react-simple-star-rating";
 import Image from "next/image";
 
+// 스와이퍼 라이브러리
+import { Swiper, SwiperSlide } from 'swiper/react';
+
 interface IReviewSliderProps {
   sliderName?: string;
   title: string;
@@ -35,42 +38,58 @@ const ReviewSlider = ({ sliderName, title, subtitle, data, slidesPerView, ...res
 
       <div className={styles.content}>
 
-        {data.map((item) => {
-          const { id, rate, review, reviewDate, userName, imageURL } = item;
+        <Swiper
+          watchSlidesProgress={true}
+          slidesPerView={5}
+          breakpoints={{
+            '320': {
+              slidesPerView: 2,
+            },
+            '758': {
+              slidesPerView: 5,
+            },
+          }}
+          spaceBetween={15}
+          freeMode={true}
+        >
 
-          return (
-            <>
-              <Link href={`/product-details/${id}`}>
-                <div className={styles.border}>
-                  <div className={styles.imgwrap}>
-                    <figure>
-                      <Image src={imageURL} alt="리뷰이미지" width={400} height={400} />
-                    </figure>
-                  </div>
-                  <div className={styles.textwrap}>
-                    <div className={styles.box1}>
-                      <Rating size={17} initialValue={5} readonly />
-                      <span className={styles.write}>{review}</span>
-                      <span className={styles.date}>{reviewDate}</span>
+          {data.map((item, idx) => {
+            const { id, rate, review, reviewDate, userName, imageURL } = item;
+
+            return (
+              <SwiperSlide key={idx} style={{width:'auto'}}>
+                <Link href={`/product-details/${id}`}>
+                  <div className={styles.border}>
+                    <div className={styles.imgwrap}>
+                      <figure>
+                        <Image src={imageURL} alt="리뷰이미지" width={400} height={400} />
+                      </figure>
                     </div>
-                    <div className={styles.box2}>
-                      <img src={imageURL} />
-                      <div className={styles.info}>
-                        <span>상품명 어쩌구 어쩌구</span>
-                        <span>
-                          리뷰 
-                          3
-                          {/* ({documents.length}) */}
-                          ({rate})
-                        </span>
+                    <div className={styles.textwrap}>
+                      <div className={styles.box1}>
+                        <Rating size={17} initialValue={5} readonly />
+                        <span className={styles.write}>{review}</span>
+                        <span className={styles.date}>{reviewDate}</span>
+                      </div>
+                      <div className={styles.box2}>
+                        <img src={imageURL} />
+                        <div className={styles.info}>
+                          <span>상품명 어쩌구 어쩌구</span>
+                          <span>
+                            리뷰 
+                            3
+                            {/* ({documents.length}) */}
+                            ({rate})
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </Link>
-            </>
-          );
-        })}
+                </Link>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import styles from './ListSlider.module.scss'
 
 // 스와이퍼 라이브러리
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
-import { Pagination, Grid } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 import Link from 'next/link';
 import Image from 'next/image';
 import priceFormat from '@/utils/priceFormat';

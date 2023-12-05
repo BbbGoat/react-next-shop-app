@@ -13,7 +13,7 @@
     .title {
       font-size: 2.5rem;
       font-weight: 300;
-      padding-bottom: 20px;
+      // padding-bottom: 20px;
     }
     .subtitle {
       font-size: 1.4rem;
@@ -27,80 +27,98 @@
     .border {
       border: 1px solid rgb(223, 228, 234);
       border-radius: 4px;
+    }
+    .imgwrap {
+      figure {
+        // width: 300px;
+        height: 300px;
 
-      .imgwrap {
-        figure {
-          width: 300px;
-          height: 300px;
-  
-          img {
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-          }
-        }
-      }
-      .textwrap {
-          display: flex;
-          flex-direction: column;
-          gap: 20px;
-          padding-top: 12px;
-          padding-bottom: 12px;
-          
-          .box1 {
-            display: flex;
-            flex-direction: column;
-            padding: 0px 8px;
-            gap: 4px;
-  
-            .write {
-              display: -webkit-box;
-              -webkit-line-clamp: 1;
-              -webkit-box-orient: vertical;
-              text-overflow: ellipsis;
-              overflow: hidden;
-              padding: 5px 0;
-
-              font-size: 1.2rem;
-            }
-            .date {
-              font-size: .8rem;
-              font-weight: 500;
-              color: var(--dark-gray);
-            }
-          }
-          .box2 {
-            display: flex;
-            padding: 0px 8px;
-            gap: 8px;
-          }
-          
-          img {
-            width: 32px;
-            height: 32px;
-            object-fit: cover;
-            border-radius: 2px;
-          }
-          .info {
-            display: flex;
-            flex-direction: column;
+        img {
             width: 100%;
             height: 100%;
-
-            font-size: 1rem;
-            color: var(--dark-gray);
-
-            span:nth-child(1) {
-              display: -webkit-box;
-              -webkit-line-clamp: 1;
-              -webkit-box-orient: vertical;
-              text-overflow: ellipsis;
-              overflow: hidden;
-              font-weight: 600;
-            }
-          }
+            object-fit: cover;
+        }
       }
     }
+    .textwrap {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        
+        .box1 {
+          display: flex;
+          flex-direction: column;
+          padding: 0px 8px;
+          gap: 4px;
 
+          .write {
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            padding: 5px 0;
+
+            font-size: 1.2rem;
+          }
+          .date {
+            font-size: .8rem;
+            font-weight: 500;
+            color: var(--dark-gray);
+          }
+        }
+        .box2 {
+          display: flex;
+          padding: 0px 8px;
+          gap: 8px;
+        }
+        
+        img {
+          width: 32px;
+          height: 32px;
+          object-fit: cover;
+          border-radius: 2px;
+        }
+        .info {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          height: 100%;
+
+          font-size: 1rem;
+          color: var(--dark-gray);
+
+          span:nth-child(1) {
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            font-weight: 600;
+          }
+        }
+    }
+
+  }
+}
+
+
+// 미디어쿼리
+@import '../../../styles/mixin';
+
+@include mobile {
+  .reviewSlider {
+    width: 100%;
+    max-width: auto;
+
+    .content {
+      .imgwrap {
+        figure {
+          width: 100%;
+        }
+      }
+    }
   }
 }
