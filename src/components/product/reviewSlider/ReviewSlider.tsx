@@ -41,27 +41,29 @@ const ReviewSlider = ({ sliderName, title, subtitle, data, slidesPerView, ...res
           return (
             <>
               <Link href={`/product-details/${id}`}>
-                <div className={styles.imgwrap}>
-                  <figure>
-                    <Image src={imageURL} alt="리뷰이미지" width={400} height={400} />
-                  </figure>
-                </div>
-                <div className={styles.textwrap}>
-                  <div className={styles.text}>
-                    <Rating size={17} initialValue={5} readonly />
-                    <span>{review}</span>
-                    <span>{reviewDate}</span>
+                <div className={styles.border}>
+                  <div className={styles.imgwrap}>
+                    <figure>
+                      <Image src={imageURL} alt="리뷰이미지" width={400} height={400} />
+                    </figure>
                   </div>
-                  <div className={styles.flex}>
-                    <img src={imageURL} />
-                    <div className={styles.info}>
-                      <span>상품명 어쩌구 어쩌구</span>
-                      <span>
-                        리뷰 
-                        3
-                        {/* ({documents.length}) */}
-                        ({rate})
-                      </span>
+                  <div className={styles.textwrap}>
+                    <div className={styles.box1}>
+                      <Rating size={17} initialValue={5} readonly />
+                      <span className={styles.write}>{review}</span>
+                      <span className={styles.date}>{reviewDate}</span>
+                    </div>
+                    <div className={styles.box2}>
+                      <img src={imageURL} />
+                      <div className={styles.info}>
+                        <span>상품명 어쩌구 어쩌구</span>
+                        <span>
+                          리뷰 
+                          3
+                          {/* ({documents.length}) */}
+                          ({rate})
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
