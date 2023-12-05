@@ -47,9 +47,11 @@ const ReviewSlider = ({ sliderName, title, subtitle, data, slidesPerView, ...res
                   </figure>
                 </div>
                 <div className={styles.textwrap}>
-                  <Rating size={17} initialValue={5} readonly />
-                  <span>{review}</span>
-                  <span>{reviewDate}</span>
+                  <div className={styles.text}>
+                    <Rating size={17} initialValue={5} readonly />
+                    <span>{review}</span>
+                    <span>{reviewDate}</span>
+                  </div>
                   <div className={styles.flex}>
                     <img src={imageURL} />
                     <div className={styles.info}>
