@@ -44,7 +44,7 @@ const ReviewSlider = ({
                 return(
                     <>
                         <Link href={`/product-details/${id}`}>
-                            
+                            {/* Rating 라이브러리 쓰기 */}
                             <span>{review}</span>
                         </Link>
                     </>
