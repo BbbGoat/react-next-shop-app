@@ -70,11 +70,11 @@
                 width: 19px;
                 height: 12px;
                 background-repeat: no-repeat;
-                background-image: url(../../assets/icon_navi_arrow_left_disabled.svg);
+                background-image: url(../../../assets/icon_navi_arrow_left_disabled.svg);
                 vertical-align: middle;
             }
             &:hover::after {
-                background-image: url(../../assets/icon_navi_arrow_left_active.svg);
+                background-image: url(../../../assets/icon_navi_arrow_left_active.svg);
                 transform: rotateY(180deg);
             }
         }
@@ -90,11 +90,11 @@
                 width: 19px;
                 height: 12px;
                 background-repeat: no-repeat;
-                background-image: url(../../assets/icon_navi_arrow_left_disabled.svg);
+                background-image: url(../../../assets/icon_navi_arrow_left_disabled.svg);
                 vertical-align: middle;
             }
             &:hover::after {
-                background-image: url(../../assets/icon_navi_arrow_left_active.svg);
+                background-image: url(../../../assets/icon_navi_arrow_left_active.svg);
                 transform: rotateY(180deg);
             }            
         }
