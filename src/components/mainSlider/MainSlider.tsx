@@ -1,8 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import 'swiper/css/navigation';
-import styles from './Slider.module.scss'
-import sliderData from './SliderData'
+import styles from './MainSlider.module.scss'
 import Image from 'next/image'
 import img from '@/assets/images/slider-img1.jpg'
 import Link from 'next/link'
@@ -14,7 +13,17 @@ import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-const Slider = () => {
+interface ISliderProps {
+  sliderData: {
+    image: string;
+    name: string;
+    heading: string;
+    title: string;
+    desc: string;
+  }[];
+}
+
+const Slider = ({sliderData}: ISliderProps) => {
 
   const [swiperIndex, setSwiperIndex] = useState(0);
   const [swiper, setSwiper] = useState<SwiperClass>();

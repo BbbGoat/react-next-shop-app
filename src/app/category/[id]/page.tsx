@@ -1,8 +1,9 @@
 import React from 'react'
+import CategoryClient from './CategoryClient'
 
 const Category = () => {
   return (
-    <div>Category</div>
+    <CategoryClient />
   )
 }
 

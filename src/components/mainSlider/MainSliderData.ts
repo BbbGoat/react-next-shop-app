@@ -1,4 +1,4 @@
-const sliderData = [
+const mainSliderData = [
     {
         image: 'http://localhost:3000/assets/images/slider-img1.jpg',
         name: 'name 1',
@@ -29,4 +29,4 @@ const sliderData = [
     },
 ]
 
-export default sliderData;
+export default mainSliderData;
