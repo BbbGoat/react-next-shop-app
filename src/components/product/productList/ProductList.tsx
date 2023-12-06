@@ -5,7 +5,7 @@ import ProductItem from '../productItem/ProductItem'
 const ProductList = () => {
   return (
     <>
-      리스트입니다
+      ProductList
       {/* <ProductItem /> */}
     </>
   )

@@ -19,6 +19,7 @@ const ProductFilter = () => {
 
   const filterCategories = (cat: string) => {
     setTitle(cat);
+    setSort('latest');
     setCategory(cat);
   }
   const clearFilters = () => {
@@ -38,75 +39,81 @@ const ProductFilter = () => {
   
   return (
     <div className={styles.filter}>
-      <h3>{title}</h3>
+      <h3 className={styles.title}>{title}</h3>
       <div className={styles.divider}></div>
       
-      <h4>정렬</h4>
-      <ul className={styles.sort}>
-        <li className={isRadioSelected('latest') ? styles.selected : ""}>
-          <input
-            type='radio'
-            value='latest'
-            id='latest'
-            checked={isRadioSelected('latest')}
-            onChange={handleRadioClick}
-          />
-          <label htmlFor='latest'>최신순</label>
-        </li>
+      <div className={styles.wrap}>
+        <h4>정렬</h4>
+        <ul className={styles.sort}>
+          <li className={isRadioSelected('latest') ? styles.selected : ""}>
+            <input
+              type='radio'
+              value='latest'
+              id='latest'
+              checked={isRadioSelected('latest')}
+              onChange={handleRadioClick}
+            />
+            <label htmlFor='latest'>최신순</label>
+          </li>
 
-        <li className={isRadioSelected('lowest-price') ? styles.selected : ""}>
-          <input
-            type='radio'
-            value='lowest-price'
-            id='lowest-price'
-            checked={isRadioSelected('lowest-price')}
-            onChange={handleRadioClick}
-          />
-          <label htmlFor='lowest-price'>저가순</label>
-        </li>
+          <li className={isRadioSelected('lowest-price') ? styles.selected : ""}>
+            <input
+              type='radio'
+              value='lowest-price'
+              id='lowest-price'
+              checked={isRadioSelected('lowest-price')}
+              onChange={handleRadioClick}
+            />
+            <label htmlFor='lowest-price'>저가순</label>
+          </li>
 
-        <li className={isRadioSelected('highest-price') ? styles.selected : ""}>
-          <input
-            type='radio'
-            value='highest-price'
-            id='highest-price'
-            checked={isRadioSelected('highest-price')}
-            onChange={handleRadioClick}
-          />
-          <label htmlFor='highest-price'>고가순</label>
-        </li>
-      </ul>
-      <div className={styles.divider}></div>
-
-      <h4>필터</h4>
-      <div className={styles.category}>
-        {
-          allCategories.map((cat)=>{
-            return(
-              <button
-                type='button'
-                className={`${category}` === cat ? `${styles.active}` : ''}
-                onClick={()=>filterCategories(cat)}
-              >
-                {cat}
-              </button>
-            )
-          })
-        }
+          <li className={isRadioSelected('highest-price') ? styles.selected : ""}>
+            <input
+              type='radio'
+              value='highest-price'
+              id='highest-price'
+              checked={isRadioSelected('highest-price')}
+              onChange={handleRadioClick}
+            />
+            <label htmlFor='highest-price'>고가순</label>
+          </li>
+        </ul>
       </div>
       <div className={styles.divider}></div>
 
-      <h4>가격</h4>
-      <p>{priceFormat(price)}원</p>
+      <div className={styles.wrap}>  
+        <h4>필터</h4>
+        <div className={styles.category}>
+          {
+            allCategories.map((cat)=>{
+              return(
+                <button
+                  type='button'
+                  className={`${category}` === cat ? `${styles.active}` : ''}
+                  onClick={()=>filterCategories(cat)}
+                >
+                  {cat}
+                </button>
+              )
+            })
+          }
+        </div>
+      </div>
+      <div className={styles.divider}></div>
 
-      <div className={styles.price}>
-        <input 
-          type='range'
-          value={price}
-          onChange={(e)=>setPrice(e.target.valueAsNumber)}
-          // min={minPrice}
-          // max={maxPrice}
-        />
+      <div className={styles.wrap}>  
+        <h4>가격</h4>
+        <p>{priceFormat(price)}원</p>
+
+        <div className={styles.price}>
+          <input 
+            type='range'
+            value={price}
+            onChange={(e)=>setPrice(e.target.valueAsNumber)}
+            // min={minPrice}
+            // max={maxPrice}
+          />
+        </div>
       </div>
 
       <Button onClick={clearFilters}>

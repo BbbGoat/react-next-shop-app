@@ -1,0 +1,91 @@
+.filter {
+    .title {
+        padding-bottom: 60px;
+    }
+    .wrap {
+        padding: 30px 0;
+    }
+
+    h3 {
+        font-size: 3rem;
+    }
+    h4 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+    
+    .divider {
+        border-top: 3px solid var(--color-black);
+    }
+
+    .sort {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        gap: 10px;
+        
+        label {
+            display: block;
+            width: 100%;
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: var(--dark-gray);
+            cursor: pointer;
+        }
+        input[type="radio"] {
+            position: absolute;
+            visibility: hidden;
+            width: 0;
+            height: 0;
+            margin: 0;
+            padding: 0;
+        }
+        .selected {
+            label {
+                color: var(--color-primary);
+                font-weight: bold;
+            }
+        }
+        .selected::before {
+            content: '';
+            background-image: url('../../../assets/icon_check.png');
+            background-size: 12px;
+            background-repeat: no-repeat;
+            overflow: hidden;
+            display: block;
+            width: 12px;
+            height: 10px;
+            margin-top: 7px;
+            float: right;
+        }
+    }
+    .category button {
+        display: block;
+        text-align: left;
+        width: 100%;
+        // height: 3rem;
+        font-size: 1.5rem;
+        border: none;
+        background-color: transparent;
+        color: var(--dark-gray);
+        cursor: pointer;
+    }
+    button+button {
+        margin-top: 10px;
+    }
+}
+
+.active {
+    position: relative;
+    padding-left: 1rem;
+    color: var(--color-primary) !important;
+}
+.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 2px;
+    height: 100%;
+    background-color: var(--color-primary);
+}
