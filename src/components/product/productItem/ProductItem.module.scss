@@ -1,0 +1,65 @@
+.grid {
+    width: 24rem;
+    background-color: var(--color-white);
+    margin: 5px;
+    height: 32rem;
+    position: relative;
+    transition: box-shadow .2s ease;
+
+    &:hover {
+        box-shadow: var(--box-shadow);
+
+        p {
+            text-decoration: underline;
+            color: var(--color-primary);
+        }
+    }
+
+    .img {
+        padding: 1rem;
+        width: 100%;
+        max-height: 75%;
+        overflow: hidden;
+
+        img {
+            cursor: pointer;
+        }
+    }
+    .content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+
+        .detail {
+            padding: 0 1rem;
+        }
+        p {
+            width: 100%;
+            max-height: 48px;
+            line-height: 16px;
+            font-size: 1.5rem;
+            padding-bottom: 1rem;
+        }
+        em {
+            display: block;
+            padding-bottom: 1rem;
+            line-height: 20px;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--dark-red);
+            font-style: normal;
+
+            strong {
+                font-weight: bold;
+            }
+        }
+        .rating {
+            margin-bottom: 10px;
+
+            .ratingCount {
+                color: var(--dark-gray);
+            }
+        }
+    }
+}

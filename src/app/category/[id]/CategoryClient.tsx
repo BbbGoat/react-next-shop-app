@@ -2,6 +2,7 @@
 import { useParams } from "next/navigation";
 import React from "react";
 import styles from './CategoryClient.module.scss'
+import Product from "@/components/product/Product";
 
 const CategoryClient = () => {
 
@@ -9,10 +10,8 @@ const CategoryClient = () => {
 
   return (
     <main className={styles.container}>
-      <div>
-        <div>전체</div>
-        {id}
-      </div>
+      <Product />
+      {id}
     </main>
   );
 };
