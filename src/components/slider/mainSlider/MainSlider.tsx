@@ -13,7 +13,7 @@ import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-interface ISliderProps {
+interface IMainSliderProps {
   sliderData: {
     image: string;
     name: string;
@@ -23,7 +23,7 @@ interface ISliderProps {
   }[];
 }
 
-const Slider = ({sliderData}: ISliderProps) => {
+const MainSlider = ({sliderData}: IMainSliderProps) => {
 
   const [swiperIndex, setSwiperIndex] = useState(0);
   const [swiper, setSwiper] = useState<SwiperClass>();
@@ -94,4 +94,4 @@ const Slider = ({sliderData}: ISliderProps) => {
   )
 }
 
-export default Slider
+export default MainSlider

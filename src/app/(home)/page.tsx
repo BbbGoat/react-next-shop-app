@@ -1,12 +1,12 @@
-import Product from "@/components/product/Product";
-import Slider from "@/components/mainSlider/MainSlider";
-import sliderData from "@/components/mainSlider/MainSliderData";
+import Slider from "@/components/slider/Slider";
+import MainSlider from "@/components/slider/mainSlider/MainSlider";
+import sliderData from "@/components/slider/mainSlider/MainSliderData";
 
 export default function Home() {
   return (
     <main>
-      <Slider sliderData={sliderData} />
-      <Product />
+      <MainSlider sliderData={sliderData} />
+      <Slider />
     </main>
   )
 }

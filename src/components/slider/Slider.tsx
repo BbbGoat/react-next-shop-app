@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './Product.module.scss'
+import styles from './Slider.module.scss'
 import ProductSlider from './productSlider/ProductSlider'
 import CustomSlider from './customSlider/CustomSlider'
 import ListSlider from './listSlider/ListSlider'
@@ -10,7 +10,7 @@ import PreOrderData from './data/PreOrderData'
 import DirectData from './data/DirectData'
 import ReviewData from './data/ReviewData'
 
-const Product = () => {
+const Slider = () => {
   return (
     <>
       <ProductSlider
@@ -77,4 +77,4 @@ const Product = () => {
   )
 }
 
-export default Product
+export default Slider
