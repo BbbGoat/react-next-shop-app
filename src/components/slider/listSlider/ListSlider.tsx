@@ -39,10 +39,6 @@ const ListSlider = ({
   ...restProps
 }: IListSliderProps) => {
 
-  const [swiperIndex, setSwiperIndex] = useState(0);
-  const [swiper, setSwiper] = useState<SwiperClass>();
-  
-  const sliderLength = data.length;
   
   return (
     <div className={`${styles.slider} ${sliderName}`}>

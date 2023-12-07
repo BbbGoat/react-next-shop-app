@@ -1,11 +1,11 @@
 .item {
-    width: 24rem;
+    min-width: 22rem;
     background-color: var(--color-white);
     // margin: 5px;
     // height: 32rem;
     position: relative;
     margin-bottom: 40px;
-    border: 1px solid var(--color-red);
+    // border: 1px solid var(--color-red);
 
     &:hover {
 
