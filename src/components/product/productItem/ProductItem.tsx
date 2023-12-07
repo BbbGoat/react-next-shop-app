@@ -46,7 +46,6 @@ const ProductItem = ({
               {
                 discount ? (`${discount}%`) : null
               }
-              
             </span>
             <span className={styles.totalPrice}>
             {priceFormat(totalPrice)}
