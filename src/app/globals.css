@@ -10,7 +10,8 @@
   --table-border-gray: #EEE;
 
   --color-white: #FFFFFF;
-  --color-primary: #7a0303;
+  /* --color-primary: #7a0303; */
+  --color-primary: #000;
 
   --color-black: #111111;
   --color-red: #E52528;

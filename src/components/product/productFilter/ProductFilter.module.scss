@@ -8,6 +8,7 @@
 
     h3 {
         font-size: 3rem;
+        font-weight: 500;
     }
     h4 {
         font-size: 1.6rem;
@@ -63,8 +64,7 @@
         display: block;
         text-align: left;
         width: 100%;
-        // height: 3rem;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         border: none;
         background-color: transparent;
         color: var(--dark-gray);
@@ -77,15 +77,18 @@
 
 .active {
     position: relative;
-    padding-left: 1rem;
+    font-weight: bold;
     color: var(--color-primary) !important;
 }
 .active::before {
     content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 2px;
-    height: 100%;
-    background-color: var(--color-primary);
+    background-image: url('../../../assets/icon_check.png');
+    background-size: 12px;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    display: block;
+    width: 12px;
+    height: 10px;
+    margin-top: 7px;
+    float: right;
 }

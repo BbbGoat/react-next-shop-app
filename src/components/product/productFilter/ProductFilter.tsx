@@ -41,6 +41,27 @@ const ProductFilter = () => {
     <div className={styles.filter}>
       <h3 className={styles.title}>{title}</h3>
       <div className={styles.divider}></div>
+
+      <div className={styles.wrap}>  
+        <h4>카테고리</h4>
+        <div className={styles.category}>
+          {
+            allCategories.map((cat)=>{
+              return(
+                <button
+                  key={cat}
+                  type='button'
+                  className={`${category}` === cat ? `${styles.active}` : ''}
+                  onClick={()=>filterCategories(cat)}
+                >
+                  {cat}
+                </button>
+              )
+            })
+          }
+        </div>
+      </div>
+      <div className={styles.divider}></div>
       
       <div className={styles.wrap}>
         <h4>정렬</h4>
@@ -82,26 +103,6 @@ const ProductFilter = () => {
       <div className={styles.divider}></div>
 
       <div className={styles.wrap}>  
-        <h4>필터</h4>
-        <div className={styles.category}>
-          {
-            allCategories.map((cat)=>{
-              return(
-                <button
-                  type='button'
-                  className={`${category}` === cat ? `${styles.active}` : ''}
-                  onClick={()=>filterCategories(cat)}
-                >
-                  {cat}
-                </button>
-              )
-            })
-          }
-        </div>
-      </div>
-      <div className={styles.divider}></div>
-
-      <div className={styles.wrap}>  
         <h4>가격</h4>
         <p>{priceFormat(price)}원</p>
 
@@ -116,7 +117,7 @@ const ProductFilter = () => {
         </div>
       </div>
 
-      <Button onClick={clearFilters}>
+      <Button onClick={clearFilters} width='100%'>
         필터 초기화
       </Button>
       
