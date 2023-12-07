@@ -10,7 +10,7 @@ const ProductList = () => {
   return (
     <div className={styles.productList}>
       <div className={styles.divider}></div>
-      <div>
+      <div className={styles.grid}>
         {/* 임시 데이터로 map() 돌리는 중 */}
         {ProductData.map((product)=>{
           return (
