@@ -14,9 +14,7 @@ const ProductList = () => {
         {/* 임시 데이터로 map() 돌리는 중 */}
         {ProductData.map((product)=>{
           return (
-            <div key={product.id}>
-              <ProductItem {...product} />
-            </div>
+            <ProductItem {...product} key={product.id} />
           )
         })}
       </div>

@@ -10,7 +10,7 @@ interface IProductItemProps {
   brand: string;
   name: string;
   price: number;
-  discount: number;
+  discount?: number;
   imageURL: string;
 }
 
@@ -36,11 +36,18 @@ const ProductItem = ({
           <div className={styles.brand}>{brand.toUpperCase()}</div>
           <div className={styles.name}>{name}</div>
           <div className={styles.priceBox}>
-          <div className={styles.originPrice}>
-            {priceFormat(price)}
+          <div className={discount ? styles.originPrice : styles.price}>
+            {
+              discount ? (priceFormat(price)) : (<div style={{color:'transparent'}}>-</div>)
+            }
           </div>
           <div className={styles.salePrice}>
-            <span className={styles.discount}>{discount}%</span>
+            <span className={styles.discount}>
+              {
+                discount ? (`${discount}%`) : null
+              }
+              
+            </span>
             <span className={styles.totalPrice}>
             {priceFormat(totalPrice)}
             </span>

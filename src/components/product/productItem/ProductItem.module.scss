@@ -1,19 +1,13 @@
 .item {
-    min-width: 22rem;
+    min-width: 20rem;
+    max-width: 260px;
     background-color: var(--color-white);
-    // margin: 5px;
-    // height: 32rem;
     position: relative;
     margin-bottom: 40px;
-    // border: 1px solid var(--color-red);
-
-    &:hover {
-
-    }
 
     .thumb {
         width: 100%;
-        aspect-ratio: 1/1.2;
+        aspect-ratio: 1/1.3;
         overflow: hidden;
 
         img {
@@ -36,7 +30,7 @@
         }
         .name {
             font-size: 1.2rem;
-            max-height: 37px;
+            max-height: 40px;
             margin-bottom: 3px;
             font-weight: 300;
             color: rgb(86, 86, 86);
