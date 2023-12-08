@@ -1,0 +1,136 @@
+.product {
+    max-width: 1400px;
+    min-height: 1000px;
+    margin: 0 auto;
+
+    .wrapper {
+        display: flex;
+        margin-top: 60px;
+    }
+    
+    .gallery {
+        width: 50%;
+        padding-right: 30px;
+        background-color: #ccc;
+        
+        .content {
+            height: 100%;
+            
+            .item {
+                // 임시
+                height: 1500px;
+            }
+        }
+    }
+    .info {
+        display: flex;
+        width: 50%;
+        padding-left: 30px;
+
+        .content {
+            position: sticky;
+            bottom: 0;
+            align-self: flex-end;
+            max-width: 100%;
+        }
+
+        .header {
+            width: 460px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .brand {
+                font-size: 1.4rem;
+                font-weight: 300;
+                color: var(--dark-gray);
+                margin-bottom: 50px;
+            }
+            .name {
+                font-size: 2.5rem;
+                font-weight: 600;
+                height: 148px;
+                color: #000;
+                margin-bottom: 50px;
+            }
+            .price {
+                font-size: 1.4rem;
+                margin-bottom: 30px;
+                
+                .originPrice {
+                    text-decoration: line-through;
+                    color: var(--dark-gray);
+                    margin-bottom: 10px;
+                    font-weight: 300;
+                    
+                }
+                .totalPrice {
+                    span:nth-child(1) {
+                        font-size: 2.5rem;
+                    }
+                }
+                .percent {
+                    margin-left: 10px;
+                    color: var(--color-red);
+                }
+            }
+        }
+        .optionBox {
+            width: 100%;
+
+            p {
+                font-size: 1.4rem;
+                color: var(--dark-gray);
+                margin-bottom: 20px;
+            }
+            .imgWrap {
+                display: flex;
+                gap: 10px;
+
+                .optionList {
+                    aspect-ratio: 3/4;
+                    width: 173px;
+                    // background-color: #ccc;
+                    border: 1px solid var(--border-gray);
+                    cursor: pointer;
+    
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+        .btnBox {
+            padding: 30px 0;
+            width: 100%;
+        }
+        .delivery {
+            padding: 30px 0 60px;
+
+            .list {
+                position: relative;
+                // width: 100%;
+                width: 350px;
+
+                .tit {
+                    position: relative;
+                    display: inline-block;
+                    width: 80px;
+                }
+                span:nth-child(2) {
+                    position: relative;
+                }
+                li~li {
+                    margin-top: 15px;
+                }
+            }
+        }
+    }
+
+    .dummy {
+        background-color: #666;
+        height: 1000px;
+    }
+}
