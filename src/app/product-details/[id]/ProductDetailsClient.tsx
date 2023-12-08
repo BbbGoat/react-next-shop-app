@@ -3,8 +3,13 @@ import React from 'react'
 import styles from './ProductDetailsClient.module.scss'
 import priceFormat from '@/utils/priceFormat'
 import Button from '@/components/button/Button'
+import ProductReviewItem from '@/components/product/productReviewItem/ProductReviewItem'
 
 const ProductDetailsClient = () => {
+
+    // 임시 더미 데이터
+    const reviews: any[] = [];
+    
   return (
     <main className={styles.product}>
         <div className={styles.wrapper}>
@@ -81,6 +86,31 @@ const ProductDetailsClient = () => {
 
         </div>
         <div className={styles.container}>
+            {/* 리뷰시스템 */}
+            <h3>상품평</h3>
+
+            <div>
+                {
+                    reviews.length === 0 ? (
+                        <p className={styles.noReviewText}>해당 상품에 대한 상품평이 아직 없습니다.</p> ) :
+                    (
+                        <>
+                         {reviews.map((item) => {
+                            return (
+                                <ProductReviewItem 
+                                    key={item.id}
+                                    rate={item.rate}
+                                    review={item.review}
+                                    reviewDate={item.reviewDate}
+                                    userName={item.userName}
+                                />
+                            )
+                         })}
+                        </>
+                    )
+                }
+            </div>
+            
             <div className={styles.dummy}></div>
         </div>
     </main>
