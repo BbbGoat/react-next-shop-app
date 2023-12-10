@@ -50,14 +50,14 @@
                 font-size: 1.4rem;
                 font-weight: 300;
                 color: var(--dark-gray);
-                margin-bottom: 50px;
+                margin-bottom: 30px;
             }
             .name {
                 font-size: 2.5rem;
                 font-weight: 600;
                 // height: 148px;
                 color: #000;
-                margin-bottom: 50px;
+                margin-bottom: 30px;
             }
             .price {
                 font-size: 1.4rem;
@@ -66,7 +66,6 @@
                 .originPrice {
                     text-decoration: line-through;
                     color: var(--dark-gray);
-                    margin-bottom: 10px;
                     font-weight: 300;
                     
                 }
@@ -83,12 +82,12 @@
         }
         .optionBox {
             width: 100%;
-            margin-bottom: 60px;
+            margin-bottom: 30px;
 
             p {
                 font-size: 1.4rem;
                 color: var(--dark-gray);
-                margin: 20px 0;
+                margin-bottom: 30px;
             }
             .imgWrap {
                 display: flex;
@@ -97,7 +96,6 @@
                 .optionList {
                     aspect-ratio: 3/4;
                     width: 173px;
-                    // background-color: #ccc;
                     border: 1px solid var(--border-gray);
                     cursor: pointer;
     
@@ -109,17 +107,81 @@
                 }
             }
         }
+        .divider {
+            border-bottom: 1px solid var(--border-gray);
+            margin-bottom: 30px;
+        }
+        .countBox {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+
+            .titleWrap {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                .tit {
+                    width: 80px;
+                    font-size: 1.4rem;
+                    color: var(--dark-gray);
+                }
+                .totalAmount {
+                    font-size: 2rem;
+                    font-weight: 500;
+                }
+            }
+            .countBtn {
+                width: 140px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .mimus {
+                    width: 42px;
+                    height: 42px;
+                    border-radius: 50%;
+                    border: 1px solid var(--border-gray);
+                    background-color: #fff;
+                    color: var(--dark-gray);
+                    cursor: pointer;
+
+                    &:disabled {
+                        background-color: #fafafa;
+                        border: 1px solid var(--light-gray);
+                        cursor: no-drop;
+                    }
+                }
+                .plus {
+                    width: 42px;
+                    height: 42px;
+                    border-radius: 50%;
+                    border: 1px solid var(--border-gray);
+                    background-color: #fff;
+                    color: var(--dark-gray);
+                    cursor: pointer;
+                }
+                p {
+                    width: 20px;
+                    text-align: center;
+                    font-size: 1.2rem;
+                }
+            }
+        }
         .btnBox {
             margin-bottom: 60px;
             width: 100%;
         }
         .delivery {
             margin-bottom: 60px;
-
+            
             .list {
                 position: relative;
-                // width: 100%;
-                width: 350px;
+                width: 100%;
+                font-size: 1.2rem;
+                color: var(--dark-gray);
+                letter-spacing: -.91px;
 
                 .tit {
                     position: relative;
@@ -130,7 +192,7 @@
                     position: relative;
                 }
                 li~li {
-                    margin-top: 15px;
+                    margin-top: 14px;
                 }
             }
         }

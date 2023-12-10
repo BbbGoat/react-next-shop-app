@@ -8,6 +8,10 @@ import ProductReviewItem from '@/components/product/productReviewItem/ProductRev
 const ProductDetailsClient = () => {
 
     const [count, setCount] = useState(1);
+
+    const addToCart = () => {
+        
+    }
     
     // 임시 더미 데이터
     const reviews: any[] = [];
@@ -58,31 +62,35 @@ const ProductDetailsClient = () => {
                         </div>
                     </div>
 
-                    {/* !!! 여기 수량 시스템 추가 !!! */}
-                    <div>
-                        {/* - + 버튼 / totalAmount */}
-                        
-                        <p className={styles.price}>{priceFormat(10000 * count) }원</p>
-                        <div className={styles.count}>
-                            <Button
+                    <div className={styles.divider}></div>
+
+                    <div className={styles.countBox}>
+                        <div className={styles.titleWrap}>
+                            <p className={styles.tit}>합계</p>
+                            <p className={styles.totalAmount}>{priceFormat(10000 * count) }원</p>
+                        </div>
+                        <div className={styles.countBtn}>
+                            <button
+                                className={styles.mimus}
                                 onClick={() => setCount((prev) => prev -1)}
                                 disabled={count > 1 ? false : true}
-                                secondary
                             >
                                 -
-                            </Button>
+                            </button>
                             <p><b>{priceFormat(count)}</b></p>
-                            <Button
+                            <button
+                                className={styles.plus}
                                 onClick={() => setCount((next) => next +1)}
-                                secondary
                             >
                                 +
-                            </Button>
+                            </button>
                         </div>
                     </div>
                     
                     <div className={styles.btnBox}>
-                        <Button width='50%' secondary>
+                        <Button width='50%' secondary
+                            onClick={()=>addToCart()}
+                        >
                             장바구니
                         </Button>
                         <Button width='50%'>
