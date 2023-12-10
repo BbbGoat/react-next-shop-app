@@ -55,6 +55,11 @@ const ProductDetailsClient = () => {
                             </div>
                         </div>
                     </div>
+
+                    {/* !!! 여기 수량 시스템 추가 !!! */}
+                    <div>
+                        {/* - + 버튼 / totalAmount */}
+                    </div>
                     
                     <div className={styles.btnBox}>
                         <Button width='50%' secondary>
