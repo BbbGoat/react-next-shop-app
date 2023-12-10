@@ -54,7 +54,7 @@ const ProductDetailsClient = () => {
                     </div>
 
                     <div className={styles.optionBox}>
-                        <p>옵션을 선택하세요:</p>
+                        <p>옵션 선택</p>
                         <div className={styles.imgWrap}>
                             <div className={styles.optionList}>
                                 <img src="" alt="추천아이템" />
