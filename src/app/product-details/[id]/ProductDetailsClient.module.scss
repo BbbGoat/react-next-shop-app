@@ -3,7 +3,7 @@
     min-height: 1000px;
     margin: 0 auto;
 
-    .wrapper {
+    .section1 {
         display: flex;
         margin-top: 60px;
     }
@@ -55,7 +55,6 @@
             .name {
                 font-size: 2.5rem;
                 font-weight: 600;
-                // height: 148px;
                 color: #000;
                 margin-bottom: 30px;
             }
@@ -194,9 +193,75 @@
             }
         }
     }
+    
 
-    .dummy {
-        background-color: #666;
-        height: 1000px;
+    .section2 {
+
+        .tab_menu {
+            // 스티키 박스
+            position: sticky;
+            top: 0;
+        }
+        .tab_nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+            li {
+                // 기본 설정
+                width: 100%;
+                text-align: center;
+
+                &:first-child button {
+                    border-left: 1px solid var(--border-gray);
+                }
+                &:last-child button {
+                    border-right: 1px solid var(--border-gray);
+                }
+                button {
+                    outline: none;
+                    border: none;
+                    width: 100%;
+                    height: 60px;
+                    background-color: #f8f8f8;
+    
+                    border-top: 1px solid var(--border-gray);
+                    border-bottom: 1px solid var(--color-black);
+                    cursor: pointer;
+                }
+            }
+            
+            .on {
+
+                &:first-child button {
+                    border-left: 1px solid var(--color-black);
+                }
+                &:last-child button {
+                    border-right: 1px solid var(--color-black);
+                }
+                
+                button {
+                    border-top: 1px solid var(--color-black);
+                    border-right: 1px solid var(--color-black);
+                    border-left: 1px solid var(--color-black);
+                    border-bottom: 1px solid var(--color-white);
+                    background-color: #fff;
+                }
+            }
+        }
+        
+        .first {
+            height: 300px;
+            background-color: #ccc;
+        }
+        .second {
+            height: 500px;
+            background-color: #111;
+        }
+        .third {
+            height: 700px;
+            background-color: #eee;
+        }
     }
+    
 }

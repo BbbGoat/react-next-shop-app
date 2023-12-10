@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { ButtonHTMLAttributes, ChangeEvent, ReactElement, useState } from 'react'
 import styles from './ProductDetailsClient.module.scss'
 import priceFormat from '@/utils/priceFormat'
 import Button from '@/components/button/Button'
@@ -8,17 +8,22 @@ import ProductReviewItem from '@/components/product/productReviewItem/ProductRev
 const ProductDetailsClient = () => {
 
     const [count, setCount] = useState(1);
+    const [className, setClassName] = useState('상품상세정보');
 
     const addToCart = () => {
         
     }
+
+    // const handleClick = (e: ChangeEvent<HTMLButtonElement>) => {
+    //     setClassName(e.target.value)
+    // }
     
     // 임시 더미 데이터
     const reviews: any[] = [];
     
   return (
     <main className={styles.product}>
-        <div className={styles.wrapper}>
+        <div className={styles.section1}>
 
             <div className={styles.gallery}>
                 <div className={styles.content}>
@@ -118,33 +123,52 @@ const ProductDetailsClient = () => {
             </div>
 
         </div>
-        <div className={styles.container}>
-            {/* 리뷰시스템 */}
-            <h3>상품평</h3>
-
-            <div>
-                {
-                    reviews.length === 0 ? (
-                        <p className={styles.noReviewText}>해당 상품에 대한 상품평이 아직 없습니다.</p> ) :
-                    (
-                        <>
-                         {reviews.map((item) => {
-                            return (
-                                <ProductReviewItem 
-                                    key={item.id}
-                                    rate={item.rate}
-                                    review={item.review}
-                                    reviewDate={item.reviewDate}
-                                    userName={item.userName}
-                                />
-                            )
-                         })}
-                        </>
-                    )
-                }
+        <div className={styles.section2}>
+            <div className={styles.tab_menu}>
+                <ul className={styles.tab_nav}>
+                    <li className={className === '상품상세정보' ? styles.on : ''}>
+                        <button onClick={()=>setClassName('상품상세정보')}>상품상세정보</button>
+                    </li>
+                    <li className={className === '리뷰' ? styles.on : ''}>
+                        <button onClick={()=>setClassName('리뷰')}>리뷰</button>
+                    </li>
+                    <li className={className === 'QnA' ? styles.on : ''}>
+                        <button onClick={()=>setClassName('QnA')}>QnA</button>
+                    </li>
+                </ul>
             </div>
-            
-            <div className={styles.dummy}></div>
+            {/* 리뷰시스템 */}
+            <div id='one' className={styles.first}>
+                <h3>상품평</h3>
+                <div>
+                    {
+                        reviews.length === 0 ? (
+                            <p className={styles.noReviewText}>해당 상품에 대한 상품평이 아직 없습니다.</p> ) :
+                        (
+                            <>
+                            {reviews.map((item) => {
+                                return (
+                                    <ProductReviewItem 
+                                        key={item.id}
+                                        rate={item.rate}
+                                        review={item.review}
+                                        reviewDate={item.reviewDate}
+                                        userName={item.userName}
+                                    />
+                                )
+                            })}
+                            </>
+                        )
+                    }
+                </div>
+            </div>
+            <div id='two' className={styles.second}>
+                두번째 박스
+            </div>
+            <div id="thr" className={styles.third}>
+                세번째 박스
+            </div>
+
         </div>
     </main>
   )
