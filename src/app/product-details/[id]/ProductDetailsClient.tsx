@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './ProductDetailsClient.module.scss'
 import priceFormat from '@/utils/priceFormat'
 import Button from '@/components/button/Button'
@@ -7,6 +7,8 @@ import ProductReviewItem from '@/components/product/productReviewItem/ProductRev
 
 const ProductDetailsClient = () => {
 
+    const [count, setCount] = useState(1);
+    
     // 임시 더미 데이터
     const reviews: any[] = [];
     
@@ -59,6 +61,24 @@ const ProductDetailsClient = () => {
                     {/* !!! 여기 수량 시스템 추가 !!! */}
                     <div>
                         {/* - + 버튼 / totalAmount */}
+                        
+                        <p className={styles.price}>{priceFormat(10000 * count) }원</p>
+                        <div className={styles.count}>
+                            <Button
+                                onClick={() => setCount((prev) => prev -1)}
+                                disabled={count > 1 ? false : true}
+                                secondary
+                            >
+                                -
+                            </Button>
+                            <p><b>{priceFormat(count)}</b></p>
+                            <Button
+                                onClick={() => setCount((next) => next +1)}
+                                secondary
+                            >
+                                +
+                            </Button>
+                        </div>
                     </div>
                     
                     <div className={styles.btnBox}>
