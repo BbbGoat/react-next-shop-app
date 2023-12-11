@@ -17,7 +17,7 @@ const ProductDetailsClient = () => {
     const element3 = useRef<HTMLDivElement | null>(null);
 
     // 클릭 이벤트
-    const handleScroll = (element: React.MutableRefObject<HTMLDivElement | null>) => {
+    const onMoveScroll = (element: React.MutableRefObject<HTMLDivElement | null>) => {
         element.current?.scrollIntoView({behavior:'smooth', block: 'start'})
     }
 
@@ -156,13 +156,13 @@ const ProductDetailsClient = () => {
             <div className={styles.tab_menu}>
                 <ul className={styles.tab_nav}>
                     <li className={className === '상품상세정보' ? styles.on : ''}>
-                        <button onClick={()=>{setClassName('상품상세정보'); handleScroll(element1);}}><span>상품상세정보</span></button>
+                        <button onClick={()=>{setClassName('상품상세정보'); onMoveScroll(element1);}}><span>상품상세정보</span></button>
                     </li>
                     <li className={className === '리뷰' ? styles.on : ''}>
-                        <button onClick={()=>{setClassName('리뷰'); handleScroll(element2);}}><span>리뷰(0)</span></button>
+                        <button onClick={()=>{setClassName('리뷰'); onMoveScroll(element2);}}><span>리뷰(0)</span></button>
                     </li>
                     <li className={className === 'QnA' ? styles.on : ''}>
-                        <button onClick={()=>{setClassName('QnA'); handleScroll(element3);}}><span>Q&amp;A(0)</span></button>
+                        <button onClick={()=>{setClassName('QnA'); onMoveScroll(element3);}}><span>Q&amp;A(0)</span></button>
                     </li>
                 </ul>
             </div>
