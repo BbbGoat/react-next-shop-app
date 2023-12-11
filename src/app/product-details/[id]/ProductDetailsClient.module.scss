@@ -201,6 +201,7 @@
             // 스티키 박스
             position: sticky;
             top: 0;
+            z-index: 2;
         }
         .tab_nav {
             display: flex;
@@ -283,11 +284,11 @@
             }
         }
         .tab_first {
-            margin: 100px 0;
-            border-bottom: 1px solid var(--border-gray);
+            padding-top: 100px;
         }
         .detail_table {
             padding: 20px;
+            border-bottom: 1px solid var(--border-gray);
             
             caption {
                 // 감추기!
@@ -318,7 +319,7 @@
             }
         }
         .tab_second {
-            margin: 100px 0;
+            padding-top: 100px;
 
             .detail_review {
                 padding: 100px 0;
@@ -329,7 +330,8 @@
             }
         }
         .tab_third {
-            margin: 100px 0;
+            padding-top: 100px;
+            margin-bottom: 100px;
 
             .detail_qna {
                 padding: 100px 0;
