@@ -4,6 +4,7 @@ import styles from './ProductDetailsClient.module.scss'
 import priceFormat from '@/utils/priceFormat'
 import Button from '@/components/button/Button'
 import ProductReviewItem from '@/components/product/productReviewItem/ProductReviewItem'
+import Link from 'next/link'
 
 const ProductDetailsClient = () => {
 
@@ -23,7 +24,7 @@ const ProductDetailsClient = () => {
     
   return (
     <main className={styles.product}>
-        <div className={styles.section1}>
+        <section className={styles.section1}>
 
             <div className={styles.gallery}>
                 <div className={styles.content}>
@@ -122,28 +123,69 @@ const ProductDetailsClient = () => {
                 </div>
             </div>
 
-        </div>
-        <div className={styles.section2}>
+        </section>
+        <section className={styles.section2}>
             <div className={styles.tab_menu}>
                 <ul className={styles.tab_nav}>
                     <li className={className === '상품상세정보' ? styles.on : ''}>
-                        <button onClick={()=>setClassName('상품상세정보')}>상품상세정보</button>
+                        <button onClick={()=>setClassName('상품상세정보')}><span>상품상세정보</span></button>
                     </li>
                     <li className={className === '리뷰' ? styles.on : ''}>
-                        <button onClick={()=>setClassName('리뷰')}>리뷰</button>
+                        <button onClick={()=>setClassName('리뷰')}><span>리뷰(0)</span></button>
                     </li>
                     <li className={className === 'QnA' ? styles.on : ''}>
-                        <button onClick={()=>setClassName('QnA')}>QnA</button>
+                        <button onClick={()=>setClassName('QnA')}><span>Q&amp;A(0)</span></button>
                     </li>
                 </ul>
             </div>
+
+            <div id='one' className={styles.tab_first}>
+                <div className={styles.title}>
+                    <h3>상품고시정보</h3>
+                </div>
+                <div className={styles.detail_table}>
+                    <table>
+                        <caption>상품고시정보</caption>
+                        <tbody>
+                            <tr>
+                                <th scope='row'>제품 주소재</th>
+                                <td>겉감:<br/>안감:</td>
+                            </tr>
+                            <tr>
+                                <th scope='row'>색상</th>
+                                <td>IVORY</td>
+                            </tr>
+                            <tr>
+                                <th scope='row'>색상</th>
+                                <td>IVORY</td>
+                            </tr>
+                            <tr>
+                                <th scope='row'>색상</th>
+                                <td>IVORY</td>
+                            </tr>
+                            <tr>
+                                <th scope='row'>색상</th>
+                                <td>IVORY</td>
+                            </tr>
+                            <tr>
+                                <th scope='row'>색상</th>
+                                <td>IVORY</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             {/* 리뷰시스템 */}
-            <div id='one' className={styles.first}>
-                <h3>상품평</h3>
-                <div>
+            <div id='two' className={styles.tab_second}>
+                <div className={styles.title}>
+                    <h3>상품평</h3>
+                    <span>상품 구매 후 리뷰 작성시 포인트를 드립니다. (포토리뷰 1,000포인트, 텍스트리뷰 300포인트 증정)</span>
+                    <Button><Link href={'/'}>리뷰작성</Link></Button>
+                </div>
+                <div className={styles.detail_review}>
                     {
                         reviews.length === 0 ? (
-                            <p className={styles.noReviewText}>해당 상품에 대한 상품평이 아직 없습니다.</p> ) :
+                            <p className={styles.noReviewText}>지금 첫 리뷰를 작성해주세요.<br/>포토리뷰 1,000포인트, 텍스트 리뷰 300포인트를 증정합니다. (상품구매시)</p> ) :
                         (
                             <>
                             {reviews.map((item) => {
@@ -162,14 +204,17 @@ const ProductDetailsClient = () => {
                     }
                 </div>
             </div>
-            <div id='two' className={styles.second}>
-                두번째 박스
+            <div id="thr" className={styles.tab_third}>
+                <div className={styles.title}>
+                    <h3>상품 Q&amp;A</h3>
+                    <span>상품에 대한 배송, 교환, 취소등의 자세한 문의사항은 고객센터 &gt; 1:1문의를 이용하여 주시기 바랍니다.</span>
+                    <Button><Link href={'/'}>문의하기</Link></Button>
+                </div>
+                <div className={styles.detail_qna}>
+                    <p>등록된 상품문의가 없습니다.</p>
+                </div>
             </div>
-            <div id="thr" className={styles.third}>
-                세번째 박스
-            </div>
-
-        </div>
+        </section>
     </main>
   )
 }
