@@ -1,23 +1,51 @@
 'use client'
-import React, { ButtonHTMLAttributes, ChangeEvent, ReactElement, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import styles from './ProductDetailsClient.module.scss'
 import priceFormat from '@/utils/priceFormat'
 import Button from '@/components/button/Button'
 import ProductReviewItem from '@/components/product/productReviewItem/ProductReviewItem'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 
 const ProductDetailsClient = () => {
 
     const [count, setCount] = useState(1);
     const [className, setClassName] = useState('상품상세정보');
-    const router = useRouter();
+    const [scrollY, setScrollY] = useState(0);
 
+    const element1 = useRef<HTMLDivElement | null>(null);
+    const element2 = useRef<HTMLDivElement | null>(null);
+    const element3 = useRef<HTMLDivElement | null>(null);
+
+    // 클릭 이벤트
+    const handleScroll = (element: React.MutableRefObject<HTMLDivElement | null>) => {
+        element.current?.scrollIntoView({behavior:'smooth', block: 'start'})
+    }
+
+    const eleTop1 = element1.current?.offsetTop;
+    const eleTop2 = element2.current?.offsetTop;
+    const eleTop3 = element3.current?.offsetTop;
+    
+    // scrollY != undefined ? scrollY < eleTop1! ? '기본' : setClassName('상품상세정보') : ''
+
+
+    // 스크롤 이벤트 감지
+    const handleScrollY = useCallback(() => {
+        let pos = window.scrollY
+        setScrollY(pos);
+        if (pos >= eleTop1!) setClassName('상품상세정보')
+        if (pos >= eleTop2!) setClassName('리뷰')
+        if (pos >= eleTop3!) setClassName('QnA')
+    }, [scrollY]);
+  
     const addToCart = () => {}
 
-    // const handleClick = (e: ChangeEvent<HTMLButtonElement>) => {
-    //     setClassName(e.target.value)
-    // }
+    useEffect(()=>{
+        window.addEventListener("scroll", handleScrollY);
+
+        return () => {
+            window.removeEventListener("scroll", handleScrollY);
+          };
+    }, [scrollY]); 
     
     // 임시 더미 데이터
     const reviews: any[] = [];
@@ -128,18 +156,18 @@ const ProductDetailsClient = () => {
             <div className={styles.tab_menu}>
                 <ul className={styles.tab_nav}>
                     <li className={className === '상품상세정보' ? styles.on : ''}>
-                        <button onClick={()=>{setClassName('상품상세정보'); router.push("#first");}}><span>상품상세정보</span></button>
+                        <button onClick={()=>{setClassName('상품상세정보'); handleScroll(element1);}}><span>상품상세정보</span></button>
                     </li>
                     <li className={className === '리뷰' ? styles.on : ''}>
-                        <button onClick={()=>{setClassName('리뷰'); router.push("#second");}}><span>리뷰(0)</span></button>
+                        <button onClick={()=>{setClassName('리뷰'); handleScroll(element2);}}><span>리뷰(0)</span></button>
                     </li>
                     <li className={className === 'QnA' ? styles.on : ''}>
-                        <button onClick={()=>{setClassName('QnA'); router.push("#third");}}><span>Q&amp;A(0)</span></button>
+                        <button onClick={()=>{setClassName('QnA'); handleScroll(element3);}}><span>Q&amp;A(0)</span></button>
                     </li>
                 </ul>
             </div>
 
-            <div id='first' className={styles.tab_first}>
+            <div className={styles.tab_first} ref={element1}>
                 <div className={styles.title}>
                     <h3>상품고시정보</h3>
                 </div>
@@ -176,7 +204,7 @@ const ProductDetailsClient = () => {
                 </div>
             </div>
             {/* 리뷰시스템 */}
-            <div id='second' className={styles.tab_second}>
+            <div className={styles.tab_second} ref={element2}>
                 <div className={styles.title}>
                     <h3>상품평</h3>
                     <span>상품 구매 후 리뷰 작성시 포인트를 드립니다. (포토리뷰 1,000포인트, 텍스트리뷰 300포인트 증정)</span>
@@ -204,7 +232,7 @@ const ProductDetailsClient = () => {
                     }
                 </div>
             </div>
-            <div id="third" className={styles.tab_third}>
+            <div className={styles.tab_third} ref={element3}>
                 <div className={styles.title}>
                     <h3>상품 Q&amp;A</h3>
                     <span>상품에 대한 배송, 교환, 취소등의 자세한 문의사항은 고객센터 &gt; 1:1문의를 이용하여 주시기 바랍니다.</span>

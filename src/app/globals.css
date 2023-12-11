@@ -29,15 +29,13 @@
 html {
   font-size: 12px;
   /* 추후에 아래 제거 */
-  overflow-x: hidden;
-  height: 100%;
+  /* overflow-x: hidden; */
 }
 
 body {
   font-family: var(--font-family);
   /* 추후에 아래 제거 */
-  overflow-x: hidden;
-  height: 100%;
+  /* overflow-x: hidden; */
 }
 
 a {
