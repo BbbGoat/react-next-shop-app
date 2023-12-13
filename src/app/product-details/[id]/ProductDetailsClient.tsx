@@ -6,6 +6,7 @@ import Button from '@/components/button/Button'
 import ProductReviewItem from '@/components/product/productReviewItem/ProductReviewItem'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
+import tableData from './tableData'
 
 const ProductDetailsClient = () => {
 
@@ -177,30 +178,22 @@ const ProductDetailsClient = () => {
                     <table>
                         <caption>상품고시정보</caption>
                         <tbody>
-                            <tr>
-                                <th scope='row'>제품 주소재</th>
-                                <td>겉감:<br/>안감:</td>
-                            </tr>
-                            <tr>
-                                <th scope='row'>색상</th>
-                                <td>IVORY</td>
-                            </tr>
-                            <tr>
-                                <th scope='row'>색상</th>
-                                <td>IVORY</td>
-                            </tr>
-                            <tr>
-                                <th scope='row'>색상</th>
-                                <td>IVORY</td>
-                            </tr>
-                            <tr>
-                                <th scope='row'>색상</th>
-                                <td>IVORY</td>
-                            </tr>
-                            <tr>
-                                <th scope='row'>색상</th>
-                                <td>IVORY</td>
-                            </tr>
+                            {tableData.map((item)=>{
+                                const { th, td } = item;
+                                return(
+                                    <tr>
+                                        <th>{th}</th>
+                                        <td>{td.split('\n').map((line)=>{
+                                            return (
+                                                <>
+                                                    {line}
+                                                    <br/>
+                                                </>
+                                            )
+                                        })}</td>
+                                    </tr>
+                                )
+                            })}
                         </tbody>
                     </table>
                 </div>
