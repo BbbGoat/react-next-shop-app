@@ -44,6 +44,7 @@ const ReviewProductClient = () => {
         <div className={styles.name}>
           <p>
             <b>상품 이름:</b>
+            임시로 넣어둠 {id}
             {/* product.name */}
           </p>
           {/* <Image src={}/> */}

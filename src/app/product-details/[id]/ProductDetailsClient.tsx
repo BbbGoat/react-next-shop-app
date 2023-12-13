@@ -5,6 +5,7 @@ import priceFormat from '@/utils/priceFormat'
 import Button from '@/components/button/Button'
 import ProductReviewItem from '@/components/product/productReviewItem/ProductReviewItem'
 import Link from 'next/link'
+import { useParams } from 'next/navigation'
 
 const ProductDetailsClient = () => {
 
@@ -12,23 +13,22 @@ const ProductDetailsClient = () => {
     const [className, setClassName] = useState('상품상세정보');
     const [scrollY, setScrollY] = useState(0);
 
+    const { id } = useParams();
+
+    // 하단영역 스크롤 이벤트 위한 설정들
     const element1 = useRef<HTMLDivElement | null>(null);
     const element2 = useRef<HTMLDivElement | null>(null);
     const element3 = useRef<HTMLDivElement | null>(null);
-
-    // 클릭 이벤트
-    const onMoveScroll = (element: React.MutableRefObject<HTMLDivElement | null>) => {
-        element.current?.scrollIntoView({behavior:'smooth', block: 'start'})
-    }
-
     const eleTop1 = element1.current?.offsetTop;
     const eleTop2 = element2.current?.offsetTop;
     const eleTop3 = element3.current?.offsetTop;
     
-    // scrollY != undefined ? scrollY < eleTop1! ? '기본' : setClassName('상품상세정보') : ''
+    // 클릭하면 발생하는 위치 이동 이벤트
+    const onMoveScroll = (element: React.MutableRefObject<HTMLDivElement | null>) => {
+        element.current?.scrollIntoView({behavior:'smooth', block: 'start'})
+    }
 
-
-    // 스크롤 이벤트 감지
+    // 스크롤 위치 값 감지하는 콜백함수
     const handleScrollY = useCallback(() => {
         let pos = window.scrollY
         setScrollY(pos);
@@ -37,6 +37,8 @@ const ProductDetailsClient = () => {
         if (pos >= eleTop3!) setClassName('QnA')
     }, [scrollY]);
   
+
+    // 카트 추가 함수
     const addToCart = () => {}
 
     useEffect(()=>{
@@ -208,7 +210,7 @@ const ProductDetailsClient = () => {
                 <div className={styles.title}>
                     <h3>상품평</h3>
                     <span>상품 구매 후 리뷰 작성시 포인트를 드립니다. (포토리뷰 1,000포인트, 텍스트리뷰 300포인트 증정)</span>
-                    <Button><Link href={'/review-product/1'}>리뷰작성</Link></Button>
+                    <Button><Link href={`/review-product/${id}`}>리뷰작성</Link></Button>
                 </div>
                 <div className={styles.detail_review}>
                     {
