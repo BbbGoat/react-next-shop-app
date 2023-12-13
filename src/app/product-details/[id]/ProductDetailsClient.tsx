@@ -208,7 +208,7 @@ const ProductDetailsClient = () => {
                 <div className={styles.title}>
                     <h3>상품평</h3>
                     <span>상품 구매 후 리뷰 작성시 포인트를 드립니다. (포토리뷰 1,000포인트, 텍스트리뷰 300포인트 증정)</span>
-                    <Button><Link href={'/'}>리뷰작성</Link></Button>
+                    <Button><Link href={'/review-product/1'}>리뷰작성</Link></Button>
                 </div>
                 <div className={styles.detail_review}>
                     {

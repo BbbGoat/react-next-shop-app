@@ -41,7 +41,7 @@ const ReviewProductClient = () => {
   return (
     <section className={styles.review}>
         <Heading title='상품평 작성하기' />
-        <div>
+        <div className={styles.name}>
           <p>
             <b>상품 이름:</b>
             {/* product.name */}

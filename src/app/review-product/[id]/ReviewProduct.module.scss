@@ -1,0 +1,40 @@
+.review {
+    width: 1020px;
+    margin: 3rem auto;
+    min-height: 44.6vh;
+
+    .name {
+        margin-bottom: 5px;
+        font-size: 1.4rem;
+        font-weight: 500;
+
+        b {
+            font-size: 1.5rem;
+            margin-right: 3px;
+        }
+    }
+    .card {
+        width: 100%;
+        max-width: 500px;
+    }
+    form {
+        line-height: 2rem;
+
+        label {
+            display: block;
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+        textarea {
+            display: block;
+            font-size: 1.6rem;
+            font-weight: 300;
+            padding: 1rem;
+            margin: 1rem auto;
+            width: 100%;
+            border: 1px solid var(--border-gray);
+            border-radius: 3px;
+            outline: none;
+        }
+    }
+}
