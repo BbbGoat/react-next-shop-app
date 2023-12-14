@@ -4,16 +4,25 @@ import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '@/firebase/firebase'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
+import Loader from '@/components/loader/Loader'
+import styles from '../login/LoginClient.module.scss'
+import Image from 'next/image'
+import Link from 'next/link'
+import LogoPath from '@/assets/logo.png';
+import Input from '@/components/input/Input'
+import Button from '@/components/button/Button'
 
 const RegisterClient = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [cPassword, setCPassword] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    
     const router = useRouter();
     
     // 회원가입 시스템
-    const registerUser = (e) => {
+    const registerUser = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         // 1. 비밀번호 체크 실패한 경우
@@ -25,7 +34,7 @@ const RegisterClient = () => {
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user; // 유저정보
-            console.log('user:', user)
+            // console.log('user:', user)
             
             toast.success('등록 성공');
             router.push('/login');
@@ -35,7 +44,71 @@ const RegisterClient = () => {
     
     
   return (
-    <div>RegisterClient</div>
+    <>
+        {isLoading && <Loader />}
+
+        <section className={styles.page}>
+            <div className={styles.container}>
+                <h1 className={styles.logo}>
+                    <Link href={'/'}>
+                        <Image src={LogoPath} alt="logo" />
+                    </Link>
+                </h1>
+
+                <form onSubmit={registerUser} className={styles.form}>
+                    {/* input */}
+                    <Input 
+                        email
+                        icon="letter"
+                        id="email"
+                        name="email"
+                        label="이메일"
+                        placeholder="아이디(이메일)"
+                        className={styles.control}
+                        value={email}
+                        onChange={(e)=>setEmail(e.target.value)}
+                        required
+                    />
+                    <Input
+                        password
+                        icon="lock"
+                        id='password'
+                        name='password'
+                        label='비밀번호'
+                        placeholder='비밀번호'
+                        className={styles.control}
+                        value={password}
+                        onChange={(e)=>setPassword(e.target.value)}
+                        required
+                    />
+                    <Input
+                        password
+                        icon="lock"
+                        id='password'
+                        name='password'
+                        label='비밀번호 확인'
+                        placeholder='비밀번호 확인'
+                        className={styles.control}
+                        value={cPassword}
+                        onChange={(e)=>setCPassword(e.target.value)}
+                        required
+                    />
+
+                    <div className={styles.buttonGroup}>
+                        {/* Button */}
+                        <Button type='submit' width='100%'>
+                            회원가입
+                        </Button>
+                        <Button width='100%' secondary>
+                            <Link href={'/login'}>
+                                로그인
+                            </Link>
+                        </Button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </>
   )
 }
 

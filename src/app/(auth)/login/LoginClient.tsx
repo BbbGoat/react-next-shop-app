@@ -9,6 +9,8 @@ import LogoPath from '@/assets/logo.png';
 import Link from 'next/link';
 import Button from '@/components/button/Button';
 import { toast } from 'react-toastify';
+import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { auth } from '@/firebase/firebase';
 
 const LoginClient = () => {
 
@@ -23,15 +25,30 @@ const LoginClient = () => {
         router.push('/');
     }
 
+    // 로그인 시스템 - 이메일
     const loginUser = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        toast.info('성공');
         setIsLoading(true);
         
+        signInWithEmailAndPassword(auth, email, password)
+        .then(()=>{
+            setIsLoading(false);
+            toast.success('로그인에 성공했습니다.');
+            redirectUser();
+        })
+        .catch((error)=>{setIsLoading(false); toast.error(error.message)})
     }
-
+    
+    // 로그인 시스템 - 구글
     const signInWithGoogle = () => {
-        
+        const provider = new GoogleAuthProvider();
+
+        signInWithPopup(auth, provider)
+        .then((result)=>{
+            toast.success('로그인에 성공했습니다.');
+            redirectUser();
+        })
+        .catch((error)=>{toast.error(error.message)})
     }
     
   return (
