@@ -168,9 +168,6 @@ const Header = () => {
             }
           </ul>
         </div>
-        {/* 오버시 노출되는 카테고리 */}
-        {/* <div className={}>
-        </div> */}
       </nav>
     </header>
   )

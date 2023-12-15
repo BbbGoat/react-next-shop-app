@@ -18,6 +18,7 @@ const initialState = {
     imageURL: '',
     price: 0,
     category: '',
+    detailCat: '',
     brand: '',
     desc: '',
 }
