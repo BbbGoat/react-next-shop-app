@@ -1,28 +1,24 @@
 const headerData = [
     {
-        href: '/category/holiday-gifts',
-        cat: 'HOLIDAY GIFTS',
+        href: '/category/women',
+        cat: 'Women',
     },
     {
-        href: '/category/new-trending',
-        cat: 'NEW & TRENDING',
+        href: '/category/men',
+        cat: 'Men',
     },
     {
-        href: '/category/fragrances',
-        cat: 'FRAGRANCES',
+        href: '/category/kids',
+        cat: 'Kids',
     },
     {
-        href: '/category/candles',
-        cat: 'CANDLES & HOME',
+        href: '/category/life',
+        cat: 'Life',
     },
     {
-        href: '/category/bath-body',
-        cat: 'BATH & BODY',
-    },
-    {
-        href: '/category/homedecor',
-        cat: 'HOME DECOR',
-    },
+        href: '/category/pet',
+        cat: 'Pet',
+    }
 ]
 
 export default headerData;

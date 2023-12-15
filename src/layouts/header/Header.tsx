@@ -160,7 +160,7 @@ const Header = () => {
                 return (
                   <li className={active == cat ? `${styles.active}` : ''} role='menuitem' key={idx} onMouseOver={()=>{setActive(cat)}} onMouseOut={()=>{setActive('')}}>
                     <Link href={href}>
-                      <span>{cat}</span>
+                      <span>{cat.toUpperCase()}</span>
                     </Link>
                   </li>
                 )

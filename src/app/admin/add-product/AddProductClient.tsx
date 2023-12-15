@@ -5,6 +5,23 @@ import Loader from '@/components/loader/Loader';
 import Heading from '@/components/heading/Heading';
 import Button from '@/components/button/Button';
 
+export const categories = [
+    {id: 1, name: 'women'},
+    {id: 2, name: 'men'},
+    {id: 3, name: 'kids'},
+    {id: 4, name: 'life'},
+    {id: 5, name: 'pet'}
+]
+
+const initialState = {
+    name: '',
+    imageURL: '',
+    price: 0,
+    category: '',
+    brand: '',
+    desc: '',
+}
+
 const AddProductClient = () => {
 
     const [isLoading, setIsLoading] = useState(false);
