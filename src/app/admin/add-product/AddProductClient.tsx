@@ -4,6 +4,10 @@ import styles from './AddProduct.module.scss'
 import Loader from '@/components/loader/Loader';
 import Heading from '@/components/heading/Heading';
 import Button from '@/components/button/Button';
+import { toast } from 'react-toastify';
+import { Timestamp, addDoc, collection } from 'firebase/firestore';
+import { db } from '@/firebase/firebase';
+import { useRouter } from 'next/navigation';
 
 export const categories = [
     {id: 1, name: 'women'},
@@ -37,11 +41,8 @@ const AddProductClient = () => {
     const [sortCat, setSortCat] = useState<string[]>([]);
     const [isLoading, setIsLoading] = useState(false);
 
+    const router = useRouter();
 
-    const addProduct = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        setIsLoading(true);
-    }
     const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const {name, value} = e.target;
         setProduct({...product, [name]: value});
@@ -57,13 +58,36 @@ const AddProductClient = () => {
         else if (value === 'life') setSortCat(sortCatD)
         else if (value === 'pet') setSortCat(sortCatE)
     }
-    const handleSelectChange2 = (e: ChangeEvent<HTMLSelectElement>) => {
-        const {name, value} = e.target;
-        setProduct({...product, [name]: value});
-        console.log(product)
-    }
     const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
 
+    }
+    const addProduct = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setIsLoading(true);
+        try{
+            // 컬렉션에 추가
+            addDoc(collection(db, "products"), {
+                name: product.name,
+                thumbnailURL: product.thumbnailURL,
+                imageURL: product.imageURL,
+                originPrice: Number(product.originPrice),
+                salePrice: Number(product.salePrice),
+                category: product.category,
+                sortCat: product.sortCat,
+                brand: product.brand,
+                desc: product.desc,
+                createdAt: Timestamp.now().toDate()
+            })
+
+            setIsLoading(false);
+            setProduct({...initialState});
+            toast.success('상품을 저장했습니다.');
+            router.push('/admin/all-products');
+        }
+        catch (error) {
+            setIsLoading(false);
+            toast.error(getErrorMessage(error));
+        }
     }
     
   return (
@@ -137,7 +161,7 @@ const AddProductClient = () => {
                     name="sortCat"
                     value={product.sortCat}
                     required
-                    onChange={(e)=>{handleSelectChange2(e)}}
+                    onChange={(e)=>{handleInputChange(e)}}
                 >
                     <option
                         value=""
@@ -160,7 +184,7 @@ const AddProductClient = () => {
                     type='text'
                     placeholder='상품 브랜드/회사'
                     name='brand'
-                    // value={}
+                    value={product.brand}
                     onChange={(e)=>handleInputChange(e)}
                 />
                 <label>상품 설명:</label>
@@ -168,7 +192,7 @@ const AddProductClient = () => {
                     name='desc'
                     cols={10}
                     rows={10}
-                    // value={}
+                    value={product.desc}
                     required
                     onChange={(e)=>handleInputChange(e)}
                 >
