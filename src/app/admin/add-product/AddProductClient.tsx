@@ -27,7 +27,7 @@ const sortCatE = ['가구','매트','의류']
 const initialState = {
     name: '',
     thumbnailURL: '',
-    imageURL: '',
+    imageURL: [] as string[],
     originPrice: 0,
     salePrice: 0,
     category: '',
@@ -64,6 +64,7 @@ const AddProductClient = () => {
         if (!e.target.files) return;
 
         const file = e.target.files;
+        const newArr: string[] = [];
         
         for (let i = 0; i < file.length; i++) {
             const ele = file[i];
@@ -75,7 +76,8 @@ const AddProductClient = () => {
             const uploadTask = uploadBytesResumable(storageRef, ele);
             uploadTask.on('state_changed', 
                 (snapshot)=>{
-                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes); // 진행률
+                    // 진행률
+                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                     setUploadProgress(progress);
                 },
                 (error)=>{toast.error(error.message)},
@@ -83,7 +85,8 @@ const AddProductClient = () => {
                     getDownloadURL(uploadTask.snapshot.ref)
                     .then((downloadURL)=>{
                         // 3. db에 이미지 URL 저장
-                        setProduct({...product, imageURL: downloadURL});
+                        newArr.push(downloadURL)
+                        setProduct({...product, imageURL: newArr});
                     })
                 }
             )
@@ -98,7 +101,7 @@ const AddProductClient = () => {
         const uploadTask = uploadBytesResumable(storageRef, file);
         uploadTask.on('state_changed', 
             (snapshot)=>{
-                const progress = (snapshot.bytesTransferred / snapshot.totalBytes); // 진행률
+                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                 setUploadProgress(progress);
             },
             (error)=>{toast.error(error.message)},
@@ -130,6 +133,7 @@ const AddProductClient = () => {
             })
 
             setIsLoading(false);
+            setUploadProgress(0);
             setProduct({...initialState});
             toast.success('상품을 저장했습니다.');
             router.push('/admin/all-products');
@@ -156,6 +160,20 @@ const AddProductClient = () => {
                     onChange={(e)=>handleInputChange(e)}
                 />
                 <div>
+                    {
+                        uploadProgress === 0 ? null :
+                        <div className={styles.progress}>
+                            <div
+                                className={styles["progress-bar"]}
+                                style={{width: `${uploadProgress}%`}}
+                            >
+                                {uploadProgress < 100
+                                ? `Uploading... ${uploadProgress}%`
+                                : `Upload Complete ${uploadProgress}%`
+                                }
+                            </div>
+                        </div>
+                    }
                     <label>대표 이미지:</label>
                     <input 
                         type='file'
@@ -165,6 +183,15 @@ const AddProductClient = () => {
                         required
                         onChange={(e)=>handleThumbChange(e)}
                     />
+                    {product.thumbnailURL === "" ? null :
+                        <input 
+                            type='text'
+                            name='thumbnailURL'
+                            disabled
+                            value={product.thumbnailURL}
+                            placeholder='이미지 URL'
+                        />
+                    }
                 </div>
                 <div>
                     <label>상세 이미지:</label>
@@ -177,6 +204,18 @@ const AddProductClient = () => {
                         required
                         onChange={(e)=>handleImageChange(e)}
                     />
+                    {product.imageURL.length === 0 ? null : product.imageURL.map((item)=>{
+                        return(
+                            <input 
+                                type='text'
+                                name='imageURL'
+                                disabled
+                                value={item}
+                                placeholder='이미지 URL'
+                            />
+                        )
+                    })
+                    }
                 </div>
                 <label>정상가:</label>
                 <input 
