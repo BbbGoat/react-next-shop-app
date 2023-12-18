@@ -6,8 +6,9 @@ import Heading from '@/components/heading/Heading';
 import Button from '@/components/button/Button';
 import { toast } from 'react-toastify';
 import { Timestamp, addDoc, collection } from 'firebase/firestore';
-import { db } from '@/firebase/firebase';
+import { db, storage } from '@/firebase/firebase';
 import { useRouter } from 'next/navigation';
+import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 
 export const categories = [
     {id: 1, name: 'women'},
@@ -40,6 +41,7 @@ const AddProductClient = () => {
     const [product, setProduct] = useState({...initialState});
     const [sortCat, setSortCat] = useState<string[]>([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [uploadProgress, setUploadProgress] = useState(0);
 
     const router = useRouter();
 
@@ -59,8 +61,56 @@ const AddProductClient = () => {
         else if (value === 'pet') setSortCat(sortCatE)
     }
     const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
+        if (!e.target.files) return;
 
+        const file = e.target.files;
+        
+        for (let i = 0; i < file.length; i++) {
+            const ele = file[i];
+            
+            // 1. storage 이미지 파일 저장
+            const storageRef = ref(storage, `images/${Date.now()}${ele.name}`);
+
+            // 2. 업로드 상태 확인
+            const uploadTask = uploadBytesResumable(storageRef, ele);
+            uploadTask.on('state_changed', 
+                (snapshot)=>{
+                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes); // 진행률
+                    setUploadProgress(progress);
+                },
+                (error)=>{toast.error(error.message)},
+                ()=>{
+                    getDownloadURL(uploadTask.snapshot.ref)
+                    .then((downloadURL)=>{
+                        // 3. db에 이미지 URL 저장
+                        setProduct({...product, imageURL: downloadURL});
+                    })
+                }
+            )
+        }
     }
+    const handleThumbChange = (e: ChangeEvent<HTMLInputElement>) => {
+        if (!e.target.files) return;
+
+        const file = e.target.files[0];
+
+        const storageRef = ref(storage, `images/${Date.now()}${file.name}`);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+        uploadTask.on('state_changed', 
+            (snapshot)=>{
+                const progress = (snapshot.bytesTransferred / snapshot.totalBytes); // 진행률
+                setUploadProgress(progress);
+            },
+            (error)=>{toast.error(error.message)},
+            ()=>{
+                getDownloadURL(uploadTask.snapshot.ref)
+                .then((downloadURL)=>{
+                    setProduct({...product, thumbnailURL: downloadURL});
+                })
+            }
+        )
+    }
+
     const addProduct = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsLoading(true);
@@ -106,15 +156,27 @@ const AddProductClient = () => {
                     onChange={(e)=>handleInputChange(e)}
                 />
                 <div>
+                    <label>대표 이미지:</label>
                     <input 
                         type='file'
-                        placeholder='상품 이미지'
-                        accept='image/*'
+                        placeholder='대표 이미지'
+                        accept='image/jpeg, image/webp'
+                        name='image'
+                        required
+                        onChange={(e)=>handleThumbChange(e)}
+                    />
+                </div>
+                <div>
+                    <label>상세 이미지:</label>
+                    <input 
+                        type='file'
+                        multiple
+                        placeholder='상세 이미지'
+                        accept='image/jpeg, image/webp'
                         name='image'
                         required
                         onChange={(e)=>handleImageChange(e)}
                     />
-
                 </div>
                 <label>정상가:</label>
                 <input 
