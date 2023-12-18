@@ -13,18 +13,28 @@ export const categories = [
     {id: 5, name: 'pet'}
 ]
 
+const sortCatA = ['원피스','신발','가방']
+const sortCatB = ['셔츠','바지','가방']
+const sortCatC = ['여아','남아','가방']
+const sortCatD = ['홈','키친','뷰티']
+const sortCatE = ['가구','매트','의류']
+
 const initialState = {
     name: '',
+    thumbnailURL: '',
     imageURL: '',
-    price: 0,
+    originPrice: 0,
+    salePrice: 0,
     category: '',
-    detailCat: '',
+    sortCat: '',
     brand: '',
     desc: '',
 }
 
 const AddProductClient = () => {
 
+    const [product, setProduct] = useState({...initialState});
+    const [sortCat, setSortCat] = useState<string[]>([]);
     const [isLoading, setIsLoading] = useState(false);
 
 
@@ -34,6 +44,23 @@ const AddProductClient = () => {
     }
     const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const {name, value} = e.target;
+        setProduct({...product, [name]: value});
+    }
+    const handleSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
+        const {name, value} = e.target;
+        setProduct({...product, [name]: value});
+
+        // 여기서 2차분류 set 설정
+        if (value === 'women') setSortCat(sortCatA)
+        else if (value === 'men') setSortCat(sortCatB)
+        else if (value === 'kids') setSortCat(sortCatC)
+        else if (value === 'life') setSortCat(sortCatD)
+        else if (value === 'pet') setSortCat(sortCatE)
+    }
+    const handleSelectChange2 = (e: ChangeEvent<HTMLSelectElement>) => {
+        const {name, value} = e.target;
+        setProduct({...product, [name]: value});
+        console.log(product)
     }
     const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
 
@@ -51,7 +78,7 @@ const AddProductClient = () => {
                     placeholder='상품 이름'
                     required
                     name='name'
-                    // value={}
+                    value={product.name}
                     onChange={(e)=>handleInputChange(e)}
                 />
                 <div>
@@ -65,21 +92,30 @@ const AddProductClient = () => {
                     />
 
                 </div>
-                <label>상품 가격:</label>
+                <label>정상가:</label>
                 <input 
                     type='number'
-                    placeholder='상품 가격'
+                    placeholder='정상가'
                     required
-                    name='price'
-                    // value={}
+                    name='originPrice'
+                    value={product.originPrice}
                     onChange={(e)=>handleInputChange(e)}
                 />
-                <label>상품 카테고리:</label>
+                <label>판매가:</label>
+                <input 
+                    type='number'
+                    placeholder='판매가'
+                    required
+                    name='salePrice'
+                    value={product.salePrice}
+                    onChange={(e)=>handleInputChange(e)}
+                />
+                <label>카테고리:</label>
                 <select
                     name='category'
-                    // value={}
+                    value={product.category}
                     required
-                    onChange={(e)=>handleInputChange(e)}
+                    onChange={(e)=>handleSelectChange(e)}
                 >
                     <option
                         value=""
@@ -87,6 +123,37 @@ const AddProductClient = () => {
                     >
                         -- 상품 카테고리 선택
                     </option>
+                    {
+                        categories.map((cat)=>{
+                            return(
+                                <option key={cat.id} value={cat.name}>
+                                    {cat.name}
+                                </option>
+                            )
+                        })
+                    }
+                </select>
+                <select
+                    name="sortCat"
+                    value={product.sortCat}
+                    required
+                    onChange={(e)=>{handleSelectChange2(e)}}
+                >
+                    <option
+                        value=""
+                        disabled
+                    >
+                        -- 카테고리 분류
+                    </option>
+                    {
+                        sortCat.map((cat,idx)=>{
+                            return(
+                                <option key={idx} value={cat}>
+                                    {cat}
+                                </option>
+                            )
+                        })
+                    }
                 </select>
                 <label>상품 브랜드/회사:</label>
                 <input 
