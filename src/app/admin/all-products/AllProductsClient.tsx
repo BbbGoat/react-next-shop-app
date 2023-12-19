@@ -12,6 +12,14 @@ import { toast } from "react-toastify";
 import Loader from "@/components/loader/Loader";
 import Heading from "@/components/heading/Heading";
 import { FILTER_BY_SEARCH, selectFilteredProducts } from "@/redux/slice/filterSlice";
+import Search from "@/components/search/Search";
+import priceFormat from "@/utils/priceFormat";
+import Image from "next/image";
+import Link from "next/link";
+import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import { LiaExternalLinkAltSolid } from "react-icons/lia";
+import Pagination from "@/components/pagination/Pagination";
+
 
 const AllProductsClient = () => {
   const [search, setSearch] = useState("");
@@ -22,7 +30,8 @@ const AllProductsClient = () => {
 
   // 페이지네이션 용도
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage, setProductsPerPage] = useState(10);
+  const [productsPerPage, setProductsPerPage] = useState(1);
+
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = filteredProducts.slice(
@@ -83,24 +92,58 @@ const AllProductsClient = () => {
           subtitle={`총 ${filteredProducts.length} 개의 상품`}
         />
         <div className={styles.search}>
-          {/* 검색어박스 컴포넌트 들어가는 란 */}
+          <Search value={search} onChange={(e)=>setSearch(e.target.value)}/>
         </div>
+        {currentProducts.length === 0 ? (
+          <p>상품이 없습니다.</p>
+        ):(
+          <table>
+            <thead>
+              <tr>
+                <th>순서</th>
+                <th>이미지</th>
+                <th>이름</th>
+                <th>카테고리</th>
+                <th>가격</th>
+                <th>실행</th>
+              </tr>
+            </thead>
+            <tbody>
+              {currentProducts.map((product, idx)=>{
+                const { id, name, thumbnailURL, category, salePrice } = product;
+                return(
+                  <tr key={id}>
+                    <td>{idx + 1}</td>
+                    <td><Image src={thumbnailURL} alt={name} width={100} height={100} /></td>
+                    <td>
+                      <Link href={`/product-details/${id}`}>
+                        {name}
+                        {" "}
+                        <LiaExternalLinkAltSolid size={18} />
+                      </Link>
+                    </td>
+                    <td>{category}</td>
+                    <td>{priceFormat(salePrice)}</td>
+                    <td>
+                      <Link href={`/admin/edit-product/${id}`}>
+                        <FaEdit size={20} color='green' />
+                      </Link>
+                      {" "}
+                      <FaTrashAlt size={18} color='red' onClick={()=>confirmDelete(id, thumbnailURL)} />
+                    </td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+        )}
 
-        <table>
-          <thead>
-            <tr>
-              <th>순서</th>
-              <th>이미지</th>
-              <th>이름</th>
-              <th>카테고리</th>
-              <th>가격</th>
-              <th>실행</th>
-            </tr>
-          </thead>
-          <tbody>
-
-          </tbody>
-        </table>
+        <Pagination 
+          currentPage={currentPage}
+          productsPerPage={productsPerPage}
+          setCurrentPage={setCurrentPage}
+          totalProducts={filteredProducts.length}
+        />
       </div>
     </>
   )

@@ -1,6 +1,5 @@
 .product {
     max-width: 1400px;
-    // min-height: 1000px;
     margin: 0 auto;
 
     .section1 {
@@ -11,14 +10,11 @@
     .gallery {
         width: 50%;
         padding-right: 30px;
-        background-color: #ccc;
         
         .content {
             height: 100%;
             
             .item {
-                // 임시
-                height: 1500px;
 
                 img {
                     width: 100%;
