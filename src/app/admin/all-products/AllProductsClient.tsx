@@ -11,22 +11,23 @@ import { deleteObject, ref } from "firebase/storage";
 import { toast } from "react-toastify";
 import Loader from "@/components/loader/Loader";
 import Heading from "@/components/heading/Heading";
+import { FILTER_BY_SEARCH, selectFilteredProducts } from "@/redux/slice/filterSlice";
 
 const AllProductsClient = () => {
   const [search, setSearch] = useState("");
   const { data, isLoading } = useFetchCollection("products");
 
   const products = useSelector(selectProducts);
-  // const filteredProducts = useSelector();
+  const filteredProducts = useSelector(selectFilteredProducts);
 
   // 페이지네이션 용도
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage, setProductsPerPage] = useState(10);
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  // const currentProducts = filteredProducts.slice(
-  //   indexOfFirstProduct, indexOfLastProduct
-  // )
+  const currentProducts = filteredProducts.slice(
+    indexOfFirstProduct, indexOfLastProduct
+  )
 
   const dispatch = useDispatch();
   useEffect(()=>{
@@ -34,7 +35,7 @@ const AllProductsClient = () => {
   }, [dispatch, data])
 
   useEffect(()=>{
-    // dispatch()
+    dispatch(FILTER_BY_SEARCH({products, search}))
   }, [dispatch, products, search])
 
   const confirmDelete = (id: string, thumbnailURL: string) => {
@@ -79,7 +80,7 @@ const AllProductsClient = () => {
       <div className={styles.table}>
         <Heading
           title="모든 상품"
-          // subtitle={`총 ${filteredProducts.length} 개의 상품`}
+          subtitle={`총 ${filteredProducts.length} 개의 상품`}
         />
         <div className={styles.search}>
           {/* 검색어박스 컴포넌트 들어가는 란 */}
@@ -97,7 +98,7 @@ const AllProductsClient = () => {
             </tr>
           </thead>
           <tbody>
-            
+
           </tbody>
         </table>
       </div>
