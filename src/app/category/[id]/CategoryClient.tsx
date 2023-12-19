@@ -10,8 +10,8 @@ const CategoryClient = () => {
 
   return (
     <main className={styles.container}>
-      <Product />
       {id}
+      <Product />
     </main>
   );
 };
