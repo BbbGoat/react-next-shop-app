@@ -7,48 +7,52 @@ import { Rating } from 'react-simple-star-rating';
 
 interface IProductItemProps {
   id: string;
-  brand: string;
   name: string;
-  price: number;
-  discount?: number;
-  imageURL: string;
+  thumbnailURL: string;
+  imageURL: string[];
+  originPrice: number;
+  salePrice: number;
+  category: string;
+  sortCat: string;
+  brand: string;
+  desc: string;
 }
 
 const ProductItem = ({
   id,
-  brand,
   name,
-  price,
-  discount,
-  imageURL
+  thumbnailURL,
+  imageURL,
+  originPrice,
+  salePrice,
+  category,
+  sortCat,
+  brand,
+  desc,
 }: IProductItemProps) => {
 
-  const totalPrice = discount === undefined ? price : price - ((price * discount ) / 100)
-  
   return (
     <div className={styles.item}>
       <Link href={`/product-details/${id}`}>
         <div className={styles.thumb}>
-          <Image src={imageURL} alt={name} width={265} height={265} />
+          <Image src={thumbnailURL} alt={name} width={265} height={265} />
         </div>
         
         <div className={styles.info}>
           <div className={styles.brand}>{brand.toUpperCase()}</div>
           <div className={styles.name}>{name}</div>
           <div className={styles.priceBox}>
-          <div className={discount ? styles.originPrice : styles.price}>
+          <div className={originPrice != salePrice ? styles.originPrice : styles.price}>
             {
-              discount ? (priceFormat(price)) : (<div style={{color:'transparent'}}>-</div>)
+              originPrice != salePrice ? (priceFormat(originPrice)) : (<div style={{color:'transparent'}}>-</div>)
             }
           </div>
           <div className={styles.salePrice}>
             <span className={styles.discount}>
-              {
-                discount ? (`${discount}%`) : null
-              }
+              {Math.abs(((salePrice - originPrice) / originPrice) * 100)}%
             </span>
             <span className={styles.totalPrice}>
-            {priceFormat(totalPrice)}
+            {priceFormat(salePrice)}
             </span>
           </div>
           </div>

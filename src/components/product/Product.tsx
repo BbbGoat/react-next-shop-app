@@ -1,22 +1,43 @@
 'use client'
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from './Product.module.scss'
 import ProductFilter from "./productFilter/ProductFilter";
 import ProductList from "./productList/ProductList";
+import useFetchCollection from "@/hooks/useFetchCollection";
+import { useDispatch, useSelector } from "react-redux";
+import { STORE_PRODUCTS, selectProducts } from "@/redux/slice/productSlice";
+import Loader from "../loader/Loader";
+import { FILTER_BY_CATEGORY, selectFilteredProducts } from "@/redux/slice/filterSlice";
 
-const Product = () => {
+const Product = ({id}: {id: string}) => {
 
-  // 파이어베이스 연결 시, 추가작업 해야함!!! store에 데이터 연동해서 hook 사용해야함
-    
+  const [category] = useState(id);
+  
+  const dispatch = useDispatch();
+
+  // 1. 최상위 컴포넌트에서 DB의 전체 상품 데이터 가져오기
+  const { data, isLoading } = useFetchCollection('products');  
+  // 스토어 저장
+  useEffect(()=>{
+    dispatch(STORE_PRODUCTS({ products: data }))
+  }, [dispatch, data])
+  
+  // 2. 저장된 store state 상품 데이터 가져오기!
+  const products = useSelector(selectProducts);
+  // 스토어 저장
+  useEffect(()=>{
+    dispatch(FILTER_BY_CATEGORY({ products, category }))
+  }, [dispatch, products, category])
+
   return (
     <section className={styles.product}>
       <aside className={styles.filter}>
         {/* 정렬 들어갈 부분 */}
-        <ProductFilter />
+        { isLoading ? null : <ProductFilter /> }
       </aside>
       <div className={styles.content}>
         {/* 제품목록 나열 */}
-        <ProductList />
+        { isLoading ? <Loader basic /> : <ProductList /> }
       </div>
     </section>
   );

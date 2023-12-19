@@ -6,12 +6,11 @@ import Product from "@/components/product/Product";
 
 const CategoryClient = () => {
 
-  const { id } = useParams();
+  const { id } = useParams() as { id: string };
 
   return (
     <main className={styles.container}>
-      {id}
-      <Product />
+      <Product id={id} />
     </main>
   );
 };
