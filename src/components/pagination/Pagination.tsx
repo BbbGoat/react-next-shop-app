@@ -17,10 +17,10 @@ const Pagination = ({
 
     const pageNumbers: number[] = [];
 
-    // 페이지 노출 한계값 설정
-    const [pageNumberLimit] = useState(2);
+    // 페이지 한계값
+    const [pageNumberLimit] = useState(3);
     // 각 페이지열마다 최대가 될 숫자
-    const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(2);
+    const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(3);
     // 각 페이지열마다 최소가 될 숫자
     const [minPageNumberLimit, setMinPageNumberLimit] = useState(0); 
 

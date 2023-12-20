@@ -1,5 +1,5 @@
 'use client'
-import React, { ChangeEvent, FormEvent, useCallback, useEffect, useState } from 'react'
+import React, { ChangeEvent, FormEvent, useState } from 'react'
 import styles from './AddProduct.module.scss'
 import Loader from '@/components/loader/Loader';
 import Heading from '@/components/heading/Heading';
@@ -43,16 +43,8 @@ const AddProductClient = () => {
     const [sortCat, setSortCat] = useState<string[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [uploadProgress, setUploadProgress] = useState(0);
-    // 파일 저장
-    const [multiList, setMultiList] = useState<FileList>();
-    const [multiURL, setMultiURL] = useState<string[]>([]);
-    const [singleList, setSingleList] = useState<File>();
-    const [singleURL, setSingleURL] = useState('');
 
     const router = useRouter();
-
-
-
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const {name, value} = e.target;
@@ -69,42 +61,19 @@ const AddProductClient = () => {
         else if (value === 'life') setSortCat(sortCatD)
         else if (value === 'pet') setSortCat(sortCatE)
     }
-    const handleMultiImageChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
         if (!e.target.files) return;
 
         const file = e.target.files;
-        const newUrlArr: string[] = [];
-
-        for (let i = 0; i < file.length; i++) {
-            const ele = file[i];
-            newUrlArr.push(ele.name)
-        }
-        setMultiURL(newUrlArr);
-        setMultiList(multiList);
-    }
-    const handleSingleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
-        if (!e.target.files) return;
-        setSingleURL(e.target.files[0].name);
-        setSingleList(e.target.files[0]);
-    }
-
-
-
-
-    // 이미지 다중 저장 함수
-    const storageMultiUpload = () => {
-        if (!multiList) return;
-
-        const file = multiList;
         const newArr: string[] = [];
         
         for (let i = 0; i < file.length; i++) {
             const ele = file[i];
             
-            // 1. storage 이미지 파일 저장 위치 참조
+            // 1. 저장할 이미지 storage 위치 참조
             const storageRef = ref(storage, `images/${Date.now()}${ele.name}`);
 
-            // 2. 업로드
+            // 2. 업로드 진행
             const uploadTask = uploadBytesResumable(storageRef, ele);
             uploadTask.on('state_changed', 
                 (snapshot)=>{
@@ -114,7 +83,7 @@ const AddProductClient = () => {
                 },
                 (error)=>{toast.error(error.message)},
                 ()=>{
-                    // 3. storage 저장된 이미지url 가져와서 db용으로 저장
+                    // 3. storage 이미지URL db 저장용 세팅
                     getDownloadURL(uploadTask.snapshot.ref)
                     .then((downloadURL)=>{
                         newArr.push(downloadURL)
@@ -124,11 +93,10 @@ const AddProductClient = () => {
             )
         }
     }
-    // 이미지 저장 함수
-    const storageSingleUpload = () => {
-        if (!singleList) return;
+    const handleThumbChange = (e: ChangeEvent<HTMLInputElement>) => {
+        if (!e.target.files) return;
 
-        const file = singleList;
+        const file = e.target.files[0];
 
         const storageRef = ref(storage, `images/${Date.now()}${file.name}`);
         const uploadTask = uploadBytesResumable(storageRef, file);
@@ -150,11 +118,6 @@ const AddProductClient = () => {
     const addProduct = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsLoading(true);
-
-        // 호출
-        storageMultiUpload();
-        storageSingleUpload();
-
         try{
             // 컬렉션에 추가
             addDoc(collection(db, "products"), {
@@ -219,14 +182,14 @@ const AddProductClient = () => {
                         accept='image/jpeg, image/webp'
                         name='image'
                         required
-                        onChange={(e)=>handleSingleImageChange(e)}
+                        onChange={(e)=>handleThumbChange(e)}
                     />
-                    {singleURL === "" ? null :
+                    {product.thumbnailURL === "" ? null :
                         <input 
                             type='text'
                             name='thumbnailURL'
                             disabled
-                            value={singleURL}
+                            value={product.thumbnailURL}
                             placeholder='이미지 URL'
                         />
                     }
@@ -240,9 +203,9 @@ const AddProductClient = () => {
                         accept='image/jpeg, image/webp'
                         name='image'
                         required
-                        onChange={(e)=>handleMultiImageChange(e)}
+                        onChange={(e)=>handleImageChange(e)}
                     />
-                    {multiURL.length === 0 ? null : multiURL.map((item)=>{
+                    {product.imageURL.length === 0 ? null : product.imageURL.map((item)=>{
                         return(
                             <input 
                                 type='text'

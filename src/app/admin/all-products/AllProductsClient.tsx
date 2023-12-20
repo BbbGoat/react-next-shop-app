@@ -19,6 +19,7 @@ import Link from "next/link";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import { LiaExternalLinkAltSolid } from "react-icons/lia";
 import Pagination from "@/components/pagination/Pagination";
+import { getErrorMessage } from "@/utils/getErrorMessage";
 
 
 const AllProductsClient = () => {
@@ -28,9 +29,9 @@ const AllProductsClient = () => {
   const products = useSelector(selectProducts);
   const filteredProducts = useSelector(selectFilteredProducts);
 
-  // 페이지네이션 용도
+  // 현재 페이지 / 페이지당 화면에 보이는 상품 개수
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage, setProductsPerPage] = useState(1);
+  const [productsPerPage, setProductsPerPage] = useState(4);
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
