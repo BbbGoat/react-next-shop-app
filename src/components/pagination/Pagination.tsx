@@ -40,7 +40,6 @@ const Pagination = ({
         setCurrentPage(currentPage - 1);
         
         // 이전 페이지열 넘기기
-        console.log((currentPage -1) / pageNumberLimit)
         if ((currentPage -1) % pageNumberLimit === 0) {
             setMaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
             setMinPageNumberLimit(minPageNumberLimit - pageNumberLimit);
