@@ -1,5 +1,5 @@
 'use client'
-import React, { ChangeEvent, FormEvent, useState } from 'react'
+import React, { ChangeEvent, FormEvent, useCallback, useEffect, useState } from 'react'
 import styles from './AddProduct.module.scss'
 import Loader from '@/components/loader/Loader';
 import Heading from '@/components/heading/Heading';
@@ -9,6 +9,7 @@ import { Timestamp, addDoc, collection } from 'firebase/firestore';
 import { db, storage } from '@/firebase/firebase';
 import { useRouter } from 'next/navigation';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
+import { getErrorMessage } from '@/utils/getErrorMessage';
 
 export const categories = [
     {id: 1, name: 'women'},
@@ -42,8 +43,16 @@ const AddProductClient = () => {
     const [sortCat, setSortCat] = useState<string[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [uploadProgress, setUploadProgress] = useState(0);
+    // 파일 저장
+    const [multiList, setMultiList] = useState<FileList>();
+    const [multiURL, setMultiURL] = useState<string[]>([]);
+    const [singleList, setSingleList] = useState<File>();
+    const [singleURL, setSingleURL] = useState('');
 
     const router = useRouter();
+
+
+
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const {name, value} = e.target;
@@ -60,19 +69,42 @@ const AddProductClient = () => {
         else if (value === 'life') setSortCat(sortCatD)
         else if (value === 'pet') setSortCat(sortCatE)
     }
-    const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleMultiImageChange = (e: ChangeEvent<HTMLInputElement>) => {
         if (!e.target.files) return;
 
         const file = e.target.files;
+        const newUrlArr: string[] = [];
+
+        for (let i = 0; i < file.length; i++) {
+            const ele = file[i];
+            newUrlArr.push(ele.name)
+        }
+        setMultiURL(newUrlArr);
+        setMultiList(multiList);
+    }
+    const handleSingleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
+        if (!e.target.files) return;
+        setSingleURL(e.target.files[0].name);
+        setSingleList(e.target.files[0]);
+    }
+
+
+
+
+    // 이미지 다중 저장 함수
+    const storageMultiUpload = () => {
+        if (!multiList) return;
+
+        const file = multiList;
         const newArr: string[] = [];
         
         for (let i = 0; i < file.length; i++) {
             const ele = file[i];
             
-            // 1. storage 이미지 파일 저장
+            // 1. storage 이미지 파일 저장 위치 참조
             const storageRef = ref(storage, `images/${Date.now()}${ele.name}`);
 
-            // 2. 업로드 상태 확인
+            // 2. 업로드
             const uploadTask = uploadBytesResumable(storageRef, ele);
             uploadTask.on('state_changed', 
                 (snapshot)=>{
@@ -82,9 +114,9 @@ const AddProductClient = () => {
                 },
                 (error)=>{toast.error(error.message)},
                 ()=>{
+                    // 3. storage 저장된 이미지url 가져와서 db용으로 저장
                     getDownloadURL(uploadTask.snapshot.ref)
                     .then((downloadURL)=>{
-                        // 3. db에 이미지 URL 저장
                         newArr.push(downloadURL)
                         setProduct({...product, imageURL: newArr});
                     })
@@ -92,10 +124,11 @@ const AddProductClient = () => {
             )
         }
     }
-    const handleThumbChange = (e: ChangeEvent<HTMLInputElement>) => {
-        if (!e.target.files) return;
+    // 이미지 저장 함수
+    const storageSingleUpload = () => {
+        if (!singleList) return;
 
-        const file = e.target.files[0];
+        const file = singleList;
 
         const storageRef = ref(storage, `images/${Date.now()}${file.name}`);
         const uploadTask = uploadBytesResumable(storageRef, file);
@@ -117,6 +150,11 @@ const AddProductClient = () => {
     const addProduct = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsLoading(true);
+
+        // 호출
+        storageMultiUpload();
+        storageSingleUpload();
+
         try{
             // 컬렉션에 추가
             addDoc(collection(db, "products"), {
@@ -181,14 +219,14 @@ const AddProductClient = () => {
                         accept='image/jpeg, image/webp'
                         name='image'
                         required
-                        onChange={(e)=>handleThumbChange(e)}
+                        onChange={(e)=>handleSingleImageChange(e)}
                     />
-                    {product.thumbnailURL === "" ? null :
+                    {singleURL === "" ? null :
                         <input 
                             type='text'
                             name='thumbnailURL'
                             disabled
-                            value={product.thumbnailURL}
+                            value={singleURL}
                             placeholder='이미지 URL'
                         />
                     }
@@ -202,9 +240,9 @@ const AddProductClient = () => {
                         accept='image/jpeg, image/webp'
                         name='image'
                         required
-                        onChange={(e)=>handleImageChange(e)}
+                        onChange={(e)=>handleMultiImageChange(e)}
                     />
-                    {product.imageURL.length === 0 ? null : product.imageURL.map((item)=>{
+                    {multiURL.length === 0 ? null : multiURL.map((item)=>{
                         return(
                             <input 
                                 type='text'
@@ -212,6 +250,7 @@ const AddProductClient = () => {
                                 disabled
                                 value={item}
                                 placeholder='이미지 URL'
+                                key={item}
                             />
                         )
                     })
