@@ -141,7 +141,8 @@ const EditProductClient = () => {
         sortCat: product.sortCat,
         brand: product.brand,
         desc: product.desc,
-        createdAt: Timestamp.now().toDate(),
+        createdAt: document.createdAt,
+        editedAt: Timestamp.now().toDate()
       });
 
       setIsLoading(false);

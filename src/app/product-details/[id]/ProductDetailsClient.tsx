@@ -109,7 +109,7 @@ const ProductDetailsClient = () => {
               </div>
 
               <div className={styles.optionBox}>
-                <p>옵션 선택</p>
+                <p>제품 이미지</p>
                 <div className={styles.imgWrap}>
                   {product.imageURL.sort().map((src: string, idx: number) => {
                     return (
