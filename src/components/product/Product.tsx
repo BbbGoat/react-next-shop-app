@@ -5,7 +5,7 @@ import ProductFilter from "./productFilter/ProductFilter";
 import ProductList from "./productList/ProductList";
 import useFetchCollection from "@/hooks/useFetchCollection";
 import { useDispatch, useSelector } from "react-redux";
-import { STORE_PRODUCTS, selectProducts } from "@/redux/slice/productSlice";
+import { GET_PRICE_RANGE, STORE_PRODUCTS, selectProducts } from "@/redux/slice/productSlice";
 import Loader from "../loader/Loader";
 import { FILTER_BY_CATEGORY, selectFilteredProducts } from "@/redux/slice/filterSlice";
 
@@ -20,14 +20,15 @@ const Product = ({id}: {id: string}) => {
   // 스토어 저장
   useEffect(()=>{
     dispatch(STORE_PRODUCTS({ products: data }))
+    dispatch(GET_PRICE_RANGE({ products: data }))
   }, [dispatch, data])
   
   // 2. 저장된 store state 상품 데이터 가져오기!
   const products = useSelector(selectProducts);
   // 스토어 저장
-  useEffect(()=>{
-    dispatch(FILTER_BY_CATEGORY({ products, category }))
-  }, [dispatch, products, category])
+  // useEffect(()=>{
+  //   dispatch(FILTER_BY_CATEGORY({ products, category }))
+  // }, [dispatch, products, category])
 
   return (
     <section className={styles.product}>

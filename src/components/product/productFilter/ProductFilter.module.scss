@@ -23,6 +23,7 @@
         display: flex;
         flex-direction: column;
         list-style: none;
+        min-height: 80px;
         gap: 10px;
         
         label {
@@ -60,15 +61,19 @@
             float: right;
         }
     }
-    .category button {
-        display: block;
-        text-align: left;
-        width: 100%;
-        font-size: 1.4rem;
-        border: none;
-        background-color: transparent;
-        color: var(--dark-gray);
-        cursor: pointer;
+    .category {
+        min-height: 120px;
+
+        button {
+            display: block;
+            text-align: left;
+            width: 100%;
+            font-size: 1.4rem;
+            border: none;
+            background-color: transparent;
+            color: var(--dark-gray);
+            cursor: pointer;
+        }
     }
     button+button {
         margin-top: 10px;

@@ -24,6 +24,35 @@ const filterSlice = createSlice({
             }
             state.filteredProducts = tempProducts;
         },
+        FILTER_BY_PRICE: (state, action: {payload: {products: IProduct[], price: number}}) => {
+            const { products, price } = action.payload;
+            let tempProducts = [];
+
+            tempProducts = products.filter((product)=>product.salePrice <= price);
+
+            state.filteredProducts = tempProducts;
+        },
+        SORT_PRODUCTS: (state, action: {payload: {products: IProduct[], sort: string}}) => {
+            const { products, sort } = action.payload;
+            let tempProducts: IProduct[] = [];
+
+            // 정렬!
+            if (sort === '최신순') {
+                tempProducts = products;
+            }
+            if (sort === '저가순') {
+                tempProducts = products.slice().sort((a,b) => {
+                    return a.salePrice - b.salePrice;
+                })
+            }
+            if (sort === '고가순') {
+                tempProducts = products.slice().sort((a,b) => {
+                    return b.salePrice - a.salePrice;
+                })
+            }
+
+            state.filteredProducts = tempProducts;
+        },
         FILTER_BY_SEARCH: (state, action: {payload: {products: IProduct[], search: string}}) => {
             const { products, search } = action.payload;
 
@@ -38,7 +67,7 @@ const filterSlice = createSlice({
     }
 })
 
-export const { FILTER_BY_CATEGORY, FILTER_BY_SEARCH } = filterSlice.actions;
+export const { FILTER_BY_CATEGORY, FILTER_BY_SEARCH, FILTER_BY_PRICE } = filterSlice.actions;
 
 export const selectFilteredProducts = (state: RootState) => state.filter.filteredProducts;
 
