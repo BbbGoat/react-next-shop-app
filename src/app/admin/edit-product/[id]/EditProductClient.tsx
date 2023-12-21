@@ -4,7 +4,7 @@ import styles from "../../add-product/AddProduct.module.scss";
 import { useParams } from "next/navigation";
 import Loader from "@/components/loader/Loader";
 import Heading from "@/components/heading/Heading";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import useFetchDocument from "@/hooks/useFetchDocument";
 import { Timestamp, collection, doc, setDoc } from "firebase/firestore";
 import { db, storage } from "@/firebase/firebase";
@@ -26,9 +26,18 @@ const EditProductClient = () => {
 
   useEffect(() => {
     setProduct(document);
+    
+    if (document!) {
+      if (document.category === 'women') setSortCat(categorySort[0])
+      else if (document.category === 'men') setSortCat(categorySort[1])
+      else if (document.category === 'kids') setSortCat(categorySort[2])
+      else if (document.category === 'life') setSortCat(categorySort[3])
+      else if (document.category === 'pet') setSortCat(categorySort[4])
+    }
+
   }, [document]);
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setProduct({ ...product, [name]: value });
   };

@@ -13,7 +13,6 @@ const ProductFilter = () => {
 
   // const minPrice = useSelector();
 
-
   const isRadioSelected = (value: string) => sort === value;
   const handleRadioClick = (e: ChangeEvent<HTMLInputElement>) => setSort(e.target.value);
 
