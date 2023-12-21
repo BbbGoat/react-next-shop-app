@@ -18,7 +18,6 @@ const ProductDetailsClient = () => {
   const [scrollY, setScrollY] = useState(0);
 
   const { id } = useParams() as { id: string };
-  const dispatch = useDispatch();
 
   // 특정 도큐먼트 찾아오는 용도
   const { document: product } = useFetchDocument("products", id);
@@ -91,12 +90,19 @@ const ProductDetailsClient = () => {
                 <p className={styles.name}>{product.name}</p>
                 <div className={styles.price}>
                   <p className={styles.originPrice}>
-                    <span>{priceFormat(product.originPrice)}</span>
+                    {product.originPrice != product.salePrice ? priceFormat(product.originPrice) : null}
                   </p>
                   <p className={styles.totalPrice}>
                     <span>{priceFormat(product.salePrice)}</span>
                     <span className={styles.percent}>
-                      {Math.abs(((product.salePrice - product.originPrice) / product.originPrice) * 100)}% OFF
+                      {product.originPrice === product.salePrice ? null : (
+                        <>
+                          {Math.round(
+                            Math.abs(((product.salePrice - product.originPrice) / product.originPrice) * 100)
+                          )}
+                          % OFF
+                        </>
+                      )}
                     </span>
                   </p>
                 </div>
@@ -105,7 +111,6 @@ const ProductDetailsClient = () => {
               <div className={styles.optionBox}>
                 <p>옵션 선택</p>
                 <div className={styles.imgWrap}>
-                  {/* 임시로 넣어둠 */}
                   {product.imageURL.sort().map((src: string, idx: number) => {
                     return (
                       <div className={styles.optionList} key={idx}>

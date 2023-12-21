@@ -49,7 +49,13 @@ const ProductItem = ({
           </div>
           <div className={styles.salePrice}>
             <span className={styles.discount}>
-              {Math.abs(((salePrice - originPrice) / originPrice) * 100)}%
+              {
+                originPrice === salePrice ? null : (
+                  <>
+                    {Math.round(Math.abs(((salePrice - originPrice) / originPrice) * 100))}%
+                  </>
+                )
+              }
             </span>
             <span className={styles.totalPrice}>
             {priceFormat(salePrice)}

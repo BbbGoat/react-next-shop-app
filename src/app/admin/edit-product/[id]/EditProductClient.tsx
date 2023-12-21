@@ -183,7 +183,6 @@ const EditProductClient = () => {
                 placeholder="대표 이미지"
                 accept="image/jpeg, image/webp"
                 name="image"
-                required
                 onChange={(e) => handleThumbChange(e)}
               />
               {product.thumbnailURL === "" ? null : (
@@ -198,7 +197,6 @@ const EditProductClient = () => {
                 placeholder="상세 이미지"
                 accept="image/jpeg, image/webp"
                 name="image"
-                required
                 onChange={(e) => handleImageChange(e)}
               />
               {product.imageURL.length === 0
