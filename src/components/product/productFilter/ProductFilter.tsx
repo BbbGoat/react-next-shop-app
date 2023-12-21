@@ -3,6 +3,8 @@ import styles from './ProductFilter.module.scss'
 import priceFormat from '@/utils/priceFormat';
 import { useSelector } from 'react-redux';
 import Button from '@/components/button/Button';
+import { useParams } from 'next/navigation';
+import { selectProducts } from '@/redux/slice/productSlice';
 
 const ProductFilter = () => {
 
@@ -11,6 +13,9 @@ const ProductFilter = () => {
   const [category, setCategory] = useState('전체');
   const [price, setPrice] = useState(10000);
 
+  const { id } = useParams();
+
+  const products = useSelector(selectProducts);
   // const minPrice = useSelector();
 
   const isRadioSelected = (value: string) => sort === value;
@@ -20,6 +25,9 @@ const ProductFilter = () => {
     setTitle(cat);
     setSort('latest');
     setCategory(cat);
+
+    // db 검색조건 재설정 해야함
+    
   }
   const clearFilters = () => {
     setTitle('전체');
@@ -28,19 +36,22 @@ const ProductFilter = () => {
     setPrice(10000); 
   }
 
+  const didi = new Set(products.map((product)=>{
+    return product.sortCat
+  }))
+  
   const allCategories = [
     "전체",
-    "의류",
-    "신발",
-    "가방"
-    // ...new Set(products.map((product)=>product.category))
+    ...didi,
+    // 1. document 불러오기
+    // 2. id로 현재 category 찾아오기 => useParams 사용
+    // 3. id와 일치하는 데이터들 중에 sortCat 전부 찾아와서 new Set으로 중복제거 ㅇㅋ 
   ]
   
   return (
     <div className={styles.filter}>
-      <h3 className={styles.title}>{title}</h3>
+      <h3 className={styles.title}>{title}<span>{id}</span></h3>
       <div className={styles.divider}></div>
-
       <div className={styles.wrap}>  
         <h4>카테고리</h4>
         <div className={styles.category}>
