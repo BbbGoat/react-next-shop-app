@@ -19,11 +19,13 @@ export const categories = [
     {id: 5, name: 'pet'}
 ]
 
-const sortCatA = ['원피스','신발','가방']
-const sortCatB = ['셔츠','바지','가방']
-const sortCatC = ['여아','남아','가방']
-const sortCatD = ['홈','키친','뷰티']
-const sortCatE = ['가구','매트','의류']
+export const categorySort = [
+    ['원피스','신발','가방'],
+    ['셔츠','바지','가방'],
+    ['여아','남아','가방'],
+    ['홈','키친'],
+    ['가구','매트','의류'],
+]
 
 const initialState = {
     name: '',
@@ -55,11 +57,11 @@ const AddProductClient = () => {
         setProduct({...product, [name]: value});
 
         // 여기서 2차분류 set 설정
-        if (value === 'women') setSortCat(sortCatA)
-        else if (value === 'men') setSortCat(sortCatB)
-        else if (value === 'kids') setSortCat(sortCatC)
-        else if (value === 'life') setSortCat(sortCatD)
-        else if (value === 'pet') setSortCat(sortCatE)
+        if (value === 'women') setSortCat(categorySort[0])
+        else if (value === 'men') setSortCat(categorySort[1])
+        else if (value === 'kids') setSortCat(categorySort[2])
+        else if (value === 'life') setSortCat(categorySort[3])
+        else if (value === 'pet') setSortCat(categorySort[4])
     }
     const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
         if (!e.target.files) return;
