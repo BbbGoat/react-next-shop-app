@@ -5,11 +5,13 @@ import { RootState } from "../store";
 interface IFilterState {
     filteredProducts: IProduct[];
     filteredProductsOrigin: IProduct[];
+    filteredSort: IProduct[];
 }
 
 const initialState: IFilterState = {
     filteredProducts: [],
-    filteredProductsOrigin: []
+    filteredProductsOrigin: [],
+    filteredSort: []
 }
 
 const filterSlice = createSlice({
@@ -41,6 +43,7 @@ const filterSlice = createSlice({
                 tempProducts = products.filter((product) => product.sortCat === category)
             }
             state.filteredProducts = tempProducts;
+            state.filteredSort = tempProducts;
         },
         FILTER_BY_PRICE: (state, action: {payload: {products: IProduct[], price: number}}) => {
             const { products, price } = action.payload;
@@ -55,7 +58,6 @@ const filterSlice = createSlice({
             let tempProducts: IProduct[] = [];
 
             if (sort === 'latest') {
-                // 등록 날짜별로 비교하기 추가
                 tempProducts = state.filteredProductsOrigin;
             }
             if (sort === 'lowest-price') {
@@ -90,5 +92,6 @@ export const { FILTER_BY_CATEGORY, FILTER_BY_SEARCH, FILTER_BY_PRICE, SORT_PRODU
 
 export const selectFilteredProducts = (state: RootState) => state.filter.filteredProducts;
 export const selectFilteredProductsOrigin = (state: RootState) => state.filter.filteredProductsOrigin;
+export const selectFilteredSort = (state: RootState) => state.filter.filteredSort;
 
 export default filterSlice.reducer;

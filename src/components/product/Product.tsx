@@ -18,15 +18,18 @@ const Product = ({id}: {id: string}) => {
   // 1. 최상위 컴포넌트에서 DB의 전체 상품 데이터 가져오기
   const { data, isLoading } = useFetchCollection('products');  
   const filteredProductsOrigin = useSelector(selectFilteredProductsOrigin);
+
   // 스토어 저장
   useEffect(()=>{
     dispatch(STORE_PRODUCTS({ products: data }))
   }, [dispatch, data])
-
+  
+  useEffect(()=>{
+    dispatch(GET_PRICE_RANGE({ products: filteredProductsOrigin }))
+  }, [dispatch, filteredProductsOrigin])
   
   // 2. 저장된 store 상품 데이터 가져와서 1차 필터링하기
   const products = useSelector(selectProducts);
-  // 스토어 저장 (FILTER_BY_CATEGORY => ProductList에 사용)
   useEffect(()=>{
     dispatch(FILTER_BY_CATEGORY({ products, category }))
     dispatch(FILTER_BY({ products, category }))
