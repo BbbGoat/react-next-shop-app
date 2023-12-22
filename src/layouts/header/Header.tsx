@@ -2,7 +2,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import styles from './Header.module.scss'
 import { usePathname, useRouter } from 'next/navigation'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Link from 'next/link'
 import { CiSearch, CiShoppingBasket, CiUser } from "react-icons/ci";
 import { PiPresentationChartThin } from 'react-icons/pi'
@@ -14,6 +14,7 @@ import { onAuthStateChanged, signOut } from 'firebase/auth'
 import { auth } from '@/firebase/firebase'
 import { REMOVE_ACTIVE_USER, SET_ACTIVE_USER } from '@/redux/slice/authSlice'
 import { toast } from 'react-toastify'
+import { selectCartTotalQuantity } from '@/redux/slice/cartSlice'
 
 const Header = () => {
 
@@ -27,9 +28,18 @@ const Header = () => {
 
   const [displayName, setDisplayName] = useState('');
   const [isLogedIn, setIsLogedIn] = useState(false);
+
+  const cartTotalQuantity = useSelector(selectCartTotalQuantity);
+  const count = localStorage.getItem('cartCount') === null ? 0 : JSON.parse(localStorage.getItem('cartCount')!);
+
+  useEffect(()=>{
+    setCartProductCount(count);
+  }, [cartTotalQuantity])
+  
   
   // 검색 버튼 클릭시
   const handleSearch = () => {}
+
   const handleClick = () => {
     if (isLogedIn) {
       router.push('/admin/dashboard');
@@ -38,6 +48,7 @@ const Header = () => {
     alert('관리자 기능은 로그인 후 이용 가능합니다.');
     router.push('/login');
   }
+
 
 
   useEffect(()=>{

@@ -11,13 +11,16 @@ import { useDispatch, useSelector } from "react-redux";
 import useFetchDocument from "@/hooks/useFetchDocument";
 import Loader from "@/components/loader/Loader";
 import Image from "next/image";
+import { ADD_TO_CART, CALCULATE_TOTAL_QUANTITY } from "@/redux/slice/cartSlice";
 
 const ProductDetailsClient = () => {
   const [count, setCount] = useState(1);
   const [className, setClassName] = useState("상품상세정보");
   const [scrollY, setScrollY] = useState(0);
+  const [image, setImage] = useState<string[]>([]);
 
   const { id } = useParams() as { id: string };
+  const dispatch = useDispatch();
 
   // 특정 도큐먼트 찾아오는 용도
   const { document: product } = useFetchDocument("products", id);
@@ -48,7 +51,10 @@ const ProductDetailsClient = () => {
   }, [scrollY]);
 
   // 카트 추가 함수
-  const addToCart = () => {};
+  const addToCart = () => {
+    dispatch(ADD_TO_CART({...product, quantity: count}))
+    dispatch(CALCULATE_TOTAL_QUANTITY());
+  };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScrollY);
@@ -61,6 +67,13 @@ const ProductDetailsClient = () => {
   // 임시 더미 데이터 - 리뷰
   const reviews: any[] = [];
 
+  useEffect(()=>{
+    if (product) {
+      setImage([...product.imageURL])
+    }
+  }, [product])
+
+
   return (
     <main className={styles.product}>
       {product === null ? (
@@ -70,7 +83,7 @@ const ProductDetailsClient = () => {
           <div className={styles.gallery}>
             <div className={styles.content}>
               <div className={styles.imgWrap}>
-                {product.imageURL.sort().map((src: string, idx: number) => {
+                {image.sort((a,b)=>a.localeCompare(b)).map((src: string, idx: number) => {
                   return (
                     <div className={styles.item} key={idx}>
                       <div className={styles.inner}>
@@ -111,7 +124,7 @@ const ProductDetailsClient = () => {
               <div className={styles.optionBox}>
                 <p>제품 이미지</p>
                 <div className={styles.imgWrap}>
-                  {product.imageURL.sort().map((src: string, idx: number) => {
+                  {image.sort((a,b)=>a.localeCompare(b)).map((src: string, idx: number) => {
                     return (
                       <div className={styles.optionList} key={idx}>
                         <Image src={src} alt={"상세 이미지"} width={158} height={211} />
