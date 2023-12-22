@@ -7,7 +7,7 @@ import useFetchCollection from "@/hooks/useFetchCollection";
 import { useDispatch, useSelector } from "react-redux";
 import { GET_PRICE_RANGE, STORE_PRODUCTS, selectProducts } from "@/redux/slice/productSlice";
 import Loader from "../loader/Loader";
-import { FILTER_BY_CATEGORY, selectFilteredProducts } from "@/redux/slice/filterSlice";
+import { FILTER_BY, FILTER_BY_CATEGORY, selectFilteredProducts, selectFilteredProductsOrigin } from "@/redux/slice/filterSlice";
 
 const Product = ({id}: {id: string}) => {
 
@@ -17,18 +17,19 @@ const Product = ({id}: {id: string}) => {
 
   // 1. 최상위 컴포넌트에서 DB의 전체 상품 데이터 가져오기
   const { data, isLoading } = useFetchCollection('products');  
+  const filteredProductsOrigin = useSelector(selectFilteredProductsOrigin);
   // 스토어 저장
   useEffect(()=>{
     dispatch(STORE_PRODUCTS({ products: data }))
-    // !!! products: 카테고리용 데이터로 바꾸기 !!!!!
-    dispatch(GET_PRICE_RANGE({ products: data }))
   }, [dispatch, data])
+
   
   // 2. 저장된 store 상품 데이터 가져와서 1차 필터링하기
   const products = useSelector(selectProducts);
   // 스토어 저장 (FILTER_BY_CATEGORY => ProductList에 사용)
   useEffect(()=>{
     dispatch(FILTER_BY_CATEGORY({ products, category }))
+    dispatch(FILTER_BY({ products, category }))
   }, [dispatch, products, category])
 
   return (

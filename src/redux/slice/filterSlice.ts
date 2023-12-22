@@ -4,16 +4,24 @@ import { RootState } from "../store";
 
 interface IFilterState {
     filteredProducts: IProduct[];
+    filteredProductsOrigin: IProduct[];
 }
 
 const initialState: IFilterState = {
-    filteredProducts: []
+    filteredProducts: [],
+    filteredProductsOrigin: []
 }
 
 const filterSlice = createSlice({
     name: 'filter',
     initialState,
     reducers: {
+        FILTER_BY: (state, action: {payload: {products: IProduct[], category: string}}) => {
+            const { products, category } = action.payload;
+            let tempProducts = [];
+            tempProducts = products.filter((product)=>product.category === category);
+            state.filteredProductsOrigin = tempProducts;
+        },
         FILTER_BY_CATEGORY: (state, action: {payload: {products: IProduct[], category: string}}) => {
             const { products, category } = action.payload;
             let tempProducts = [];
@@ -48,7 +56,7 @@ const filterSlice = createSlice({
 
             if (sort === 'latest') {
                 // 등록 날짜별로 비교하기 추가
-                tempProducts = products;
+                tempProducts = state.filteredProductsOrigin;
             }
             if (sort === 'lowest-price') {
                 tempProducts = products.slice().sort((a,b) => {
@@ -78,8 +86,9 @@ const filterSlice = createSlice({
     }
 })
 
-export const { FILTER_BY_CATEGORY, FILTER_BY_SEARCH, FILTER_BY_PRICE, SORT_PRODUCTS, FILTER_BY_SORT } = filterSlice.actions;
+export const { FILTER_BY_CATEGORY, FILTER_BY_SEARCH, FILTER_BY_PRICE, SORT_PRODUCTS, FILTER_BY_SORT, FILTER_BY } = filterSlice.actions;
 
 export const selectFilteredProducts = (state: RootState) => state.filter.filteredProducts;
+export const selectFilteredProductsOrigin = (state: RootState) => state.filter.filteredProductsOrigin;
 
 export default filterSlice.reducer;

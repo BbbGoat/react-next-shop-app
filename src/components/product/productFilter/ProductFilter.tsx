@@ -4,8 +4,8 @@ import priceFormat from '@/utils/priceFormat';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@/components/button/Button';
 import { useParams } from 'next/navigation';
-import { selectMaxPrice, selectMinPrice, selectProducts } from '@/redux/slice/productSlice';
-import { FILTER_BY_PRICE, FILTER_BY_SORT, SORT_PRODUCTS, selectFilteredProducts } from '@/redux/slice/filterSlice';
+import { GET_PRICE_RANGE, selectMaxPrice, selectMinPrice, selectProducts } from '@/redux/slice/productSlice';
+import { FILTER_BY_PRICE, FILTER_BY_SORT, SORT_PRODUCTS, selectFilteredProducts, selectFilteredProductsOrigin } from '@/redux/slice/filterSlice';
 
 const ProductFilter = () => {
 
@@ -21,15 +21,16 @@ const ProductFilter = () => {
   const minPrice = useSelector(selectMinPrice);
   const maxPrice = useSelector(selectMaxPrice);
 
+  const filteredProductsOrigin = useSelector(selectFilteredProductsOrigin);
   const filteredProducts = useSelector(selectFilteredProducts);
 
   const isRadioSelected = (value: string) => sort === value;
   const handleRadioClick = (e: ChangeEvent<HTMLInputElement>) => setSort(e.target.value);
 
   const filterCategories = (cat: string) => {
+    setSort('latest');
     setCategory(cat);
     setTitle(cat);
-    setSort('latest');
   }
   const clearFilters = () => {
     setCategory('전체');
@@ -40,8 +41,7 @@ const ProductFilter = () => {
 
   const allCategories = [
     "전체",
-    // !!!! filteredProducts를 [id]에 따라 저장된 products 스토어 데이터로 바꿔끼시오 !!!!
-    ...new Set(filteredProducts.map((product)=>product.sortCat)) as any,
+    ...new Set(filteredProductsOrigin.map((product)=>product.sortCat)) as any,
   ]
   
   // 카테고리 분류
@@ -52,17 +52,23 @@ const ProductFilter = () => {
   // 가격
   useEffect(()=>{
     dispatch(FILTER_BY_PRICE({ products: filteredProducts, price }))
-  }, [dispatch, products, price])
+  }, [dispatch, products, price, maxPrice])
 
   // 정렬
   useEffect(()=>{
     dispatch(SORT_PRODUCTS({ products: filteredProducts, sort }))
   }, [dispatch, products, sort])
 
-  // 가격란 초기값 셋팅용
   useEffect(()=>{
-    setPrice(maxPrice)
-  }, [maxPrice])
+    // !!! products: 카테고리용 데이터로 바꾸기 !!!!!
+    dispatch(GET_PRICE_RANGE({ products: filteredProductsOrigin }))
+    // setPrice(maxPrice)
+  }, [])
+
+  // 가격란 초기값 셋팅용
+  // useEffect(()=>{
+  //   setPrice(maxPrice)
+  // }, [maxPrice])
   
   return (
     <div className={styles.filter}>
