@@ -105,8 +105,8 @@ const AllProductsClient = () => {
                 <th>이미지</th>
                 <th>이름</th>
                 <th>카테고리</th>
-                <th>가격</th>
-                <th>실행</th>
+                <th>판매가</th>
+                <th>수정/삭제</th>
               </tr>
             </thead>
             <tbody>
@@ -115,7 +115,11 @@ const AllProductsClient = () => {
                 return(
                   <tr key={id}>
                     <td>{idx + 1}</td>
-                    <td><Image src={thumbnailURL} alt={name} width={100} height={100} /></td>
+                    <td>
+                      <div className={styles.imgwrap}>
+                        <Image src={thumbnailURL} alt={name} width={100} height={100} />
+                      </div>
+                    </td>
                     <td>
                       <Link href={`/product-details/${id}`}>
                         {name}

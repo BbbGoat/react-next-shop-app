@@ -1,6 +1,12 @@
 .filter {
     .title {
         height: 100px;
+
+        span {
+            font-size: 1.4rem;
+            margin-left: 10px;
+            font-weight: 300;
+        }
     }
     .wrap {
         padding: 30px 0;
