@@ -20,15 +20,16 @@ const Product = ({id}: {id: string}) => {
   // 스토어 저장
   useEffect(()=>{
     dispatch(STORE_PRODUCTS({ products: data }))
+    // !!! products: 카테고리용 데이터로 바꾸기 !!!!!
     dispatch(GET_PRICE_RANGE({ products: data }))
   }, [dispatch, data])
   
-  // 2. 저장된 store state 상품 데이터 가져오기!
+  // 2. 저장된 store 상품 데이터 가져와서 1차 필터링하기
   const products = useSelector(selectProducts);
-  // 스토어 저장
-  // useEffect(()=>{
-  //   dispatch(FILTER_BY_CATEGORY({ products, category }))
-  // }, [dispatch, products, category])
+  // 스토어 저장 (FILTER_BY_CATEGORY => ProductList에 사용)
+  useEffect(()=>{
+    dispatch(FILTER_BY_CATEGORY({ products, category }))
+  }, [dispatch, products, category])
 
   return (
     <section className={styles.product}>

@@ -21,6 +21,12 @@ const productSlice = createSlice({
         STORE_PRODUCTS(state, action) {
             state.products = action.payload.products;
         },
+        STORE_PRODUCTS_SORT(state, action: {payload: {products: IProduct[], category: string}}) {
+            const { products, category } = action.payload;
+            let tempProducts = [];
+            tempProducts = products.filter((product) => product.category === category)
+            state.products = tempProducts;
+        },
         GET_PRICE_RANGE(state, action) {
             const { products } = action.payload;
 
@@ -40,7 +46,7 @@ const productSlice = createSlice({
 })
 
 // 변경함수 내보내기
-export const { STORE_PRODUCTS, GET_PRICE_RANGE } = productSlice.actions;
+export const { STORE_PRODUCTS, GET_PRICE_RANGE, STORE_PRODUCTS_SORT } = productSlice.actions;
 
 // store state 선택자
 export const selectProducts = (state: RootState) => state.product.products;

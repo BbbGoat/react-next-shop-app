@@ -7,7 +7,7 @@ import { selectFilteredProducts } from '@/redux/slice/filterSlice'
 
 const ProductList = () => {
 
-  // 카테고리 필터링 된 데이터 가져오기
+  // 최종 카테고리 필터링 된 데이터 가져오기
   const filteredProducts = useSelector(selectFilteredProducts);
 
   // 필터링 기능 구현

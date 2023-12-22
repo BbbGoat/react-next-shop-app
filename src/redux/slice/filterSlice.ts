@@ -17,10 +17,20 @@ const filterSlice = createSlice({
         FILTER_BY_CATEGORY: (state, action: {payload: {products: IProduct[], category: string}}) => {
             const { products, category } = action.payload;
             let tempProducts = [];
-            if (category === 'All') {
+            if (category === '전체') {
                 tempProducts = products;
             } else {
                 tempProducts = products.filter((product) => product.category === category)
+            }
+            state.filteredProducts = tempProducts;
+        },
+        FILTER_BY_SORT: (state, action: {payload: {products: IProduct[], category: string, id: string}}) => {
+            const { products, category, id } = action.payload;
+            let tempProducts = [];
+            if (category === '전체') {
+                tempProducts = products.filter((product) => product.category === id);
+            } else {
+                tempProducts = products.filter((product) => product.sortCat === category)
             }
             state.filteredProducts = tempProducts;
         },
@@ -36,16 +46,16 @@ const filterSlice = createSlice({
             const { products, sort } = action.payload;
             let tempProducts: IProduct[] = [];
 
-            // 정렬!
-            if (sort === '최신순') {
+            if (sort === 'latest') {
+                // 등록 날짜별로 비교하기 추가
                 tempProducts = products;
             }
-            if (sort === '저가순') {
+            if (sort === 'lowest-price') {
                 tempProducts = products.slice().sort((a,b) => {
                     return a.salePrice - b.salePrice;
                 })
             }
-            if (sort === '고가순') {
+            if (sort === 'highest-price') {
                 tempProducts = products.slice().sort((a,b) => {
                     return b.salePrice - a.salePrice;
                 })
@@ -53,6 +63,7 @@ const filterSlice = createSlice({
 
             state.filteredProducts = tempProducts;
         },
+        
         FILTER_BY_SEARCH: (state, action: {payload: {products: IProduct[], search: string}}) => {
             const { products, search } = action.payload;
 
@@ -67,7 +78,7 @@ const filterSlice = createSlice({
     }
 })
 
-export const { FILTER_BY_CATEGORY, FILTER_BY_SEARCH, FILTER_BY_PRICE } = filterSlice.actions;
+export const { FILTER_BY_CATEGORY, FILTER_BY_SEARCH, FILTER_BY_PRICE, SORT_PRODUCTS, FILTER_BY_SORT } = filterSlice.actions;
 
 export const selectFilteredProducts = (state: RootState) => state.filter.filteredProducts;
 

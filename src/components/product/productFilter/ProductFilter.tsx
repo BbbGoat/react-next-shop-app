@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Button from '@/components/button/Button';
 import { useParams } from 'next/navigation';
 import { selectMaxPrice, selectMinPrice, selectProducts } from '@/redux/slice/productSlice';
-import { FILTER_BY_CATEGORY, FILTER_BY_PRICE, selectFilteredProducts } from '@/redux/slice/filterSlice';
+import { FILTER_BY_PRICE, FILTER_BY_SORT, SORT_PRODUCTS, selectFilteredProducts } from '@/redux/slice/filterSlice';
 
 const ProductFilter = () => {
 
@@ -20,16 +20,16 @@ const ProductFilter = () => {
   const products = useSelector(selectProducts);
   const minPrice = useSelector(selectMinPrice);
   const maxPrice = useSelector(selectMaxPrice);
+
   const filteredProducts = useSelector(selectFilteredProducts);
 
   const isRadioSelected = (value: string) => sort === value;
   const handleRadioClick = (e: ChangeEvent<HTMLInputElement>) => setSort(e.target.value);
 
   const filterCategories = (cat: string) => {
+    setCategory(cat);
     setTitle(cat);
     setSort('latest');
-    setCategory(cat);
-    // db 검색조건 재설정 해야함
   }
   const clearFilters = () => {
     setCategory('전체');
@@ -40,16 +40,26 @@ const ProductFilter = () => {
 
   const allCategories = [
     "전체",
-    ...new Set(products.map((product)=>product.sortCat)) as any,
+    // !!!! filteredProducts를 [id]에 따라 저장된 products 스토어 데이터로 바꿔끼시오 !!!!
+    ...new Set(filteredProducts.map((product)=>product.sortCat)) as any,
   ]
   
+  // 카테고리 분류
   useEffect(()=>{
-    dispatch(FILTER_BY_CATEGORY({ products, category: id }))
-  }, [dispatch, products, id])
+    dispatch(FILTER_BY_SORT({ products, category, id }))
+  }, [dispatch, products, category, id])
+
+  // 가격
   useEffect(()=>{
-    dispatch(FILTER_BY_PRICE({ products, price }))
+    dispatch(FILTER_BY_PRICE({ products: filteredProducts, price }))
   }, [dispatch, products, price])
 
+  // 정렬
+  useEffect(()=>{
+    dispatch(SORT_PRODUCTS({ products: filteredProducts, sort }))
+  }, [dispatch, products, sort])
+
+  // 가격란 초기값 셋팅용
   useEffect(()=>{
     setPrice(maxPrice)
   }, [maxPrice])
