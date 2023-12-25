@@ -59,7 +59,24 @@ const CartClient = () => {
       <Heading title="장바구니" />
       {cartItems.length === 0 ? (
         <>
-          <p className={styles.emptyText}>장바구니가 비어있습니다.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>순서</th>
+                <th style={{width: 485}}>상품</th>
+                <th style={{width: 140}}>가격</th>
+                <th style={{width: 140}}>개수</th>
+                <th style={{width: 140}}>합계</th>
+                <th >삭제</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colSpan={6}>asdf</td>
+              </tr>
+            </tbody>
+          </table>
+
           <div className={styles.emptyText}>
             <Link href={'/'}>계속 쇼핑하기</Link>
           </div>
@@ -123,6 +140,7 @@ const CartClient = () => {
               })}
             </tbody>
           </table>
+          
           <div className={styles.summary}>
 
             <div className={styles.checkout}>
@@ -159,7 +177,6 @@ const CartClient = () => {
             </div>
 
           </div>
-
         </>
       )}
     </section>
