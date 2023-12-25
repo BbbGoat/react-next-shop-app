@@ -47,15 +47,15 @@ const CheckoutForm = () => {
                                 )
                             })}
 
-                            <h3>최종 결제금액</h3>
+                            <h3 style={{marginTop: 28}}>최종 결제금액</h3>
                             <div className={styles.textWrap}>      
                                 <div className={styles.text}>
-                                    <p><b>총 수량:</b></p>
+                                    <p><b>총 수량</b></p>
                                     <span>{cartTotalQuantity}개</span>
                                 </div>
                                 <div className={styles.divider}></div>
                                 <div className={styles.text}>
-                                    <p><b>총 결제금액:</b></p>
+                                    <p><b>총 결제금액</b></p>
                                     <span>{priceFormat(cartTotalAmount)}원</span>
                                 </div>
                             </div>
