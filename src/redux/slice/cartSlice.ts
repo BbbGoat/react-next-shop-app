@@ -36,7 +36,7 @@ const cartSlice = createSlice({
             if (productIndex >= 0) {
                 // 중복일 경우 기존 개수에 수량만큼 더하기
                 state.cartItems[productIndex].cartQuantity += increaseCount;
-                toast.success(`${action.payload.name} 상품이 더 추가되었습니다.`)
+                toast.success(`${action.payload.name} 상품 수량이 증가하였습니다.`)
             } else {
                 // 아닐경우 새로 추가
                 const tempProduct = {...action.payload, cartQuantity: increaseCount}
@@ -103,7 +103,7 @@ const cartSlice = createSlice({
                 (item) => item.id === action.payload.id
             )
             state.cartItems[productIndex].cartQuantity += 1;
-            toast.success(`${action.payload.name} 수량 증가`)
+            // toast.success(`${action.payload.name} 수량 증가`)
 
             localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
         },
@@ -115,7 +115,7 @@ const cartSlice = createSlice({
             if (state.cartItems[productIndex].cartQuantity > 1) {
 
                 state.cartItems[productIndex].cartQuantity -= 1;
-                toast.success(`${action.payload.name} 수량 감소`)
+                // toast.success(`${action.payload.name} 수량 감소`)
 
                 localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
             }

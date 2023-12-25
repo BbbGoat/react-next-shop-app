@@ -30,7 +30,9 @@ const Header = () => {
   const [isLogedIn, setIsLogedIn] = useState(false);
 
   const cartTotalQuantity = useSelector(selectCartTotalQuantity);
-  const count = localStorage.getItem('cartCount') === null ? 0 : JSON.parse(localStorage.getItem('cartCount')!);
+  const count = typeof window !== "undefined" ? 
+  localStorage.getItem('cartCount') ? 
+  JSON.parse(localStorage.getItem('cartCount')!) : 0 : 0
 
   useEffect(()=>{
     setCartProductCount(count);

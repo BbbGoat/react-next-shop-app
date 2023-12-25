@@ -80,7 +80,7 @@ const CartClient = () => {
                 return (
                   <tr key={id}>
                     <td>{index + 1}</td>
-                    <td>
+                    <td className={styles.cell_pd}>
                       <p>
                         <b>{name}</b>
                       </p>
@@ -88,10 +88,10 @@ const CartClient = () => {
                         src={thumbnailURL} alt={name} width={100} height={100}
                       />
                     </td>
-                    <td>{priceFormat(salePrice)}원</td>
-                    <td>
+                    <td className={styles.cell_price}>{priceFormat(salePrice)}원</td>
+                    <td className={styles.cell_price}>
                       <div className={styles.count}>
-                        <button onClick={()=>decreaseCart(item)}>
+                        <button onClick={()=>decreaseCart(item)} style={{lineHeight: '1.2'}}>
                           -
                         </button>
                         <p>
@@ -102,7 +102,7 @@ const CartClient = () => {
                         </button>
                       </div>
                     </td>
-                    <td>{priceFormat(salePrice * cartQuantity)}원</td>
+                    <td className={styles.cell_price}>{priceFormat(salePrice * cartQuantity)}원</td>
                     <td className={styles.icons}>
                       <FaTrashAlt size={19} color='red' onClick={()=>removeFromCart(item)} />
                     </td>
@@ -120,7 +120,7 @@ const CartClient = () => {
                 <h4>총 상품 개수</h4>
                 <p>{cartTotalQuantity}개</p>
               </div>
-              <div>
+              <div className={styles.text}>
                 <h4>합계</h4>
                 <p>{priceFormat(cartTotalAmount)}원</p>
               </div>
