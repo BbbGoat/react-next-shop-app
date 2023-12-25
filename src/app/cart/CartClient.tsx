@@ -72,13 +72,17 @@ const CartClient = () => {
             </thead>
             <tbody>
               <tr>
-                <td colSpan={6}>asdf</td>
+                <td colSpan={6} className={styles.emptyText}>장바구니에 담긴 상품이 없습니다.</td>
               </tr>
             </tbody>
           </table>
 
-          <div className={styles.emptyText}>
-            <Link href={'/'}>계속 쇼핑하기</Link>
+          <div className={styles.summary}>
+            <div className={styles.buttonwrap}>
+              <Button onClick={()=>{router.push('/')}} width="200px">
+                계속 쇼핑하기
+              </Button>
+            </div>
           </div>
         </>
       ) : (

@@ -1,11 +1,19 @@
 .table {
-    width: 1020px;
+    max-width: 1020px;
     margin: 3rem auto;
     min-height: 44.6vh;
 
     .emptyText {
-        font-size: 2rem;
-        padding-bottom: 3rem;
+        padding: 100px 0;
+        
+        &::before {
+            content: '';
+            display: block;
+            width: 54px;
+            height: 64px;
+            margin: 0 auto 30px;
+            background: url(../../assets/icon_empty_cart.png) no-repeat 0 0;
+        }
     }
     table {
         border-collapse: collapse;
@@ -23,6 +31,7 @@
             th {
                 font-weight: normal;
                 padding: 8px;
+                text-wrap: nowrap;
             }
         }
         tbody {
