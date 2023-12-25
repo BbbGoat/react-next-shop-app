@@ -10,6 +10,7 @@ import priceFormat from "@/utils/priceFormat";
 import { useRouter } from "next/navigation";
 import { TCartItem } from "@/types";
 import { FaTrashAlt } from "react-icons/fa";
+import { CgClose } from "react-icons/cg";
 import Button from "@/components/button/Button";
 import { selectIsLoggedIn } from "@/redux/slice/authSlice";
 
@@ -76,17 +77,24 @@ const CartClient = () => {
             </thead>
             <tbody>
               {cartItems.map((item, index) => {
-                const { id, name, salePrice, thumbnailURL, cartQuantity } = item;
+                const { id, name, brand, salePrice, thumbnailURL, cartQuantity } = item;
                 return (
                   <tr key={id}>
                     <td>{index + 1}</td>
                     <td className={styles.cell_pd}>
-                      <p>
-                        <b>{name}</b>
-                      </p>
-                      <Image 
-                        src={thumbnailURL} alt={name} width={100} height={100}
-                      />
+                      <div className={styles.name}>
+                        <p>
+                          {brand}
+                        </p>
+                        <p>
+                          {name}
+                        </p>
+                      </div>
+                      <div className={styles.img}>
+                        <Image 
+                          src={thumbnailURL} alt={name} width={100} height={100}
+                        />
+                      </div>
                     </td>
                     <td className={styles.cell_price}>{priceFormat(salePrice)}원</td>
                     <td className={styles.cell_price}>
@@ -95,16 +103,18 @@ const CartClient = () => {
                           -
                         </button>
                         <p>
-                          <b>{cartQuantity}</b>
+                          {cartQuantity}
                         </p>
                         <button onClick={()=>increaseCart(item)}>
                           +
                         </button>
                       </div>
                     </td>
-                    <td className={styles.cell_price}>{priceFormat(salePrice * cartQuantity)}원</td>
+                    <td className={styles.cell_price}>
+                      {priceFormat(salePrice * cartQuantity)}원
+                    </td>
                     <td className={styles.icons}>
-                      <FaTrashAlt size={19} color='red' onClick={()=>removeFromCart(item)} />
+                      <CgClose size={19} onClick={()=>removeFromCart(item)} style={{cursor: 'pointer'}} />
                     </td>
                   </tr>
                 )
@@ -121,11 +131,11 @@ const CartClient = () => {
                 <p>{cartTotalQuantity}개</p>
               </div>
               <div className={styles.text}>
-                <h4>합계</h4>
+                <h4>총액</h4>
                 <p>{priceFormat(cartTotalAmount)}원</p>
               </div>
               <Button onClick={checkout}>
-                계산하기
+                결제하기
               </Button>
             </div>
           </div>
