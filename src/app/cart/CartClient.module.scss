@@ -68,22 +68,50 @@
     .summary {
         margin-top: 2rem;
         display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
+        align-items: center;
+        flex-direction: column;
+        gap: 30px;
 
-        .text {
+        .checkout {
             display: flex;
-            justify-content: space-between;
-            line-height: 2.5rem;
+            width: 100%;
+            height: 120px;
+            justify-content: center;
+            align-items: center;
+            background-color: #eee;
+            border-radius: 10px;
 
-            h4 {
-                font-size: 1.3rem;
-            }
-            p {
+            .text {
+                // width: 150px;
                 font-size: 1.2rem;
+                margin-left: 10px;
+
+                p {
+                    margin-bottom: 5px;
+                }
+                span {
+                    b {
+                        font-size: 2rem;
+                        font-weight: 500;
+                    }
+                }
+            }
+            .icons {
+                width: 44px;
+                height: 44px;
             }
         }
+        .buttonwrap {
+            display: flex;
+            gap: 10px;
+        }
     }
+}
+.divider {
+    width: 1px;
+    height: 30px;
+    margin: 0 30px;
+    background-color: #ccc;
 }
 
 .count {
@@ -103,8 +131,5 @@
         &:hover {
             background-color: #eeeeee;
         }
-    }
-    &>* {
-        // margin-right: 1rem;
     }
 }

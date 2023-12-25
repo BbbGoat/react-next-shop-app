@@ -13,6 +13,8 @@ import { FaTrashAlt } from "react-icons/fa";
 import { CgClose } from "react-icons/cg";
 import Button from "@/components/button/Button";
 import { selectIsLoggedIn } from "@/redux/slice/authSlice";
+import { PiShoppingCartLight } from "react-icons/pi";
+import { CiReceipt, CiShoppingCart, CiShoppingTag } from "react-icons/ci";
 
 const CartClient = () => {
 
@@ -113,7 +115,7 @@ const CartClient = () => {
                     <td className={styles.cell_price}>
                       {priceFormat(salePrice * cartQuantity)}원
                     </td>
-                    <td className={styles.icons}>
+                    <td>
                       <CgClose size={19} onClick={()=>removeFromCart(item)} style={{cursor: 'pointer'}} />
                     </td>
                   </tr>
@@ -122,23 +124,42 @@ const CartClient = () => {
             </tbody>
           </table>
           <div className={styles.summary}>
-            <Button onClick={clearCart}>
+
+            <div className={styles.checkout}>
+              <CiShoppingTag className={styles.icons} />
+              <div className={styles.text}>
+                <p>총 상품개수</p>
+                <span>
+                  <b>
+                    {cartTotalQuantity}
+                  </b>
+                  개
+                </span>
+              </div>
+              <div className={styles.divider}></div>
+              <CiReceipt className={styles.icons}/>
+              <div className={styles.text}>
+                <p>총 결제금액</p>
+                <span>
+                  <b>
+                    {priceFormat(cartTotalAmount)}
+                  </b>
+                  원
+                </span>
+              </div>
+            </div>
+            
+            <div className={styles.buttonwrap}>
+            <Button onClick={clearCart} width="200px" secondary>
               카트 비우기
             </Button>
-            <div className={styles.checkout}>
-              <div className={styles.text}>
-                <h4>총 상품 개수</h4>
-                <p>{cartTotalQuantity}개</p>
-              </div>
-              <div className={styles.text}>
-                <h4>총액</h4>
-                <p>{priceFormat(cartTotalAmount)}원</p>
-              </div>
-              <Button onClick={checkout}>
-                결제하기
-              </Button>
+            <Button onClick={checkout} width="200px">
+              결제하기
+            </Button>
             </div>
+
           </div>
+
         </>
       )}
     </section>
