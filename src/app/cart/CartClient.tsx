@@ -128,7 +128,7 @@ const CartClient = () => {
             <div className={styles.checkout}>
               <CiShoppingTag className={styles.icons} />
               <div className={styles.text}>
-                <p>총 상품개수</p>
+                <p>총 수량</p>
                 <span>
                   <b>
                     {cartTotalQuantity}
