@@ -82,7 +82,8 @@ const CheckoutClient = () => {
       
       router.push(`/checkout-success?orderId=${orderId}`);
 
-    }).catch((error)=>{
+    })
+    .catch((error)=>{
       // 에러 처리: 에러 목록을 확인하세요
       // https://docs.tosspayments.com/reference/error-codes#failurl로-전달되는-에러
       if (error.code === 'USER_CANCEL') {
