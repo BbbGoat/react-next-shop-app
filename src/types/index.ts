@@ -23,7 +23,7 @@ export type TCartItem = IProduct & {cartQuantity: number;}
 export interface IOrder {
     id: string;
     orderAmount: number;
-    orderData: string;
+    orderDate: string;
     orderStatus: string;
     orderTime: string;
     userEmail: string;
