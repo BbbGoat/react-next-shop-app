@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/navigation'
 import Heading from '@/components/heading/Heading'
 import Button from '@/components/button/Button'
+import { SAVE_BILLING_ADDRESS, SAVE_SHIPPING_ADDRESS } from '@/redux/slice/checkoutSlice'
 
 const initialAddressState = {
   name: '',
@@ -32,7 +33,8 @@ const CheckoutAddressClient = () => {
   }
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // dispatch()
+    dispatch(SAVE_SHIPPING_ADDRESS(shippingAddress));
+    dispatch(SAVE_BILLING_ADDRESS(billingAddress));
     router.push('/checkout');
   }
   

@@ -20,7 +20,7 @@ const checkoutSlice = createSlice({
     }
 })
 
-export const {  } = checkoutSlice.actions;
+export const { SAVE_SHIPPING_ADDRESS, SAVE_BILLING_ADDRESS } = checkoutSlice.actions;
 
 export const selectShippingAddress = (state: RootState) => state.checkout.shippingAddress;
 export const selectBillingAddress = (state: RootState) => state.checkout.billingAddress;

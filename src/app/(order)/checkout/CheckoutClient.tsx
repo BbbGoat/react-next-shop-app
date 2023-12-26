@@ -59,7 +59,7 @@ const CheckoutClient = () => {
         }
       }).then((response) => response.json())
 
-      // console.log('confirmResponse:', confirmResponse);
+      console.log('confirmResponse:', confirmResponse);
 
       const today = new Date();
       const date = today.toDateString();
