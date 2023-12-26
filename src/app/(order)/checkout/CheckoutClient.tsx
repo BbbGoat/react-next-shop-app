@@ -12,6 +12,7 @@ import { Timestamp, addDoc, collection } from "firebase/firestore";
 import { selectEmail, selectUserId } from "@/redux/slice/authSlice";
 import { db } from "@/firebase/firebase";
 import { toast } from "react-toastify";
+import { selectShippingAddress } from "@/redux/slice/checkoutSlice";
 
 const CheckoutClient = () => {
 
@@ -19,7 +20,7 @@ const CheckoutClient = () => {
   const userEmail = useSelector(selectEmail);
   const cartItems = useSelector(selectCartItems);
   const cartTotalAmount = useSelector(selectCartTotalAmount);
-  // const shippingAddress = useSelector()
+  const shippingAddress = useSelector(selectShippingAddress);
 
   const dispatch = useDispatch();
   const router = useRouter();
