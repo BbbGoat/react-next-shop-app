@@ -68,7 +68,7 @@ const Footer = () => {
 
           <div className={classNames(styles.cols, styles.col2)}>
             <h3>need help?</h3>
-            <p>친절하게 상담을 도와드립니다.</p>
+            <p>친절한 상담으로 도와드립니다.</p>
             <Button type='button'>
               CONTACT US
             </Button>
