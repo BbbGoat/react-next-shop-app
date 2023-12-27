@@ -1,8 +1,6 @@
 .header {
     // background: #fff;
     // border-bottom: 1px solid var(--border-gray);
-    // position: fixed;
-    // width: 100%;
     height: 70px;
 
     .wrapper {
@@ -102,14 +100,15 @@
             
             ul {
                 display: flex;
-                gap: 25px;
+                gap: 30px;
             }
             li {
-                font-weight: 300;
-                color: var(--dark-gray);
+                font-size: 1.6rem;
+                font-weight: 600;
+                color: var(--color-black);
             }
             li.active {
-                color: #000;
+                color: var(--dark-gray);
             }
         }
     }

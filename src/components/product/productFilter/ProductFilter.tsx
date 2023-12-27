@@ -68,7 +68,10 @@ const ProductFilter = () => {
   
   return (
     <div className={styles.filter}>
-      <h3 className={styles.title}>{title}<span>({id})</span></h3>
+      <div className={styles.title}>
+        <h3>{title}</h3>
+        <span>({id})</span>
+      </div>
       <div className={styles.divider}></div>
       <div className={styles.wrap}>  
         <h4>카테고리</h4>
