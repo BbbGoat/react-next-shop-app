@@ -40,8 +40,8 @@ const Footer = () => {
         <div className={styles.grid}>
           <div className={classNames(styles.cols, styles.col1)}>
             <div style={{maxWidth:'400px'}}>
-              <h3>Let's stay in touch</h3>
-              <p>Sign up to our newsletter so we can welcome you to the Diptyque community and keep you posted on new launches, events, special offers and more.</p>
+              <h3>뉴스레터 정기구독</h3>
+              <p>뉴스레터에 가입하시면 D.CODE 커뮤니티에 오신 것을 환영하는 할인 쿠폰과 신상품, 이벤트, 특별 제안 등에 대한 소식을 빠르게 받아보실 수 있습니다.</p>
 
               <form onSubmit={handleSubmit}>
                 <div className={styles.inputBox}>
@@ -49,14 +49,14 @@ const Footer = () => {
                   <input 
                     type='email'
                     id='contact'
-                    placeholder='Enter your email address'
+                    placeholder='이메일을 입력해주세요.'
                     value={value}
                     onChange={(e)=>setValue(e.target.value)}
                   />
                 </div>
                 <div>
                   {
-                    errorMessage ? <div className={styles.errorMessage}>This is a required field</div> : null
+                    errorMessage ? <div className={styles.errorMessage}>이메일은 필수 입력란입니다.</div> : null
                   }
                 </div>
                 <Button type='submit' width='100%'>
@@ -67,14 +67,14 @@ const Footer = () => {
           </div>
 
           <div className={classNames(styles.cols, styles.col2)}>
-            <h3>Need help?</h3>
-            <p>We are here to assist you</p>
-            <Button type='button' onClick={handleClick}>
+            <h3>고객 센터</h3>
+            <p>도움이 필요하신가요?</p>
+            <Button type='button'>
               CONTACT US
             </Button>
             <div className={styles.tel}>
               <i><BiSolidPhone size={16} /></i>
-              <span>0800 - 840 - 0010</span>
+              <span>031 - 1234 - 1234</span>
             </div>
             <div>
               <span>Monday - Friday : 10 am to 7 pm</span>
@@ -97,19 +97,19 @@ const Footer = () => {
             </div>
             <ul className={styles.menulist}>
               <li className={styles.menuitem}>
-                <span><Link href={"/"}>Track your order</Link></span>
+                <span><Link href={"/"}>주문 추적</Link></span>
               </li>
               <li className={styles.menuitem}>
-                <span><Link href={"/"}>Shipping & Delivery</Link></span>
+                <span><Link href={"/"}>배송 안내</Link></span>
               </li>
               <li className={styles.menuitem}>
-                <span><Link href={"/"}>Return an item</Link></span>
+                <span><Link href={"/"}>반품 안내</Link></span>
               </li>
               <li className={styles.menuitem}>
-                <span><Link href={"/"}>Help Center/FAQs</Link></span>
+                <span><Link href={"/"}>헬프센터/FAQs</Link></span>
               </li>
               <li className={styles.menuitem}>
-                <span><Link href={"/"}>Find your nearest boutique</Link></span>
+                <span><Link href={"/"}>가까운 매장 찾기</Link></span>
               </li>
             </ul>
           </div>
@@ -120,10 +120,10 @@ const Footer = () => {
             </div>
             <ul className={styles.menulist}>
               <li className={styles.menuitem}>
-                <span><Link href={"/"}>Our services</Link></span>
+                <span><Link href={"/"}>회원혜택</Link></span>
               </li>
               <li className={styles.menuitem}>
-                <span><Link href={"/"}>Find the ideal gift</Link></span>
+                <span><Link href={"/"}>고객센터</Link></span>
               </li>
             </ul>
           </div>
@@ -162,13 +162,13 @@ const Footer = () => {
             </div>
             <ul className={styles.menulist}>
               <li className={styles.menuitem}>
-                <span><Link href={"/"}>Terms and Conditions</Link></span>
+                <span><Link href={"/"}>이용약관</Link></span>
               </li>
               <li className={styles.menuitem}>
-                <span><Link href={"/"}>Terms of use</Link></span>
+                <span><Link href={"/"}>제휴문의</Link></span>
               </li>
               <li className={styles.menuitem}>
-                <span><Link href={"/"}>Privacy policy and cookie policy</Link></span>
+                <span><Link href={"/"}>개인정보처리방침</Link></span>
               </li>
             </ul>
           </div>

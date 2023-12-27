@@ -6,89 +6,93 @@
     .wrapper {
         position: fixed;
         top: 0;
-        z-index: 99;
-        background-color: #fff;
-        border-bottom: 1px solid var(--border-gray);
-        
-        display: flex;
-        margin: 0 auto;
         width: 100%;
         height: 70px;
-        max-width: 1620px;
-        justify-content: space-between;
-        align-items: center;
-    
-        .logo {
-            width: 280px;
-            padding-top: 7px;
-            padding-left: 25px;
-            padding-right: 25px;
-        }
-        .list {
+        background-color: #fff;
+        border-bottom: 1px solid var(--border-gray);
+        z-index: 99;
+        
+        .flex {
             display: flex;
+            justify-content: space-between;
             align-items: center;
+            max-width: 1640px;
+            height: 100%;
+            margin: 0 auto;
 
-            &.left {
-                position: relative;
+            .logo {
                 width: 280px;
-                top: 0;
-                left: 20px;
-                transition: all .4s;
+                padding-top: 7px;
+                padding-left: 25px;
+                padding-right: 25px;
             }
-            .searchButton {
-                border: 0;
-                cursor: pointer;
-                user-select: none;
-                color: inherit;
-                background-color: transparent;
-            }
-            .searchInput {
-                height: 2rem;
-                
-                input {
-                    outline: 0;
+            .list {
+                display: flex;
+                align-items: center;
+    
+                &.left {
+                    position: relative;
+                    width: 280px;
+                    top: 0;
+                    left: 20px;
+                    transition: all .4s;
+                }
+                .searchButton {
                     border: 0;
-                    width: 100%;
-                    height: 100%;
-                    padding: 1rem 1rem 1.2rem;
+                    cursor: pointer;
+                    user-select: none;
+                    color: inherit;
+                    background-color: transparent;
                 }
-                input::placeholder {
-                    font-size: 1rem;
-                    line-height: 1.2;
-                    color: var(--dark-gray);
+                .searchInput {
+                    height: 2rem;
+                    
+                    input {
+                        outline: 0;
+                        border: 0;
+                        width: 100%;
+                        height: 100%;
+                        padding: 1rem 1rem 1.2rem;
+                    }
+                    input::placeholder {
+                        font-size: 1rem;
+                        line-height: 1.2;
+                        color: var(--dark-gray);
+                    }
                 }
-            }
-
-            &.right {
-                position: relative;
-                width: 280px;
-                top: 0;
-                right: 20px;
-                transition: all .4s;
-                justify-content: flex-end;
-            }
-            .adminButton {
-                border: 0;
-                cursor: pointer;
-                user-select: none;
-                color: inherit;
-                background-color: transparent;
-                margin-right: 20px;
-            }
-            .loginButton {
-                margin-right: 20px;
-            }
-            .logoutButton {
-                margin-right: 20px;
-                text-wrap: nowrap;
-            }
-            .cartButton {
-                strong {
-                    font-size: 1.5rem;
-                    line-height: 1.5;
+    
+                &.right {
+                    position: relative;
+                    width: 280px;
+                    top: 0;
+                    right: 20px;
+                    transition: all .4s;
+                    justify-content: flex-end;
+                }
+                .adminButton {
+                    border: 0;
+                    cursor: pointer;
+                    user-select: none;
+                    color: inherit;
+                    background-color: transparent;
+                    margin-right: 20px;
+                }
+                .loginButton {
+                    margin-right: 20px;
+                }
+                .logoutButton {
+                    margin-right: 20px;
+                    text-wrap: nowrap;
+                }
+                .cartButton {
+                    strong {
+                        font-size: 1.5rem;
+                        line-height: 1.5;
+                    }
                 }
             }
         }
+    
     }
     .navBar {
         .category {

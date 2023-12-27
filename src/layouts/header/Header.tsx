@@ -109,88 +109,89 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.wrapper}>
-        
-        {/* 검색창 */}
-        {/* <div className={classNames(styles.list, styles.left)}>
-          <button
-            className={styles.searchButton} type='button' onClick={handleSearch}
-          >
-            <CiSearch size={25} style={{marginRight:'10px'}} /> 
-          </button>
-          <div className={styles.searchInput}>
-            <input type='search' id='searchKeyword' 
-              placeholder='Search' 
-              value={search} onChange={(e)=>setSearch(e.target.value)} 
-            />
-          </div>
-        </div> */}
+        <div className={styles.flex}>
+          {/* 검색창 */}
+          {/* <div className={classNames(styles.list, styles.left)}>
+            <button
+              className={styles.searchButton} type='button' onClick={handleSearch}
+            >
+              <CiSearch size={25} style={{marginRight:'10px'}} /> 
+            </button>
+            <div className={styles.searchInput}>
+              <input type='search' id='searchKeyword' 
+                placeholder='Search' 
+                value={search} onChange={(e)=>setSearch(e.target.value)} 
+              />
+            </div>
+          </div> */}
 
-        {/* 로고 */}
-        <h1 className={styles.logo}>
-          <Link href={'/'}>
-            <Image src={logo} alt='logo' width={120} height={21} priority />
-          </Link>
-        </h1>
-
-        {/* 카테고리 박스 */}
-        <nav className={styles.navBar}>
-          {/* 카테고리 리스트 */}
-          <div className={styles.category}>
-            <ul className={styles.menubar} role='menubar'>
-              {
-                headerData.map((item, idx)=>{
-                  const {href, cat} = item;
-                  return (
-                    <li className={active == cat ? `${styles.active}` : ''} role='menuitem' key={idx} onMouseOver={()=>{setActive(cat)}} onMouseOut={()=>{setActive('')}}>
-                      <Link href={href}>
-                        <span>{cat.toUpperCase()}</span>
-                      </Link>
-                    </li>
-                  )
-                })
-              }
-            </ul>
-          </div>
-        </nav>
-
-        {/* 오른쪽 박스 */}
-        <div className={classNames(styles.list, styles.right)}>
-          {
-            isLogedIn ? (
-              <>
-                <div className={styles.logoutButton}>
-                  <button onClick={logoutUser} style={{cursor: 'pointer', border: 'none', backgroundColor: 'transparent'}} title='로그아웃' aria-label='로그아웃'>
-                    {/* <LiaUserSlashSolid size={25} /> */}
-                    로그아웃
-                  </button>
-                </div>
-                <div className={styles.logoutButton}>
-                  <button onClick={()=>router.push('/order-history')} style={{cursor: 'pointer', border: 'none', backgroundColor: 'transparent'}} title='마이페이지' aria-label='마이페이지'>
-                    마이페이지
-                  </button>
-                </div>
-                <button className={styles.adminButton} type='button' title='관리자 페이지' aria-label='관리자 페이지' >
-                  <PiPresentationChartThin size={25} onClick={handleClick}/>
-                </button>
-              </>
-            ) : (
-              <div className={styles.loginButton}>
-                <Link href={"/login"} role='button' title='로그인' aria-label='로그인'>
-                  <CiUser size={25} />
-                </Link>
-              </div>
-            )
-          }
-          <div className={styles.cartButton} role='button' aria-roledescription='카트' title='카트' aria-label='카트'>
-            <Link href={"/cart"}>
-              <CiShoppingBasket size={25} />
-              <strong>
-                {cartProductCount}
-              </strong>
+          {/* 로고 */}
+          <h1 className={styles.logo}>
+            <Link href={'/'}>
+              <Image src={logo} alt='logo' width={120} height={21} priority />
             </Link>
-          </div>
-        </div>
+          </h1>
 
+          {/* 카테고리 박스 */}
+          <nav className={styles.navBar}>
+            {/* 카테고리 리스트 */}
+            <div className={styles.category}>
+              <ul className={styles.menubar} role='menubar'>
+                {
+                  headerData.map((item, idx)=>{
+                    const {href, cat} = item;
+                    return (
+                      <li className={active == cat ? `${styles.active}` : ''} role='menuitem' key={idx} onMouseOver={()=>{setActive(cat)}} onMouseOut={()=>{setActive('')}}>
+                        <Link href={href}>
+                          <span>{cat.toUpperCase()}</span>
+                        </Link>
+                      </li>
+                    )
+                  })
+                }
+              </ul>
+            </div>
+          </nav>
+
+          {/* 오른쪽 박스 */}
+          <div className={classNames(styles.list, styles.right)}>
+            {
+              isLogedIn ? (
+                <>
+                  <div className={styles.logoutButton}>
+                    <button onClick={logoutUser} style={{cursor: 'pointer', border: 'none', backgroundColor: 'transparent'}} title='로그아웃' aria-label='로그아웃'>
+                      {/* <LiaUserSlashSolid size={25} /> */}
+                      로그아웃
+                    </button>
+                  </div>
+                  <div className={styles.logoutButton}>
+                    <button onClick={()=>router.push('/order-history')} style={{cursor: 'pointer', border: 'none', backgroundColor: 'transparent'}} title='마이페이지' aria-label='마이페이지'>
+                      마이페이지
+                    </button>
+                  </div>
+                  <button className={styles.adminButton} type='button' title='관리자 페이지' aria-label='관리자 페이지' >
+                    <PiPresentationChartThin size={25} onClick={handleClick}/>
+                  </button>
+                </>
+              ) : (
+                <div className={styles.loginButton}>
+                  <Link href={"/login"} role='button' title='로그인' aria-label='로그인'>
+                    <CiUser size={25} />
+                  </Link>
+                </div>
+              )
+            }
+            <div className={styles.cartButton} role='button' aria-roledescription='카트' title='카트' aria-label='카트'>
+              <Link href={"/cart"}>
+                <CiShoppingBasket size={25} />
+                <strong>
+                  {cartProductCount}
+                </strong>
+              </Link>
+            </div>
+          </div>
+
+        </div>
       </div>
     </header>
   )
