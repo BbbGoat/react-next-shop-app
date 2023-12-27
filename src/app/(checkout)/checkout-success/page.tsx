@@ -46,7 +46,7 @@ const CheckoutSuccess = async ({ searchParams }: ICheckoutSuccessProps) => {
     <section className={styles.success}>
       <Heading title='결제 성공' />
       <ul className={styles.list}>
-        <li><b>결제 상품:</b>{payment.orderName}</li>
+        <li><b>결제 상태:</b>{payment.orderName}</li>
         <li><b>주문 번호:</b>{payment.orderId}</li>
         <li><b>카드 번호:</b>{card.number}</li>
         <li><b>결제 금액:</b>{priceFormat(card.amount)}원</li>

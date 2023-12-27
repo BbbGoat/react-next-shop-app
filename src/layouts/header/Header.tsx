@@ -4,10 +4,10 @@ import styles from './Header.module.scss'
 import { usePathname, useRouter } from 'next/navigation'
 import { useDispatch, useSelector } from 'react-redux'
 import Link from 'next/link'
-import { CiSearch, CiShoppingBasket, CiUser } from "react-icons/ci";
+import { CiDeliveryTruck, CiSearch, CiShoppingBasket, CiUser } from "react-icons/ci";
 import { PiPresentationChartThin } from 'react-icons/pi'
 import Image from 'next/image'
-import logo from '@/assets/logo.png'
+import logo from '@/assets/logo.svg'
 import classNames from 'classnames'
 import headerData from './headerData'
 import { onAuthStateChanged, signOut } from 'firebase/auth'
@@ -15,6 +15,7 @@ import { auth } from '@/firebase/firebase'
 import { REMOVE_ACTIVE_USER, SET_ACTIVE_USER } from '@/redux/slice/authSlice'
 import { toast } from 'react-toastify'
 import { selectCartTotalQuantity } from '@/redux/slice/cartSlice'
+import { LiaUserSlashSolid } from 'react-icons/lia'
 
 const Header = () => {
 
@@ -110,7 +111,7 @@ const Header = () => {
       <div className={styles.wrapper}>
         
         {/* 검색창 */}
-        <div className={classNames(styles.list, styles.left)}>
+        {/* <div className={classNames(styles.list, styles.left)}>
           <button
             className={styles.searchButton} type='button' onClick={handleSearch}
           >
@@ -122,35 +123,65 @@ const Header = () => {
               value={search} onChange={(e)=>setSearch(e.target.value)} 
             />
           </div>
-        </div>
+        </div> */}
 
         {/* 로고 */}
         <h1 className={styles.logo}>
           <Link href={'/'}>
-            <Image src={logo} alt='logo' width={182} height={55} priority />
+            <Image src={logo} alt='logo' width={120} height={21} priority />
           </Link>
         </h1>
 
+        {/* 카테고리 박스 */}
+        <nav className={styles.navBar}>
+          {/* 카테고리 리스트 */}
+          <div className={styles.category}>
+            <ul className={styles.menubar} role='menubar'>
+              {
+                headerData.map((item, idx)=>{
+                  const {href, cat} = item;
+                  return (
+                    <li className={active == cat ? `${styles.active}` : ''} role='menuitem' key={idx} onMouseOver={()=>{setActive(cat)}} onMouseOut={()=>{setActive('')}}>
+                      <Link href={href}>
+                        <span>{cat.toUpperCase()}</span>
+                      </Link>
+                    </li>
+                  )
+                })
+              }
+            </ul>
+          </div>
+        </nav>
+
         {/* 오른쪽 박스 */}
         <div className={classNames(styles.list, styles.right)}>
-          <button className={styles.adminButton} type='button' >
-            <PiPresentationChartThin size={25} onClick={handleClick}/>
-          </button>
-          <div className={styles.loginButton} role='button' aria-roledescription='Account' title='Account' aria-label='Account'>
-            {
-              isLogedIn ? (
-                <div className={styles.logout}>
-                  {displayName}님 환영합니다.
-                  <button onClick={logoutUser}>로그아웃</button>
+          {
+            isLogedIn ? (
+              <>
+                <div className={styles.logoutButton}>
+                  <button onClick={logoutUser} style={{cursor: 'pointer', border: 'none', backgroundColor: 'transparent'}} title='로그아웃' aria-label='로그아웃'>
+                    {/* <LiaUserSlashSolid size={25} /> */}
+                    로그아웃
+                  </button>
                 </div>
-              ) : (
-                <Link href={"/login"}>
+                <div className={styles.logoutButton}>
+                  <button onClick={()=>router.push('/order-history')} style={{cursor: 'pointer', border: 'none', backgroundColor: 'transparent'}} title='마이페이지' aria-label='마이페이지'>
+                    마이페이지
+                  </button>
+                </div>
+                <button className={styles.adminButton} type='button' title='관리자 페이지' aria-label='관리자 페이지' >
+                  <PiPresentationChartThin size={25} onClick={handleClick}/>
+                </button>
+              </>
+            ) : (
+              <div className={styles.loginButton}>
+                <Link href={"/login"} role='button' title='로그인' aria-label='로그인'>
                   <CiUser size={25} />
                 </Link>
-              )
-            }
-          </div>
-          <div className={styles.cartButton} role='button' aria-roledescription='cart' title='cart' aria-label='cart'>
+              </div>
+            )
+          }
+          <div className={styles.cartButton} role='button' aria-roledescription='카트' title='카트' aria-label='카트'>
             <Link href={"/cart"}>
               <CiShoppingBasket size={25} />
               <strong>
@@ -161,27 +192,6 @@ const Header = () => {
         </div>
 
       </div>
-
-      {/* 카테고리 박스 */}
-      <nav className={styles.navBar}>
-        {/* 카테고리 리스트 */}
-        <div className={styles.category}>
-          <ul className={styles.menubar} role='menubar'>
-            {
-              headerData.map((item, idx)=>{
-                const {href, cat} = item;
-                return (
-                  <li className={active == cat ? `${styles.active}` : ''} role='menuitem' key={idx} onMouseOver={()=>{setActive(cat)}} onMouseOut={()=>{setActive('')}}>
-                    <Link href={href}>
-                      <span>{cat.toUpperCase()}</span>
-                    </Link>
-                  </li>
-                )
-              })
-            }
-          </ul>
-        </div>
-      </nav>
     </header>
   )
 }

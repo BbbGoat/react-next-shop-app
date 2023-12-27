@@ -26,7 +26,7 @@ const ChangeOrderStatus = ({order, id}: IChangeOrderStatusProps) => {
     e.preventDefault();
 
     const orderData = {
-        useID: order.userID,
+        userID: order.userID,
         userEmail: order.userEmail,
         orderDate: order.orderDate,
         orderTime: order.orderTime,
