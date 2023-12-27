@@ -40,7 +40,7 @@ const Footer = () => {
         <div className={styles.grid}>
           <div className={classNames(styles.cols, styles.col1)}>
             <div style={{maxWidth:'400px'}}>
-              <h3>뉴스레터 정기구독</h3>
+              <h3>newsletter</h3>
               <p>뉴스레터에 가입하시면 D.CODE 커뮤니티에 오신 것을 환영하는 할인 쿠폰과 신상품, 이벤트, 특별 제안 등에 대한 소식을 빠르게 받아보실 수 있습니다.</p>
 
               <form onSubmit={handleSubmit}>
@@ -67,8 +67,8 @@ const Footer = () => {
           </div>
 
           <div className={classNames(styles.cols, styles.col2)}>
-            <h3>고객 센터</h3>
-            <p>도움이 필요하신가요?</p>
+            <h3>need help?</h3>
+            <p>친절하게 상담을 도와드립니다.</p>
             <Button type='button'>
               CONTACT US
             </Button>
