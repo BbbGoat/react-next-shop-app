@@ -100,9 +100,8 @@ const Header = () => {
     })
   }
 
-
-  // 3개 경로에 해당할 경우 헤더 노출 X
-  if (pathname === '/login' || pathname === '/register' || pathname === '/reset') { 
+  // 다음에 해당할 경우 헤더 노출 X
+  if (pathname.startsWith('/admin')) { 
     return null; 
   }
   

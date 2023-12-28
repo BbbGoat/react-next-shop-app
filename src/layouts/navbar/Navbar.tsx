@@ -8,6 +8,9 @@ import { selectUserName } from '@/redux/slice/authSlice'
 import Link from 'next/link'
 import { MdDashboard } from "react-icons/md";
 import { RiFileList2Fill, RiFileAddFill, RiShoppingBag2Fill } from "react-icons/ri";
+import { BiSolidExit } from "react-icons/bi";
+import Image from 'next/image'
+import logo from '@/assets/logo.svg';
 
 const Navbar = () => {
 
@@ -17,10 +20,24 @@ const Navbar = () => {
   return (
     <div className={styles.navbar}>
       
+      <div className={styles.logo}>
+        <Link href={'/'}>
+          <Image src={logo} alt='로고' width={160} />
+        </Link>
+      </div>
+      
+      <div className={styles.navCategory}>
+        <h3>Member</h3>
+      </div>
+
       {/* 관리자 정보 */}
       <div className={styles.user}>
-        <FaUserCircle size={40} color='#fff' />
-        <h4>{userName}</h4>
+        <FaUserCircle size={20} color='#fff' />
+        <h4>{userName} 님</h4>
+      </div>
+
+      <div className={styles.navCategory}>
+        <h3>Admin</h3>
       </div>
 
       {/* 네비게이션 */}
@@ -64,6 +81,13 @@ const Navbar = () => {
           </li>
         </ul>
       </nav>
+
+      <div className={styles.exit}>
+        <Link href="/">
+          <BiSolidExit size={18} style={{marginTop: 4}} />
+          <span>나가기</span>
+        </Link>
+      </div>
     </div>
   )
 }

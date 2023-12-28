@@ -1,24 +1,38 @@
 .navbar {
+    position: relative;
     border-right: 1px solid var(--border-gray);
     height: 100%;
     min-height: 88vh;
     
+    .logo {
+        padding-top: 3.8rem;
+        padding-left: 2rem;
+    }
+    .navCategory {
+        padding-top: 3.8rem;
+        padding-left: 2rem;
+        padding-bottom: 2rem;
+        font-size: 1.6rem;
+
+        h3 {
+            font-weight: 500;
+        }
+    }
     .active {
-        color: var(--color-primary);
+        color: rgb(0, 153, 255, 0.7);
     }
     .user {
         display: flex;
-        justify-content: center;
         align-items: center;
-        flex-direction: column;
-        padding: 4rem;
-        // background-color: var(--color-primary);
+        flex-direction: row;
+        gap: 15px;
+        padding: 1rem 2rem;
         background-color: rgb(0, 153, 255, 0.7);
 
         h4 {
             text-transform: capitalize;
-            margin-top: 1rem;
-            font-size: 1.7rem;
+            font-size: 1.5rem;
+            font-weight: 500;
             color: var(--color-white);
         }
     }
@@ -30,12 +44,27 @@
             span {
                 margin-left: 20px;
             }
+
+            &:first-child {
+                border-top: 1px solid var(--border-gray);
+            }
         }
         a {
             display: block;
             width: 100%;
             font-size: 1.5rem;
             padding: 1rem 2rem;
+        }
+    }
+    .exit {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 3rem 2rem;
+
+        span {
+            margin-left: 20px;
+            font-size: 1.5rem;
         }
     }
 }
