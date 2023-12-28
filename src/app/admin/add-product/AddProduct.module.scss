@@ -7,6 +7,10 @@
 .product {
     max-width: 936px;
     margin: 0 auto;
+    border-radius: 10px;
+    background-color: var(--color-white);
+    box-shadow: 0 1px 2px 0 rgba(105, 105, 105, 0.301),0 1px 3px 1px rgba(85, 85, 85, 0.2);
+    padding: 2rem 3rem;
     
     .card {
       width: 100%;
