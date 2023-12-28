@@ -15,7 +15,7 @@ const InfoBox = ({
     icon
 }: IInfoBoxProps) => {
   return (
-    <div className={styles.infoBox}>
+    <div className={styles.item}>
         <div className={cardClass}>
             <h4>{title}</h4>
             <span>

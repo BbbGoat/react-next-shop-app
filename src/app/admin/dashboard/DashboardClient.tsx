@@ -16,9 +16,9 @@ import priceFormat from '@/utils/priceFormat'
 const DashboardClient = () => {
 
     // 아이콘 모음
-    const earningIcon = <AiFillDollarCircle size={30} color='#b624ff' />;
-    const productIcon = <BsCart4 size={30} color='#1f93ff' />;
-    const ordersIcon = <FaCartArrowDown size={30} color='#4385F4' />;
+    const earningIcon = <AiFillDollarCircle size={30} color='rgb(0, 153, 255, 0.7)' />;
+    const productIcon = <BsCart4 size={30} color='rgb(0, 153, 255, 0.7)' />;
+    const ordersIcon = <FaCartArrowDown size={30} color='rgb(0, 153, 255, 0.7)' />;
 
     const dispatch = useDispatch();
     const products = useFetchCollection('products');
@@ -34,32 +34,36 @@ const DashboardClient = () => {
     }, [dispatch, data, products])
     
   return (
-    <div className={styles.home}>
-        <Heading title='관리자 대시보드' />
-        <div className={styles.infoBox}>
-            <InfoBox
-                cardClass={`${styles.card} ${styles.card1}`}
-                title={'수익'}
-                count={`${priceFormat(Number(totalOrderAmount))}원`}
-                icon={earningIcon}
-            />
-            <InfoBox 
-                cardClass={`${styles.card} ${styles.card2}`}
-                title={'총 상품'}
-                count={`${products.data.length}개`}
-                icon={productIcon}
-            />
-            <InfoBox 
-                cardClass={`${styles.card} ${styles.card3}`}
-                title={'총 주문건수'}
-                count={`${orders.length}건`}
-                icon={ordersIcon}
-            />
+    <>
+        <div className={styles.title}>
+            <Heading title='관리자 대시보드' />
         </div>
-        <div>
-            <Chart />
+        <div className={styles.dashboard}>
+            <div className={styles.infoBox}>
+                <InfoBox
+                    cardClass={`${styles.card} ${styles.card1}`}
+                    title={'수익'}
+                    count={`${priceFormat(Number(totalOrderAmount))}원`}
+                    icon={earningIcon}
+                />
+                <InfoBox 
+                    cardClass={`${styles.card} ${styles.card2}`}
+                    title={'총 상품'}
+                    count={`${products.data.length}개`}
+                    icon={productIcon}
+                />
+                <InfoBox 
+                    cardClass={`${styles.card} ${styles.card3}`}
+                    title={'총 주문건수'}
+                    count={`${orders.length}건`}
+                    icon={ordersIcon}
+                />
+            </div>
+            <div>
+                <Chart />
+            </div>
         </div>
-    </div>
+    </>
   )
 }
 

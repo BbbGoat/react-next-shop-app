@@ -6,6 +6,8 @@ import { usePathname } from 'next/navigation'
 import { useSelector } from 'react-redux'
 import { selectUserName } from '@/redux/slice/authSlice'
 import Link from 'next/link'
+import { MdDashboard } from "react-icons/md";
+import { RiFileList2Fill, RiFileAddFill, RiShoppingBag2Fill } from "react-icons/ri";
 
 const Navbar = () => {
 
@@ -29,7 +31,8 @@ const Navbar = () => {
               href="/admin/dashboard"
               className={pathname === '/admin/dashboard' ? `${styles.active}` : ''}
             >
-            대시보드
+              <MdDashboard size={18} style={{marginTop: 4}} />
+              <span>대시보드</span>
             </Link>
           </li>
           <li>
@@ -37,7 +40,8 @@ const Navbar = () => {
               href="/admin/all-products"
               className={pathname === '/admin/all-products' ? `${styles.active}` : ''}
             >
-            총 상품
+              <RiFileList2Fill size={18} style={{marginTop: 4}} />
+              <span>총 상품</span>
             </Link>
           </li>
           <li>
@@ -45,7 +49,8 @@ const Navbar = () => {
               href="/admin/add-product"
               className={pathname === '/admin/add-product' ? `${styles.active}` : ''}
             >
-            상품 추가
+              <RiFileAddFill size={18} style={{marginTop: 4}} />
+            <span>상품 추가</span>
             </Link>
           </li>
           <li>
@@ -53,7 +58,8 @@ const Navbar = () => {
               href="/admin/orders"
               className={pathname === '/admin/orders' ? `${styles.active}` : ''}
             >
-            주문
+              <RiShoppingBag2Fill size={18} style={{marginTop: 4}} />
+            <span>주문</span>
             </Link>
           </li>
         </ul>

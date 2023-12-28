@@ -13,6 +13,7 @@ import {
 import { Bar } from 'react-chartjs-2'
 import { useSelector } from 'react-redux'
 import { selectOrderHistory } from '@/redux/slice/orderSlice'
+import { LuBarChart4 } from "react-icons/lu";
 
 ChartJS.register(
   CategoryScale,
@@ -52,7 +53,7 @@ const Chart = () => {
       {
         label: '주문건수',
         data: [placed, processing, shipped, deliverd],
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        backgroundColor: 'rgb(0, 153, 255, 0.5)',
       }
     ]
   };
@@ -77,6 +78,7 @@ const Chart = () => {
   return (
     <div className={styles.charts}>
       <div className={styles.card}>
+        <LuBarChart4 size={18} color={'#777'} style={{marginTop: '3px'}} />
         <h3>주문 상태 차트</h3>
         <Bar data={data} options={options} />
       </div>

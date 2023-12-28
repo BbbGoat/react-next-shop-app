@@ -87,11 +87,14 @@ const AllProductsClient = () => {
   return (
     <>
       {isLoading && <Loader />}
-      <div className={styles.table}>
+      <div className={styles.title}>
         <Heading
           title="모든 상품"
           subtitle={`총 ${filteredProducts.length} 개의 상품`}
         />
+      </div>
+
+      <div className={styles.table}>
         <div className={styles.search}>
           <Search value={search} onChange={(e)=>setSearch(e.target.value)}/>
         </div>

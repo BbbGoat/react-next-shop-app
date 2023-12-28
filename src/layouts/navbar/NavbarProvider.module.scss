@@ -2,11 +2,13 @@
     display: flex;
 
     .navbar {
-        width: 25%;
-        min-height: 80vh;
+        width: 15%;
+        min-height: 100vh;
+        background-color: #f3f7fd;
     }
     .content {
-        width: 75%;
-        padding: 1rem;
+        width: 85%;
+        padding: 2rem;
+        background-color: #fafbff;
     }
 }

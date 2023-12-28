@@ -1,18 +1,32 @@
-.infoBox {
-    display: flex;
-    flex-wrap: wrap;
+.title {
+    display: inline-block;
+    width: 100%;
+    border-bottom: 1px solid var(--border-gray);
+    margin-bottom: 50px;
 }
-.card {
-    border: 1px solid var(--border-gray);
-    padding: 5px;
-    background-color: #f5f6fa;
-}
-.card1 {
-    border-bottom: 3px solid #b624ff;
-}
-.card2 {
-    border-bottom: 3px solid #1f93ff;
-}
-.card3 {
-    border-bottom: 3px solid #4385f4;
+.dashboard {
+    max-width: 936px;
+    margin: 0 auto;
+
+    .infoBox {
+        display: flex;
+        gap: 1rem;
+        /* flex-wrap: nowrap; */
+        justify-content: space-between;
+    }
+    .card {
+        border-radius: 10px;
+        background-color: var(--color-white);
+        box-shadow: 0 1px 2px 0 rgba(105, 105, 105, 0.301),0 1px 3px 1px rgba(85, 85, 85, 0.2);
+        padding: 2rem 3rem;
+    }
+    .card1 {
+        // border-bottom: 3px solid #b624ff;
+    }
+    .card2 {
+        // border-bottom: 3px solid #1f93ff;
+    }
+    .card3 {
+        // border-bottom: 3px solid #4385f4;
+    }
 }
