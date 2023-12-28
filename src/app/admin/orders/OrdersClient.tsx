@@ -9,6 +9,7 @@ import Heading from '@/components/heading/Heading'
 import Loader from '@/components/loader/Loader'
 import priceFormat from '@/utils/priceFormat'
 import { formatTime } from '@/utils/dayjs'
+import { CiCircleAlert } from "react-icons/ci";
 
 const OrdersClient = () => {
 
@@ -36,7 +37,12 @@ const OrdersClient = () => {
         {isLoading && <Loader basic />}
         <div className={styles.table}>
           {orders.length === 0 ? (
-            <p>주문 목록이 없습니다.</p>
+            <>
+            <p className={styles.emptyText}>
+              <CiCircleAlert size={32} />
+              {" "}주문 목록이 없습니다.
+            </p>
+          </>
           ) : (
             <table>
               <thead>
