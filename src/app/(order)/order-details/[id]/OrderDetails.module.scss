@@ -12,7 +12,16 @@
             width: 54px;
             height: 64px;
             margin: 0 auto 30px;
-            // background: url(../../assets/icon_empty_cart.png) no-repeat 0 0;
+        }
+    }
+    .details {
+        font-size: 1.3rem;
+        padding: 1rem 0;
+        line-height: 1.7;
+        margin-bottom: 15px;
+
+        b {
+            margin-right: 10px;
         }
     }
     table {

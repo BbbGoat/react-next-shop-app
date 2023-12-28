@@ -7,19 +7,24 @@
         border-collapse: collapse;
         width: 100%;
         font-size: 1.4rem;
-
         thead {
-            border-top: 2px solid var(--light-blue);
-            border-bottom: 2px solid var(--light-blue);
+            border-top: 1px solid var(--color-black);
+            border-bottom: 1px solid var(--border-gray);
+            width: 100%;
+            height: 50px;
+            font-size: 1.2rem;
+            
+            th {
+                padding: 8px;
+                text-wrap: nowrap;
+                font-weight: normal;
+                text-align: left;
+            }
         }
-        th {
-            border: 1px solid var(--table-border-gray);
-        }
-        th,
         td {
             vertical-align: top;
-            text-align: left;
-            padding: 8px;
+            padding: 10px;
+            font-size: 1.2rem;
 
             &.icons {
                 margin-right: 5px;
