@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import Loader from '@/components/loader/Loader';
 import Image from 'next/image';
 import Input from '@/components/input/Input';
-import LogoPath from '@/assets/logo.png';
+import LogoPath from '@/assets/logo.svg';
 import Link from 'next/link';
 import Button from '@/components/button/Button';
 import { toast } from 'react-toastify';
@@ -59,7 +59,7 @@ const LoginClient = () => {
             <div className={styles.container}>
                 <h1 className={styles.logo}>
                     <Link href={'/'}>
-                        <Image src={LogoPath} alt="logo" />
+                        <Image src={LogoPath} alt="logo" width={300} />
                     </Link>
                 </h1>
 

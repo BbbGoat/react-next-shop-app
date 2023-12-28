@@ -8,7 +8,7 @@ import Loader from '@/components/loader/Loader'
 import styles from '../login/LoginClient.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
-import LogoPath from '@/assets/logo.png';
+import LogoPath from '@/assets/logo.svg';
 import Input from '@/components/input/Input'
 import Button from '@/components/button/Button'
 
@@ -51,7 +51,7 @@ const RegisterClient = () => {
             <div className={styles.container}>
                 <h1 className={styles.logo}>
                     <Link href={'/'}>
-                        <Image src={LogoPath} alt="logo" />
+                        <Image src={LogoPath} alt="logo" width={300} />
                     </Link>
                 </h1>
 
