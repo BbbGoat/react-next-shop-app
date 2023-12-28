@@ -16,6 +16,12 @@
     .details {
         font-size: 1.3rem;
         padding: 1rem 0;
+        line-height: 1.7;
+        margin-bottom: 15px;
+
+        b {
+            margin-right: 10px;
+        }
     }
     table {
         border-collapse: collapse;
