@@ -1,4 +1,13 @@
+.title {
+  display: inline-block;
+  width: 100%;
+  border-bottom: 1px solid var(--border-gray);
+  margin-bottom: 50px;
+}
 .product {
+    max-width: 936px;
+    margin: 0 auto;
+    
     .card {
       width: 100%;
       max-width: 500px;

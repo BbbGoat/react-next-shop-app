@@ -150,8 +150,10 @@ const AddProductClient = () => {
   return (
     <>
         {isLoading && <Loader />}
-        <div className={styles.product}>
+        <div className={styles.title}>
             <Heading title='새 상품 생성하기' />
+        </div>
+        <div className={styles.product}>
             <form onSubmit={addProduct}>
                 <label>상품 이름:</label>
                 <input 
