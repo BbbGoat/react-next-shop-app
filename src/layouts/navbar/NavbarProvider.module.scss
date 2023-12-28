@@ -1,13 +1,14 @@
 .admin {
     display: flex;
+    width: 100%;
 
     .navbar {
-        width: 15%;
+        min-width: 256px;
         min-height: 100vh;
         background-color: #f3f7fd;
     }
     .content {
-        width: 85%;
+        width: 100%;
         padding: 2rem;
         background-color: #fafbff;
     }

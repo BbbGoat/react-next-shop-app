@@ -1,8 +1,9 @@
 .navbar {
-    position: relative;
+    position: fixed;
     border-right: 1px solid var(--border-gray);
+    width: 256px;
     height: 100%;
-    min-height: 88vh;
+    // min-height: 88vh;
     
     .logo {
         padding-top: 3.8rem;
@@ -19,7 +20,7 @@
         }
     }
     .active {
-        color: rgb(0, 153, 255, 0.7);
+        color: rgb(0, 153, 255);
     }
     .user {
         display: flex;
