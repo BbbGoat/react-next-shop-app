@@ -20,6 +20,7 @@ import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import { LiaExternalLinkAltSolid } from "react-icons/lia";
 import Pagination from "@/components/pagination/Pagination";
 import { getErrorMessage } from "@/utils/getErrorMessage";
+import { CiCircleAlert } from "react-icons/ci";
 
 
 const AllProductsClient = () => {
@@ -99,7 +100,12 @@ const AllProductsClient = () => {
           <Search value={search} onChange={(e)=>setSearch(e.target.value)}/>
         </div>
         {currentProducts.length === 0 ? (
-          <p>상품이 없습니다.</p>
+          <>
+            <p className={styles.emptyText}>
+              <CiCircleAlert size={32} />
+              {" "}상품이 없습니다.
+            </p>
+          </>
         ):(
           <table>
             <thead>
