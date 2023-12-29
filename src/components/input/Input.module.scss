@@ -7,6 +7,10 @@
         display: inline-flex;
         min-width: 296px;
         border: 1px solid var(--border-gray);
+        border-radius: 5px;
+        
+        input {
+        }
     }
     .inputWrapperError {
         position: relative;
@@ -53,6 +57,7 @@
     }
     .button {
         cursor: pointer;
+        background-color: transparent;
         border: 0;
         padding: 0;
         

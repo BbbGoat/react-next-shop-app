@@ -1,10 +1,10 @@
 import React from 'react'
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 
-import letterPath from './images/shape=letter.svg'
-import lockPath from './images/shape=lock.svg'
-import showPath from './images/shape=show.svg'
-import hidePath from './images/shape=hide.svg'
+import letterPath from './images/letter.png'
+import lockPath from './images/lock.png'
+import showPath from './images/show.png'
+import hidePath from './images/hide.png'
 
 interface IIconProps {
     type: 'letter' | 'lock' | 'show' | 'hide';
@@ -14,7 +14,7 @@ interface IIconProps {
 
 const Icon = ({ type, alt = '', ...restProps }: IIconProps) => {
 
-    let src = '';
+    let src: StaticImageData;
 
     switch(type) {
         case 'letter':
@@ -35,7 +35,9 @@ const Icon = ({ type, alt = '', ...restProps }: IIconProps) => {
     }
     
   return (
-    <Image src={src} alt={alt} {...restProps} />
+    <div style={{width: 50, height:50, padding: 7}}>
+      <Image src={src} alt={alt} width={36} {...restProps} />
+    </div>
   )
 }
 
