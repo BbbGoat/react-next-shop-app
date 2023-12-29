@@ -94,14 +94,14 @@ const LoginClient = () => {
                         <Link href={"/reset"} className={styles.findLink}>
                             비밀번호 수정하기
                             <svg
-                                width="11"
-                                height="18"
+                                width="7"
+                                height="16"
                                 viewBox="0 0 11 18"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
                                 className={styles.findLinkArrow}
                             >
-                                <path d="M1.5 1L9.5 9L1.5 17" stroke="#7a0303" strokeWidth="2" />
+                                <path d="M1.5 1L9.5 9L1.5 17" stroke="#000" strokeWidth="1.5" />
                             </svg>
                         </Link>
                     </div>

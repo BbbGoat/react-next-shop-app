@@ -5,8 +5,9 @@
     justify-content: center;
     align-items: center;
     border: 0;
-    padding: 1rem 3rem;
-    box-shadow: var(--box-shadow);
+    border-radius: 5px;
+    padding: 1.2rem 3rem;
+    // box-shadow: var(--box-shadow);
 
     &[disabled] {
         cursor: not-allowed;
@@ -25,7 +26,8 @@
 
 .secondary {
     background: var(--color-white);
-    color: var(--color-primary);
+    color: var(--color-black);
+    border: 1px solid #cacacb;
     
     &[disabled] {
         background: var(--light-gray);

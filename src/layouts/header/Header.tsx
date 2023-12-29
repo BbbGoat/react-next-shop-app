@@ -174,6 +174,9 @@ const Header = () => {
                 </>
               ) : (
                 <div className={styles.loginButton}>
+                  <button className={styles.adminButton} type='button' title='관리자 페이지' aria-label='관리자 페이지' >
+                    <PiPresentationChartThin size={25} onClick={handleClick}/>
+                  </button>
                   <Link href={"/login"} role='button' title='로그인' aria-label='로그인'>
                     <CiUser size={25} />
                   </Link>

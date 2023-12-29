@@ -159,10 +159,10 @@ const ProductDetailsClient = () => {
               </div>
 
               <div className={styles.btnBox}>
-                <Button width="50%" secondary onClick={() => addToCart()}>
+                <Button width="100%" secondary onClick={() => addToCart()}>
                   장바구니
                 </Button>
-                <Button width="50%">바로구매</Button>
+                <Button width="100%">바로구매</Button>
               </div>
 
               <div className={styles.delivery}>

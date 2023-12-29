@@ -27,7 +27,7 @@
                 .findLink {
                     color: var(--color-primary);
                     text-decoration: none;
-                    font-size: 1.4rem;
+                    font-size: 1.2rem;
                 }
                 .findLinkArrow {
                     margin-left: 6px;
@@ -36,6 +36,10 @@
             }
             .buttonGroup {
                 margin: 2rem 0;
+
+                button {
+                    margin-bottom: 10px;
+                }
             }
         }
     }

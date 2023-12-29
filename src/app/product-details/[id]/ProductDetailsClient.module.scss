@@ -165,6 +165,10 @@
         .btnBox {
             margin-bottom: 60px;
             width: 100%;
+
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
         }
         .delivery {
             margin-bottom: 60px;
