@@ -16,6 +16,7 @@ import 'swiper/css/pagination';
 interface IMainSliderProps {
   sliderData: {
     image: string;
+    image2: string;
     name: string;
     heading: string;
     title: string;
@@ -54,12 +55,15 @@ const MainSlider = ({sliderData}: IMainSliderProps) => {
       >
         {
           sliderData.map((data, idx)=>{
-            const { image, heading, title, desc, name } = data;
+            const { image, image2, heading, title, desc, name } = data;
             return(
               <SwiperSlide key={idx}>
                 <Link href={`/product-details/${name}`}>
-                  {/* !!!이미지 주소 배포시 수정해야함!!! */}
-                  <Image src={img} alt={name} />
+                  <picture>
+                    <source srcSet={image2} media='(min-width:1200px)'/>
+                    <source srcSet={image} media='(min-width:960px)'/>
+                    <img src={image2} alt={name} />
+                  </picture>
                   <div className={styles.titWrap}>
                     <span>{heading.toUpperCase()}</span>
                     <div className={styles.titInner}>

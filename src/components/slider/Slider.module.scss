@@ -8,20 +8,26 @@
     grid-template-columns: repeat(auto-fit, minmax(400px, auto));
     grid-auto-flow: dense;
     justify-content: space-between;
+
+    padding: 0 2.5rem;
 }
 
 // 미디어쿼리
 @import '../../styles/mixin';
 
 @include mobile {
+    .wrapper {
+    }
 }
 @include tablet {
     .wrapper {
-        grid-template-columns: repeat(3, 500px);
+        grid-column-gap: 3rem;
+        // grid-template-columns: repeat(3, 500px);
     }
 }
 @include desktop {
     .wrapper {
-        grid-template-columns: repeat(3, 500px);
+        // grid-column-gap: 50px;
+        // grid-template-columns: repeat(3, 500px);
     }
 }

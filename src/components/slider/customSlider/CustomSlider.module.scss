@@ -1,8 +1,6 @@
 .slider {
     width: 100%;
-    // max-width: 500px;
     margin: 0 auto;
-    // margin-top: 3rem;
     overflow: hidden;
 
     .heading {
@@ -11,7 +9,6 @@
         .title {
             font-size: 2.5rem;
             font-weight: 300;
-            // padding-bottom: 20px;
         }
         .subtitle {
             font-size: 1.4rem;
@@ -29,6 +26,8 @@
             margin-bottom: 20px;
 
             .thumb {
+                height: 375px;
+                
                 img {
                     width: 100%;
                     height: 100%;

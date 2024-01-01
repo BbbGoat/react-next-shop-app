@@ -1,8 +1,6 @@
 .slider {
     width: 100%;
-    // max-width: 500px;
     margin: 0 auto;
-    // margin-top: 3rem;
     overflow: hidden;
 
     .heading {
@@ -11,7 +9,6 @@
         .title {
             font-size: 2.5rem;
             font-weight: 300;
-            // padding-bottom: 20px;
         }
         .subtitle {
             font-size: 1.4rem;
@@ -24,7 +21,7 @@
     
 
         .item {
-            width: 157px;
+            max-width: 157px;
             
             .thumb {
                 background-color: #ccc;    
@@ -47,6 +44,12 @@
                 white-space: normal;
         
                 .brand {
+                    display: -webkit-box;
+                    -webkit-line-clamp: 1;
+                    -webkit-box-orient: vertical;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+
                     font-size: 1.4rem;
                     margin-bottom: 3px;
                 }
@@ -114,7 +117,16 @@
 // 미디어쿼리
 @import '../../../styles/mixin';
 
-@include mobile {
+// @include mobile {
+//     .desktopSwiper {
+//         display: none;
+//     }
+//     .mobileSwiper {
+//         display: block;
+//     }
+// }
+
+@media screen and (max-width: 912px) {
     .desktopSwiper {
         display: none;
     }
