@@ -94,7 +94,7 @@ const ProductFilter = () => {
       </div>
       <div className={styles.divider}></div>
       
-      <div className={styles.wrap}>
+      <div className={`${styles.wrap} ${styles.sortWrap}`}>
         <h4>정렬</h4>
         <ul className={styles.sort}>
           <li className={isRadioSelected('latest') ? styles.selected : ""}>
@@ -133,7 +133,7 @@ const ProductFilter = () => {
       </div>
       <div className={styles.divider}></div>
 
-      <div className={styles.wrap}>  
+      <div className={`${styles.wrap} ${styles.priceWrap}`}>  
         <h4>가격</h4>
         <p>{priceFormat(Number(price))}원</p>
 

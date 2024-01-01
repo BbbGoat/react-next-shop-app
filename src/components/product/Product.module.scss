@@ -18,3 +18,28 @@
     
 }
 
+// 미디어쿼리
+@import '../../styles/mixin';
+
+@include mobile {
+    .product {
+        flex-direction: column;
+
+        .content {
+            padding-left: 0;
+        }
+    }
+}
+@include tablet {
+    .product {
+        flex-direction: column;
+
+        .content {
+            padding-left: 0;
+        }
+    }
+    
+}
+@include desktop {
+    
+}

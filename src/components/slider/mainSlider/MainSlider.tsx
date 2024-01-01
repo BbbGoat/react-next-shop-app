@@ -50,7 +50,7 @@ const MainSlider = ({sliderData}: IMainSliderProps) => {
         slidesPerView={1}
         loop={true}
         speed={400}
-        // autoplay={{ delay: 3000, disableOnInteraction: false }}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
         onActiveIndexChange={(e)=>setSwiperIndex(e.realIndex)}
         onSwiper={(e) => {setSwiper(e)}}
       >

@@ -92,11 +92,12 @@
                     width: 173px;
                     border: 1px solid var(--border-gray);
                     // cursor: pointer;
-    
+                    
                     img {
                         width: 100%;
                         height: 100%;
                         object-fit: cover;
+                        vertical-align: middle;
                     }
                 }
             }
