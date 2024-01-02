@@ -186,6 +186,13 @@ const ProductDetailsClient = () => {
         </section>
       )}
 
+      <div className={styles.mbtnBox}>
+        <Button width="100%" secondary onClick={() => addToCart()}>
+          장바구니
+        </Button>
+        <Button width="100%">바로구매</Button>
+      </div>
+
       <section className={styles.section2}>
         <div className={styles.tab_menu}>
           <ul className={styles.tab_nav}>

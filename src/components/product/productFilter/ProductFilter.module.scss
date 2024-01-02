@@ -146,7 +146,6 @@
 @include mobile {
     .filter {
         .title {
-            // display: none;
             height: 50px;
 
             h3 {
@@ -281,9 +280,6 @@
 
             h4 {
                 display: none;
-                // display: block;
-                // font-size: 1.4rem;
-                // margin-bottom: 0;
             }
             .price {
                 min-width: 250px;
@@ -340,6 +336,4 @@
             border-radius: 30px;
         }
     }
-}
-@include desktop {
 }

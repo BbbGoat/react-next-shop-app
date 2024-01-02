@@ -6,6 +6,20 @@
         display: flex;
         margin-top: 60px;
     }
+    .mbtnBox {
+        display: none;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        gap: 0;
+        margin-bottom: 0;
+        z-index: 9999;
+
+        button {
+            border-radius: 0;
+        }
+    }
     
     .gallery {
         width: 50%;
@@ -342,6 +356,68 @@
                 line-height: 1.5;
                 font-size: 14px;
                 border-bottom: 1px solid var(--border-gray);
+            }
+        }
+    }
+}
+
+
+// 미디어쿼리
+@import '../../../styles/mixin';
+
+@include mobile {
+    .product {
+        padding: 0 2.5rem;
+
+        .mbtnBox {
+            display: flex;
+        }
+        .section1 {
+            flex-direction: column-reverse;
+        }
+        .gallery {
+            width: 100%;
+            padding-right: 0;
+        }
+        .info {
+            width: 100%;
+            padding-left: 0;
+    
+            .header {
+                .brand {
+                    font-size: 1.2rem;
+                    margin-bottom: 15px;
+                }
+                .name {
+                    font-size: 1.7rem;
+                    margin-bottom: 15px;
+                }
+                .price {
+                    font-size: 1.7rem;
+                    margin-bottom: 30px;
+    
+                    .totalPrice {
+                        span:nth-child(1) {
+                            font-size: 1.7rem;
+                            font-weight: 600;
+                        }
+                    }
+                    .percent {
+                        font-weight: 600;
+                    }
+                }
+            }
+            .btnBox {
+                display: none;
+            }
+            .optionBox {
+                display: none;
+            }
+        }
+        .content {
+            width: 100%;
+            .header {
+                width: auto;
             }
         }
     }
