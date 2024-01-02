@@ -407,11 +407,19 @@
                     }
                 }
             }
+            .optionBox {
+                display: none;
+            }
             .btnBox {
                 display: none;
             }
-            .optionBox {
-                display: none;
+            .delivery {
+                .list {
+                    font-size: 1rem;
+                    li~li {
+                        margin-top: 10px;
+                    }
+                }
             }
         }
         .content {
