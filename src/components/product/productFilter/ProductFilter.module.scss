@@ -187,7 +187,7 @@
             }
             p {
                 flex: auto;
-                margin-left: 20px;
+                margin-left: 15px;
                 width: 120px;
             }
             .price {
@@ -201,11 +201,14 @@
         .category {
             display: flex;
             flex-direction: row;
-            width: 150px;
             min-height: auto;
 
             button {
+                font-size: 1.2rem;
                 height: 31px;
+            }
+            button + button {
+                margin-left: 15px;
             }
         }
         button+button {
