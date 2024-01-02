@@ -1,6 +1,4 @@
 .contact {
-    // background: #f3f3f3;
-    // padding: 60px 40px;
 
     .grid {
         display: grid;
@@ -120,6 +118,56 @@
                 margin-right: 10px;
                 color: #000;
                 vertical-align: middle;
+            }
+        }
+    }
+}
+
+// 미디어쿼리
+@import '../../styles//mixin';
+
+@include mobile {
+    .contact {
+        .grid {
+            grid-template-columns: auto;
+    
+            .col1 {
+                border-right: 0;
+                .inner {
+                    margin: 0 2.5rem;
+                }
+            }
+        }
+    }
+    .info {
+        padding: 0;
+
+        .wrapper {
+            padding: 0;
+            flex-direction: column;
+
+            .menuwrap {
+                padding: 0 2.5rem;
+                width: 100%;
+                border-bottom: 1px solid #ccc;
+                cursor: pointer;
+            }
+            .title {
+                position: relative;
+                padding: 20px 0;
+
+                &::before {
+                    content: '+';
+                    height: 12px;
+                    width: 13px;
+                    display: inline-block;
+                    right: 0;
+                    position: absolute;
+                }
+            }
+            ul {
+                height: 0;
+                overflow: hidden;
             }
         }
     }
