@@ -2,4 +2,19 @@
     max-width: 1020px;
     margin: 3rem auto;
     
+    .btn {
+        button {
+            width: 100%;
+        }
+    }
+}
+
+// 미디어쿼리
+@import '../../../styles/mixin';
+
+@include mobile {
+    .checkout {
+        padding: 0 2.5rem;
+    }
+    
 }

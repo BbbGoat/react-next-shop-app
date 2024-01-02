@@ -103,7 +103,7 @@ const CheckoutClient = () => {
           <div className={styles.card}>
             <CheckoutForm />
           </div>
-          <div>
+          <div className={styles.btn}>
             <Button type="submit">
               토스를 이용해서 결제하기
             </Button>
