@@ -152,7 +152,7 @@ const ProductFilter = () => {
       <div className={styles.resetBtn}>
         <Button onClick={clearFilters} width='100%' >
           필터 초기화
-          <MdRefresh size={16} />
+          <MdRefresh size={17} />
         </Button>
       </div>
       

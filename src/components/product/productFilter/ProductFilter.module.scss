@@ -144,6 +144,98 @@
 @import '../../../styles/mixin';
 
 @include mobile {
+    .filter {
+        .title {
+            // display: none;
+        }
+        .wrap {
+            padding: 1rem 0;
+
+            h4 {
+                display: none;
+            }
+        }
+        .catWrap {
+            float: left;
+        }
+        .sortWrap {
+            float: right;
+        }
+        .priceWrap {
+            float: left;
+            display: flex;
+            width: 100%;
+            // gap: 20px;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+
+            h4 {
+                display: block;
+                margin-bottom: 0;
+                font-size: 1.2rem;
+            }
+            p {
+                flex: auto;
+                margin-left: 20px;
+                width: 120px;
+            }
+            .price {
+                // padding-left: 80px;
+                min-width: 250px;
+            }
+        }
+        .category {
+            display: flex;
+            flex-direction: row;
+            width: 150px;
+            min-height: auto;
+
+            button {
+                height: 31px;
+            }
+        }
+        button+button {
+            margin-top: auto;
+        }
+        .sort {
+            flex-direction: row;
+            min-height: auto;
+            gap: 5px;
+            .selected::before {
+                display: none;
+            }
+
+            li {
+                border: 1px solid #ccc;
+                width: 65px;
+                height: 30px;
+                text-align: center;
+                line-height: 2;
+                border-radius: 30px;
+            }
+            label {
+                font-size: 1.2rem;
+            }
+        }
+        .divider {
+            border-top: 1px solid var(--color-black);
+        }
+        .clear {
+            clear: both;
+        }
+    }
+    .active::before {
+        display: none;
+    }
+    .resetBtn {
+        margin: 1rem 0;
+        button {
+            width: 143px;
+            height: 38px;
+            border-radius: 30px;
+        }
+    }
 }
 @include tablet {
     .filter {
@@ -228,7 +320,7 @@
         margin: 1rem 0;
         button {
             width: 143px;
-            height: 37px;
+            height: 38px;
             border-radius: 30px;
         }
     }
