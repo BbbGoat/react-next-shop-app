@@ -10,3 +10,13 @@
 .divider {
     border-top: 3px solid var(--color-black);
 }
+
+
+// 미디어쿼리
+@import '../../../styles/mixin';
+
+@include tablet {
+    .productList {
+        margin: 0 auto;
+    }
+}

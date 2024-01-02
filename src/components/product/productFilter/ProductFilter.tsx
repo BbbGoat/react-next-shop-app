@@ -6,6 +6,7 @@ import Button from '@/components/button/Button';
 import { useParams } from 'next/navigation';
 import { selectMaxPrice, selectMinPrice, selectProducts } from '@/redux/slice/productSlice';
 import { FILTER_BY_PRICE, FILTER_BY_SORT, SORT_PRODUCTS, selectFilteredProducts, selectFilteredProductsOrigin, selectFilteredSort } from '@/redux/slice/filterSlice';
+import { MdRefresh } from "react-icons/md";
 
 const ProductFilter = () => {
 
@@ -73,7 +74,7 @@ const ProductFilter = () => {
         <span>({id})</span>
       </div>
       <div className={styles.divider}></div>
-      <div className={styles.wrap}>  
+      <div className={`${styles.wrap} ${styles.catWrap}`}>  
         <h4>카테고리</h4>
         <div className={styles.category}>
           {
@@ -131,7 +132,7 @@ const ProductFilter = () => {
           </li>
         </ul>
       </div>
-      <div className={styles.divider}></div>
+      <div className={`${styles.divider} ${styles.clear}`}></div>
 
       <div className={`${styles.wrap} ${styles.priceWrap}`}>  
         <h4>가격</h4>
@@ -148,9 +149,12 @@ const ProductFilter = () => {
         </div>
       </div>
 
-      <Button onClick={clearFilters} width='100%'>
-        필터 초기화
-      </Button>
+      <div className={styles.resetBtn}>
+        <Button onClick={clearFilters} width='100%' >
+          필터 초기화
+          <MdRefresh size={16} />
+        </Button>
+      </div>
       
     </div>
   )

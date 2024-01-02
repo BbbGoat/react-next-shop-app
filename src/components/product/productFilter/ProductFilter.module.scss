@@ -157,28 +157,39 @@
                 display: none;
             }
         }
+        .catWrap {
+            float: left;
+        }
         .sortWrap {
             float: right;
-            margin-top: 6px;
         }
         .priceWrap {
+            float: left;
             display: flex;
             gap: 20px;
             justify-content: flex-start;
             align-items: center;
-            flex-direction: row;
+            flex-direction: row-reverse;
 
             h4 {
-                display: block;
-                font-size: 1.4rem;
-                margin-bottom: 0;
+                display: none;
+                // display: block;
+                // font-size: 1.4rem;
+                // margin-bottom: 0;
+            }
+            .price {
+                min-width: 250px;
             }
         }
         .category {
             display: flex;
             flex-direction: row;
-            width: 300px;
+            width: 240px;
             min-height: auto;
+
+            button {
+                height: 36px;
+            }
         }
         button+button {
             margin-top: auto;
@@ -205,9 +216,21 @@
         .divider {
             border-top: 1px solid var(--color-black);
         }
+        .clear {
+            clear: both;
+        }
     }
     .active::before {
         display: none;
+    }
+    .resetBtn {
+        float: right;
+        margin: 1rem 0;
+        button {
+            width: 143px;
+            height: 37px;
+            border-radius: 30px;
+        }
     }
 }
 @include desktop {
