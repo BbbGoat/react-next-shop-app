@@ -1,5 +1,5 @@
 .order {
-    width: 1020px;
+    max-width: 1020px;
     margin: 3rem auto;
     min-height: 44.6vh;
 
@@ -46,5 +46,32 @@
     .delivered {
         color: green;
         font-weight: 500;
+    }
+}
+
+// 미디어쿼리
+@import '../../../styles/mixin';
+
+@include mobile {
+    .order {
+        padding: 0 2.5rem;
+
+        table {
+            thead {
+                th {
+                    text-wrap: wrap;
+                    padding: 10px 5px;
+                }
+            }
+            td {
+                padding: 10px 5px;
+            }
+        }
+    }
+}
+
+@include tablet {
+    .order {
+        padding: 0 2.5rem;
     }
 }
