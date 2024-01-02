@@ -383,6 +383,9 @@
 
         .mImageBox {
             display: block;
+            .inner {
+                height: 65vh;
+            }
         }
         .mbtnBox {
             display: flex;
