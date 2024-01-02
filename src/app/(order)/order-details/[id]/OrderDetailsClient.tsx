@@ -77,7 +77,7 @@ const OrderDetailsClient = () => {
                       <td>{priceFormat(salePrice * cartQuantity)}원</td>
                       <td className={styles.icons}>
                         <Button onClick={()=>handleClick(id)}>
-                          상품 리뷰하기
+                          리뷰작성
                         </Button>
                       </td>
                     </tr>
