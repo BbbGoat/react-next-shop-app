@@ -79,111 +79,122 @@ const ProductDetailsClient = () => {
       {product === null ? (
         <Loader />
       ) : (
-        <section className={styles.section1}>
-          <div className={styles.gallery}>
-            <div className={styles.content}>
-              <div className={styles.imgWrap}>
-                {image.sort((a,b)=>a.localeCompare(b)).map((src: string, idx: number) => {
-                  return (
-                    <div className={styles.item} key={idx}>
-                      <div className={styles.inner}>
-                        <Image src={src} alt={"상세 이미지"} width={670} height={800} />
-                      </div>
-                    </div>
-                  );
-                })}
+        <>
+           {/* 모바일 노출용 썸네일 박스 */}
+           <div className={styles.mImageBox}>
+            <div className={styles.thumb}>
+              <div className={styles.inner}>
+                <Image src={product.thumbnailURL} alt={"대표 이미지"} width={670} height={800} />
               </div>
             </div>
           </div>
-
-          <div className={styles.info}>
-            <div className={styles.content}>
-              <div className={styles.header}>
-                <p className={styles.brand}>{product.brand.toUpperCase()}</p>
-                <p className={styles.name}>{product.name}</p>
-                <div className={styles.price}>
-                  <p className={styles.originPrice}>
-                    {product.originPrice != product.salePrice ? priceFormat(product.originPrice) : null}
-                  </p>
-                  <p className={styles.totalPrice}>
-                    <span>{priceFormat(product.salePrice)}</span>
-                    <span className={styles.percent}>
-                      {product.originPrice === product.salePrice ? null : (
-                        <>
-                          {Math.round(
-                            Math.abs(((product.salePrice - product.originPrice) / product.originPrice) * 100)
-                          )}
-                          % OFF
-                        </>
-                      )}
-                    </span>
-                  </p>
-                </div>
-              </div>
-
-              <div className={styles.optionBox}>
-                <p>제품 이미지</p>
+          
+          <section className={styles.section1}>
+            <div className={styles.gallery}>
+              <div className={styles.content}>
                 <div className={styles.imgWrap}>
                   {image.sort((a,b)=>a.localeCompare(b)).map((src: string, idx: number) => {
                     return (
-                      <div className={styles.optionList} key={idx}>
-                        <Image src={src} alt={"상세 이미지"} width={158} height={211} />
+                      <div className={styles.item} key={idx}>
+                        <div className={styles.inner}>
+                          <Image src={src} alt={"상세 이미지"} width={670} height={800} />
+                        </div>
                       </div>
                     );
                   })}
                 </div>
               </div>
+            </div>
 
-              <div className={styles.divider}></div>
-
-              <div className={styles.countBox}>
-                <div className={styles.titleWrap}>
-                  <p className={styles.tit}>합계</p>
-                  <p className={styles.totalAmount}>{priceFormat(product.salePrice * count)}원</p>
+            <div className={styles.info}>
+              <div className={styles.content}>
+                <div className={styles.header}>
+                  <p className={styles.brand}>{product.brand.toUpperCase()}</p>
+                  <p className={styles.name}>{product.name}</p>
+                  <div className={styles.price}>
+                    <p className={styles.originPrice}>
+                      {product.originPrice != product.salePrice ? priceFormat(product.originPrice) : null}
+                    </p>
+                    <p className={styles.totalPrice}>
+                      <span>{priceFormat(product.salePrice)}</span>
+                      <span className={styles.percent}>
+                        {product.originPrice === product.salePrice ? null : (
+                          <>
+                            {Math.round(
+                              Math.abs(((product.salePrice - product.originPrice) / product.originPrice) * 100)
+                            )}
+                            % OFF
+                          </>
+                        )}
+                      </span>
+                    </p>
+                  </div>
                 </div>
-                <div className={styles.countBtn}>
-                  <button
-                    className={styles.mimus}
-                    onClick={() => setCount((prev) => prev - 1)}
-                    disabled={count > 1 ? false : true}
-                  >
-                    -
-                  </button>
-                  <p>
-                    <b>{priceFormat(count)}</b>
-                  </p>
-                  <button className={styles.plus} onClick={() => setCount((next) => next + 1)}>
-                    +
-                  </button>
+
+                <div className={styles.optionBox}>
+                  <p>제품 이미지</p>
+                  <div className={styles.imgWrap}>
+                    {image.sort((a,b)=>a.localeCompare(b)).map((src: string, idx: number) => {
+                      return (
+                        <div className={styles.optionList} key={idx}>
+                          <Image src={src} alt={"상세 이미지"} width={158} height={211} />
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
 
-              <div className={styles.btnBox}>
-                <Button width="100%" secondary onClick={() => addToCart()}>
-                  장바구니
-                </Button>
-                <Button width="100%">바로구매</Button>
-              </div>
+                <div className={styles.divider}></div>
 
-              <div className={styles.delivery}>
-                <ul className={styles.list}>
-                  <li>
-                    <span className={styles.tit}>배송비</span>
-                    <span>30,000이상 구매시 무료(도서산간추가 3000원)</span>
-                  </li>
-                  <li>
-                    <span className={styles.tit}>마일리지</span>
-                    <span>최대 6% 적립</span>
-                  </li>
-                  <li>
-                    <span className={styles.tit}>포인트</span>
-                    <span>0.1% 적립</span>
-                  </li>
-                </ul>
+                <div className={styles.countBox}>
+                  <div className={styles.titleWrap}>
+                    <p className={styles.tit}>합계</p>
+                    <p className={styles.totalAmount}>{priceFormat(product.salePrice * count)}원</p>
+                  </div>
+                  <div className={styles.countBtn}>
+                    <button
+                      className={styles.mimus}
+                      onClick={() => setCount((prev) => prev - 1)}
+                      disabled={count > 1 ? false : true}
+                    >
+                      -
+                    </button>
+                    <p>
+                      <b>{priceFormat(count)}</b>
+                    </p>
+                    <button className={styles.plus} onClick={() => setCount((next) => next + 1)}>
+                      +
+                    </button>
+                  </div>
+                </div>
+
+                <div className={styles.btnBox}>
+                  <Button width="100%" secondary onClick={() => addToCart()}>
+                    장바구니
+                  </Button>
+                  <Button width="100%">바로구매</Button>
+                </div>
+
+                <div className={styles.delivery}>
+                  <ul className={styles.list}>
+                    <li>
+                      <span className={styles.tit}>배송비</span>
+                      <span>30,000이상 구매시 무료(도서산간추가 3000원)</span>
+                    </li>
+                    <li>
+                      <span className={styles.tit}>마일리지</span>
+                      <span>최대 6% 적립</span>
+                    </li>
+                    <li>
+                      <span className={styles.tit}>포인트</span>
+                      <span>0.1% 적립</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </>
       )}
 
       <div className={styles.mbtnBox}>
