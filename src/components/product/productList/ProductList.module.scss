@@ -15,6 +15,11 @@
 // 미디어쿼리
 @import '../../../styles/mixin';
 
+@include mobile {
+    .productList {
+        margin: 0 auto;
+    }
+}
 @include tablet {
     .productList {
         margin: 0 auto;

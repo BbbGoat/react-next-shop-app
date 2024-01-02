@@ -147,6 +147,17 @@
     .filter {
         .title {
             // display: none;
+            height: 50px;
+
+            h3 {
+                font-size: 2.4rem;
+                bottom: auto;
+            }
+            span {
+                bottom: 15px;
+                left: 66px;
+                font-size: 1.2rem;
+            }
         }
         .wrap {
             padding: 1rem 0;
@@ -165,7 +176,6 @@
             float: left;
             display: flex;
             width: 100%;
-            // gap: 20px;
             justify-content: space-between;
             align-items: center;
             flex-direction: row;
@@ -181,8 +191,11 @@
                 width: 120px;
             }
             .price {
-                // padding-left: 80px;
                 min-width: 250px;
+
+                input {
+                    margin: 5px 0;
+                }
             }
         }
         .category {
