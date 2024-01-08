@@ -47,7 +47,13 @@
         white-space: normal;
 
         .brand {
-            font-size: 1.4rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            overflow: hidden;
+
+            font-size: 1.2rem;
             margin-bottom: 3px;
         }
         .name {

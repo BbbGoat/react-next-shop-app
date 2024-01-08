@@ -1,6 +1,6 @@
 const PreOrderData = [
     {
-        thumb: 'https://images.unsplash.com/photo-1646614700385-b43d7effc791?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODh8fCVFQiVBQyVCNCVFQiVBMyU4QyUyMCVFQyU4MiVBQyVFQyVBNyU4NHxlbnwwfHwwfHx8MA%3D%3D',
+        thumb: 'https://firebasestorage.googleapis.com/v0/b/react-next-pj-app.appspot.com/o/prd%2Fpreorder_ban-1.jpg?alt=media&token=191734f0-f2ac-445c-a14c-6789dfe999a7',
         title: 'WINDER 23FW COLLECTION 1ST PRE-ORDER',
         description: 'UP TO 25% + 10% COUPON',
         list: [
@@ -54,37 +54,6 @@ const PreOrderData = [
             },
         ]
     },
-    {
-        thumb: 'https://images.unsplash.com/photo-1646958562084-c0e1a6c89349?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzh8fCVFQiVBQyVCNCVFQiVBMyU4QyUyMCVFQyU4MiVBQyVFQyVBNyU4NHxlbnwwfHwwfHx8MA%3D%3D',
-        title: 'fjhfh jsdafds faa dsfd asff asddfa sgf',
-        description: 'qasdffaswer',
-        list: [
-            {
-                imageURL: '',
-                brand: 'COSMOS STUDIO',
-                name: '[페이백이벤트] 23FW CSMS 01 DONUT',
-                price: 265000,
-                discount: 20,
-                src: '/product-details/item1',
-            },
-            {
-                imageURL: '',
-                brand: 'COSMOS STUDIO',
-                name: '[페이백이벤트] 23FW CSMS 01 DONUT',
-                price: 265000,
-                discount: 20,
-                src: '/product-details/item1',
-            },
-            {
-                imageURL: '',
-                brand: 'COSMOS STUDIO',
-                name: '[페이백이벤트] 23FW CSMS 01 DONUT',
-                price: 265000,
-                discount: 20,
-                src: '/product-details/item1',
-            },
-        ]
-    }
 ]
 
 export default PreOrderData;
