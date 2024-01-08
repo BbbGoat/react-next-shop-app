@@ -65,7 +65,7 @@ const BrandData = [
                 name: '[MEN] 23FW RED ADC LOGO WOOL CREWNECK SWEATER GREY BFUKS006.018 084',
                 originPrice: 546000,
                 salePrice: 327000,
-                src: '/product-details/h9lGsYsf2LDJBidTQ3Qn',
+                src: '/product-details/IUjDHc1btF5j4maDP7xb',
             },
             {
                 imageURL: 'https://firebasestorage.googleapis.com/v0/b/react-next-pj-app.appspot.com/o/images%2F1704693506032AAM232SW003-01.jpg?alt=media&token=34f90aed-c25b-4f2a-b18a-91fe9eec491e',
@@ -73,7 +73,7 @@ const BrandData = [
                 name: '[MEN] 23FW ALEXANDRE MATTIUSSI RED DE COEUR LOGO SWEATSHIRT GREY BFUSW005.747 055',
                 originPrice: 401000,
                 salePrice: 240000,
-                src: '/product-details/vwSQQwSmEg9JPUnJlEQB',
+                src: '/product-details/zZ6RtUfGaxmLu0R8S6nk',
             },
             {
                 imageURL: 'https://firebasestorage.googleapis.com/v0/b/react-next-pj-app.appspot.com/o/images%2F1704693596790AAM232MU001-01.jpg?alt=media&token=1ba3c5da-586a-4eb8-b831-36ccb3b2d1da',
@@ -81,7 +81,7 @@ const BrandData = [
                 name: '23FW OVERSIZE CHECK AMI SCARF USF418.AA0003 469',
                 originPrice: 401000,
                 salePrice: 215000,
-                src: '/product-details/EuGJqp2WZqLDZUaOzq5t',
+                src: '/product-details/sXEpePRazQ7ibTi3A8PX',
             },
             {
                 imageURL: 'https://firebasestorage.googleapis.com/v0/b/react-next-pj-app.appspot.com/o/images%2F1704693722151AAM232CD005-01.jpg?alt=media&token=2e6e448c-d5c9-4721-9182-b6b01ea9495d',
@@ -89,7 +89,7 @@ const BrandData = [
                 name: '23FW RED ADC CARDIGAN OFF WHITE BFUKC006.018 154',
                 originPrice: 617000,
                 salePrice: 370000,
-                src: '/product-details/V1Gv3EtypUOMMGbXwBKa',
+                src: '/product-details/gCOEfFChJVjCHRLuKOSH',
             },
             {
                 imageURL: 'https://firebasestorage.googleapis.com/v0/b/react-next-pj-app.appspot.com/o/images%2F1704693811939AAM232CD007-01%20(1).jpg?alt=media&token=34940203-4008-4451-8ca9-fde15a99977a',
@@ -97,7 +97,7 @@ const BrandData = [
                 name: '23FW BLACK RED ADC CARDIGAN BFUKC006.018 009',
                 originPrice: 617000,
                 salePrice: 370000,
-                src: '/product-details/2mMCQ194zI90bGnLvmn5',
+                src: '/product-details/nVvRVvKwb83YSjZmHWnO',
             },
             {
                 imageURL: 'https://firebasestorage.googleapis.com/v0/b/react-next-pj-app.appspot.com/o/images%2F1704693888029AAM232KN013-01.jpg?alt=media&token=31090618-546d-44d8-b3af-be28dd9a7a3d',
@@ -105,7 +105,7 @@ const BrandData = [
                 name: '23FW ADC CREWNECK SWEATER DARK NAVY HKS111.KN0025 430',
                 originPrice: 386000,
                 salePrice: 205000,
-                src: '/product-details/t5wJfKeFISYYzP3pD1sE',
+                src: '/product-details/GMr8sEzdej0ubaM7F7Dv',
             },
         ]
     },
