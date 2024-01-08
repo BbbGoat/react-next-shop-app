@@ -49,12 +49,12 @@ const Slider = () => {
         />
 
         {/* 2열 */}
-        <ListSlider
+        {/* <ListSlider
           sliderName="mdsPick"
           title="md's pick"
           subtitle="MD가 추천하는 베스트 아이템" 
           data={MdPickData}
-        />
+        /> */}
         <CustomSlider
           sliderName='brand'
           title='brand' 
@@ -62,12 +62,12 @@ const Slider = () => {
           data={BrandData} 
           slidesPerView={1} 
         />
-        <ListSlider
+        {/* <ListSlider
           sliderName="bestSeller"
           title="best seller" 
           subtitle="이유 있는 인기 아이템" 
           data={BestSellerData}
-        />
+        /> */}
       </div>
 
       {/* 리뷰란 */}

@@ -121,7 +121,7 @@ const CustomSlider = ({
             >
                 {
                     data[swiperIndex].list.map((item, idx)=>{
-                        const { imageURL, brand, name, originPrice, salePrice, src } = item
+                        const { imageURL, brand, name, originPrice, salePrice, src } = item;
 
                         return(
                             <SwiperSlide key={idx} style={{width: 'auto'}} className={styles.swiperSlide}>
