@@ -23,8 +23,8 @@ interface ICustomSliderProps {
             imageURL: string;
             brand: string;
             name: string;
-            price: number;
-            discount?: number;
+            originPrice: number;
+            salePrice: number;
             src: string;
         }[]
     }[];
@@ -121,9 +121,7 @@ const CustomSlider = ({
             >
                 {
                     data[swiperIndex].list.map((item, idx)=>{
-                        const { imageURL, brand, name, price, discount, src } = item
-                        const totalPrice = discount === undefined ? price 
-                        : price - ((price * discount ) / 100)
+                        const { imageURL, brand, name, originPrice, salePrice, src } = item
 
                         return(
                             <SwiperSlide key={idx} style={{width: 'auto'}} className={styles.swiperSlide}>
@@ -136,15 +134,17 @@ const CustomSlider = ({
                                         <div className={styles.brand}>{brand.toUpperCase()}</div>
                                         <div className={styles.name}>{name}</div>
                                         <div className={styles.priceBox}>
-                                        <div className={styles.originPrice}>
-                                            {priceFormat(price)}
-                                        </div>
-                                        <div className={styles.salePrice}>
-                                            <span className={styles.discount}>{discount}%</span>
-                                            <span className={styles.totalPrice}>
-                                            {priceFormat(totalPrice)}
+                                            <div className={originPrice != salePrice ? styles.originPrice : styles.price}>
+                                            {originPrice != salePrice ? priceFormat(originPrice) : <div style={{ color: "transparent" }}>-</div>}
+                                            </div>
+                                            <div className={styles.salePrice}>
+                                            <span className={styles.discount}>
+                                                {originPrice === salePrice ? null : (
+                                                <>{Math.round(Math.abs(((salePrice - originPrice) / originPrice) * 100))}%</>
+                                                )}
                                             </span>
-                                        </div>
+                                            <span className={styles.totalPrice}>{priceFormat(salePrice)}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </Link>

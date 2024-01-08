@@ -20,7 +20,7 @@ export const categories = [
 ]
 
 export const categorySort = [
-    ['원피스','신발','가방'],
+    ['의상','신발','가방'],
     ['셔츠','바지','가방'],
     ['여아','남아','가방'],
     ['홈','키친'],
