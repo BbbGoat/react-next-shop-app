@@ -62,7 +62,7 @@ const ReviewSlider = ({ sliderName, title, subtitle, data, slidesPerView, ...res
 
               return (
                 <SwiperSlide key={idx} style={{ width: "auto" }}>
-                  <Link href={`/product-details/${id}`}>
+                  {/* <Link href={`/product-details/${id}`}> */}
                     <div className={styles.border}>
                       <div className={styles.imgwrap}>
                         <figure>
@@ -78,7 +78,7 @@ const ReviewSlider = ({ sliderName, title, subtitle, data, slidesPerView, ...res
                         <div className={styles.box2}>
                           <img src={imageURL} />
                           <div className={styles.info}>
-                            <span>상품명 어쩌구 어쩌구</span>
+                            <span>상품명</span>
                             <span>
                               리뷰 3{/* ({documents.length}) */}({rate})
                             </span>
@@ -86,7 +86,7 @@ const ReviewSlider = ({ sliderName, title, subtitle, data, slidesPerView, ...res
                         </div>
                       </div>
                     </div>
-                  </Link>
+                  {/* </Link> */}
                 </SwiperSlide>
               );
             })}
