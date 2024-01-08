@@ -14,6 +14,7 @@ interface IReviewSliderProps {
   subtitle: string;
   data: {
     imageURL: string;
+    name: string;
     rate: number;
     review: string;
     reviewDate: string;
@@ -58,7 +59,7 @@ const ReviewSlider = ({ sliderName, title, subtitle, data, slidesPerView, ...res
             freeMode={true}
           >
             {data.map((item, idx) => {
-              const { id, rate, review, reviewDate, userName, imageURL } = item;
+              const { id, name, rate, review, reviewDate, userName, imageURL } = item;
 
               return (
                 <SwiperSlide key={idx} style={{ width: "auto" }}>
@@ -78,7 +79,7 @@ const ReviewSlider = ({ sliderName, title, subtitle, data, slidesPerView, ...res
                         <div className={styles.box2}>
                           <img src={imageURL} />
                           <div className={styles.info}>
-                            <span>상품명</span>
+                            <span>{name}</span>
                             <span>
                               리뷰 3{/* ({documents.length}) */}({rate})
                             </span>

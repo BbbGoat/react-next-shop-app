@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './ProductSlider.module.scss'
 import Link from 'next/link';
 import Image from 'next/image';
@@ -8,6 +8,8 @@ import priceFormat from '@/utils/priceFormat';
 // 스와이퍼 라이브러리
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, A11y } from 'swiper/modules';
+import useFetchCollection from '@/hooks/useFetchCollection';
+import { IProduct } from '@/types';
 // 스와이퍼 CSS
 // import 'swiper/css';
 // import 'swiper/css/pagination';
@@ -16,14 +18,6 @@ interface IProductSliderProps {
     sliderName: string;
     title: string;
     subtitle?: string;
-    data: {
-      imageURL: string;
-      brand: string;
-      name: string;
-      price: number;
-      discount?: number;
-      src: string;
-    }[];
     slidesPerView?: number;
     [x: string]: any;
 }
@@ -32,10 +26,13 @@ const ProductSlider = ({
     sliderName,
     title,
     subtitle,
-    data,
     slidesPerView,
     ...restProps
 }: IProductSliderProps) => {
+
+
+  const { data: products } = useFetchCollection('products');
+  const newArrivalsData = products.slice(0,12);
 
   return (
     <div className={`${styles.slider} ${sliderName}`}>
@@ -74,30 +71,34 @@ const ProductSlider = ({
             spaceBetween={10}
             slidesPerView={slidesPerView}
           >
-            { data.map((item, idx)=>{
-              const { imageURL, brand, name, price, discount, src  } = item;
-              const totalPrice = discount === undefined ? price 
-              : price - ((price * discount ) / 100)
+            { newArrivalsData.map((item: IProduct)=>{
+              const { id, thumbnailURL, brand, name, originPrice, salePrice } = item;
 
               return(
-                <SwiperSlide key={idx}>
+                <SwiperSlide key={id}>
                   <div className={styles.item}>
-                    <Link href={src}>
+                    <Link href={`/product-details/${id}`}>
                       <div className={styles.thumb}>
-                        <Image src={imageURL} alt={name} width={157} height={200} />
+                        <Image src={thumbnailURL} alt={name} width={157} height={200} />
                       </div>
                       <div className={styles.info}>
-                        <div className={styles.brand}>{brand}</div>
+                        <div className={styles.brand}>{brand.toUpperCase()}</div>
                         <div className={styles.name}>{name}</div>
                         <div className={styles.priceBox}>
-                          <div className={styles.originPrice}>
-                            {priceFormat(price)}
+                          <div className={originPrice != salePrice ? styles.originPrice : styles.price}>
+                            {originPrice != salePrice ? (
+                              priceFormat(originPrice)
+                            ) : (
+                              <div style={{ color: "transparent" }}>-</div>
+                            )}
                           </div>
                           <div className={styles.salePrice}>
-                            <span className={styles.discount}>{discount}%</span>
-                            <span className={styles.totalPrice}>
-                              {priceFormat(totalPrice)}
+                            <span className={styles.discount}>
+                              {originPrice === salePrice ? null : (
+                                <>{Math.round(Math.abs(((salePrice - originPrice) / originPrice) * 100))}%</>
+                              )}
                             </span>
+                            <span className={styles.totalPrice}>{priceFormat(salePrice)}</span>
                           </div>
                         </div>
                       </div>

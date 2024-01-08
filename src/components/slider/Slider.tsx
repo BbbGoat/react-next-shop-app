@@ -17,13 +17,13 @@ import MdPickData from './data/MdPickData'
 const Slider = () => {
   return (
     <>
-      {/* <ProductSlider
+      <ProductSlider
         sliderName='newArrival' 
         title='new arrivals' 
         subtitle='새로운 상품' 
-        data={NewArrivalsData} 
+        // data={NewArrivalsData} 
         slidesPerView={9}
-      />        */}
+      />       
       
       <div className={styles.wrapper}>
         {/* 1열 */}
