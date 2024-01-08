@@ -40,7 +40,7 @@ const filterSlice = createSlice({
             if (category === '전체') {
                 tempProducts = products.filter((product) => product.category === id);
             } else {
-                tempProducts = products.filter((product) => product.sortCat === category)
+                tempProducts = products.filter((product) => product.category === id && product.sortCat === category)
             }
             state.filteredProducts = tempProducts;
             state.filteredSort = tempProducts;
