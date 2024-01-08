@@ -54,37 +54,61 @@ const BrandData = [
             },
         ]
     },
-    // {
-    //     thumb: 'https://images.unsplash.com/photo-1646958562084-c0e1a6c89349?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzh8fCVFQiVBQyVCNCVFQiVBMyU4QyUyMCVFQyU4MiVBQyVFQyVBNyU4NHxlbnwwfHwwfHx8MA%3D%3D',
-    //     title: 'A.P.C',
-    //     description: '장 투이투가 선사하는 프렌치 미니멀리즘',
-    //     list: [
-    //         {
-    //             imageURL: '',
-    //             brand: 'A.P.C',
-    //             name: '[MEN] 23SS MATTHEW STRIPED KNIT DARK NAVY WSAAZ H23156 IAK',
-    //             price: 438000,
-    //             discount: 69,
-    //             src: '/product-details/item1',
-    //         },
-    //         {
-    //             imageURL: '',
-    //             brand: 'A.P.C',
-    //             name: '[WOMEN] 23SS LOU TOTE BAG DARK NAVY COGFF M61442 IAK',
-    //             price: 193000,
-    //             discount: 70,
-    //             src: '/product-details/item1',
-    //         },
-    //         {
-    //             imageURL: '',
-    //             brand: 'A.P.C',
-    //             name: '[WOMEN] 23SS PHOEBE LOGO DETAIL KNIT OFF WHITE WSAAZ F23175 AAC',
-    //             price: 408000,
-    //             discount: 76,
-    //             src: '/product-details/item1',
-    //         },
-    //     ]
-    // }
+    {
+        thumb: 'https://firebasestorage.googleapis.com/v0/b/react-next-pj-app.appspot.com/o/prd%2Fbrand_ban-2.jpg?alt=media&token=40a57d0b-2c95-405d-974c-26bbc4701a74',
+        title: 'AMI',
+        description: '파리지앵 스타일의 영 & 캐주얼',
+        list: [
+            {
+                imageURL: 'https://firebasestorage.googleapis.com/v0/b/react-next-pj-app.appspot.com/o/images%2F1704693323554AAM232KN008-01%20(1).jpg?alt=media&token=f918a62f-b784-44ff-87a1-50c8af518780',
+                brand: 'AMI',
+                name: '[MEN] 23FW RED ADC LOGO WOOL CREWNECK SWEATER GREY BFUKS006.018 084',
+                originPrice: 546000,
+                salePrice: 327000,
+                src: '/product-details/h9lGsYsf2LDJBidTQ3Qn',
+            },
+            {
+                imageURL: 'https://firebasestorage.googleapis.com/v0/b/react-next-pj-app.appspot.com/o/images%2F1704693506032AAM232SW003-01.jpg?alt=media&token=34f90aed-c25b-4f2a-b18a-91fe9eec491e',
+                brand: 'AMI',
+                name: '[MEN] 23FW ALEXANDRE MATTIUSSI RED DE COEUR LOGO SWEATSHIRT GREY BFUSW005.747 055',
+                originPrice: 401000,
+                salePrice: 240000,
+                src: '/product-details/vwSQQwSmEg9JPUnJlEQB',
+            },
+            {
+                imageURL: 'https://firebasestorage.googleapis.com/v0/b/react-next-pj-app.appspot.com/o/images%2F1704693596790AAM232MU001-01.jpg?alt=media&token=1ba3c5da-586a-4eb8-b831-36ccb3b2d1da',
+                brand: 'AMI',
+                name: '23FW OVERSIZE CHECK AMI SCARF USF418.AA0003 469',
+                originPrice: 401000,
+                salePrice: 215000,
+                src: '/product-details/EuGJqp2WZqLDZUaOzq5t',
+            },
+            {
+                imageURL: 'https://firebasestorage.googleapis.com/v0/b/react-next-pj-app.appspot.com/o/images%2F1704693722151AAM232CD005-01.jpg?alt=media&token=2e6e448c-d5c9-4721-9182-b6b01ea9495d',
+                brand: 'AMI',
+                name: '23FW RED ADC CARDIGAN OFF WHITE BFUKC006.018 154',
+                originPrice: 617000,
+                salePrice: 370000,
+                src: '/product-details/V1Gv3EtypUOMMGbXwBKa',
+            },
+            {
+                imageURL: 'https://firebasestorage.googleapis.com/v0/b/react-next-pj-app.appspot.com/o/images%2F1704693811939AAM232CD007-01%20(1).jpg?alt=media&token=34940203-4008-4451-8ca9-fde15a99977a',
+                brand: 'AMI',
+                name: '23FW BLACK RED ADC CARDIGAN BFUKC006.018 009',
+                originPrice: 617000,
+                salePrice: 370000,
+                src: '/product-details/2mMCQ194zI90bGnLvmn5',
+            },
+            {
+                imageURL: 'https://firebasestorage.googleapis.com/v0/b/react-next-pj-app.appspot.com/o/images%2F1704693888029AAM232KN013-01.jpg?alt=media&token=31090618-546d-44d8-b3af-be28dd9a7a3d',
+                brand: 'AMI',
+                name: '23FW ADC CREWNECK SWEATER DARK NAVY HKS111.KN0025 430',
+                originPrice: 386000,
+                salePrice: 205000,
+                src: '/product-details/t5wJfKeFISYYzP3pD1sE',
+            },
+        ]
+    },
 ]
 
 export default BrandData;
