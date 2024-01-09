@@ -12,6 +12,7 @@ import useFetchDocument from "@/hooks/useFetchDocument";
 import Loader from "@/components/loader/Loader";
 import Image from "next/image";
 import { ADD_TO_CART, CALCULATE_TOTAL_QUANTITY } from "@/redux/slice/cartSlice";
+import { useRouter } from "next/navigation";
 
 const ProductDetailsClient = () => {
   const [count, setCount] = useState(1);
@@ -21,6 +22,7 @@ const ProductDetailsClient = () => {
 
   const { id } = useParams() as { id: string };
   const dispatch = useDispatch();
+  const router = useRouter();
 
   // 특정 도큐먼트 찾아오는 용도
   const { document: product } = useFetchDocument("products", id);
@@ -54,6 +56,11 @@ const ProductDetailsClient = () => {
   const addToCart = () => {
     dispatch(ADD_TO_CART({...product, quantity: count}))
     dispatch(CALCULATE_TOTAL_QUANTITY());
+  };
+  const checkout = () => {
+    dispatch(ADD_TO_CART({...product, quantity: count}))
+    dispatch(CALCULATE_TOTAL_QUANTITY());
+    router.push('/cart');
   };
 
   useEffect(() => {
@@ -172,7 +179,7 @@ const ProductDetailsClient = () => {
                   <Button width="100%" secondary onClick={() => addToCart()}>
                     장바구니
                   </Button>
-                  <Button width="100%">바로구매</Button>
+                  <Button width="100%" onClick={()=>checkout()}>바로구매</Button>
                 </div>
 
                 <div className={styles.delivery}>
