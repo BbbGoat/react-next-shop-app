@@ -5,7 +5,7 @@ const NowOnData = [
         description: 'MAISON MARGIELA 23FW COLLECTION',
         list: [
             {
-                imageURL: 'https://firebasestorage.googleapis.com/v0/b/react-next-pj-app.appspot.com/o/images%2F17046995545381626412408-0b71273148894ae1.jpg?alt=media&token=dc9129e8-aaba-4528-9169-c41a37fbb68e',
+                imageURL: '/main/nowon-1-1.jpg',
                 brand: 'MAISON MARGIELA',
                 name: '23FW DESTRUCTURED COAT NAVY S51AA0290 S53690 511',
                 originPrice: 2150000,
@@ -13,7 +13,7 @@ const NowOnData = [
                 src: '/product-details/IS53EA1d3SLw9a4KvJtr',
             },
             {
-                imageURL: 'https://firebasestorage.googleapis.com/v0/b/react-next-pj-app.appspot.com/o/images%2F1704699616002AM1201LO103-01.jpg?alt=media&token=3aa54840-03f9-418b-a71e-6099a85ffbcb',
+                imageURL: '/main/nowon-1-2.jpg',
                 brand: 'MAISON MARGIELA',
                 name: '23FW PAINTED LEATHER LOAFER BLACK S58WR0036 P3209 H0958',
                 originPrice: 1150000,
@@ -21,7 +21,7 @@ const NowOnData = [
                 src: '/product-details/eL38QmSzGgbqanI7RBNS',
             },
             {
-                imageURL: 'https://firebasestorage.googleapis.com/v0/b/react-next-pj-app.appspot.com/o/images%2F17046996641761620807222-734e0c70facf4b02.jpg?alt=media&token=9040ae33-01ac-4fc9-898f-6a8e0b7e396c',
+                imageURL: '/main/nowon-1-3.jpg',
                 brand: 'MAISON MARGIELA',
                 name: '23FW TABI SLINGBACK PUMPS BLACK S58WL0210 PS679 T8013',
                 originPrice: 1347000,
@@ -29,7 +29,7 @@ const NowOnData = [
                 src: '/product-details/SOiCchDAJPf3ywqVe7Qd',
             },
             {
-                imageURL: 'https://firebasestorage.googleapis.com/v0/b/react-next-pj-app.appspot.com/o/images%2F1704699364531AM1232TB009-01.jpg?alt=media&token=49a47177-d3ad-44c2-bd2c-7b52a74425bf',
+                imageURL: '/main/nowon-1-4.jpg',
                 brand: 'MAISON MARGIELA',
                 name: '23FW 5AC MICRO MINI TOTE BAG WHITE S56WG0081 P4455 H0157',
                 originPrice: 2643000,
@@ -37,7 +37,7 @@ const NowOnData = [
                 src: '/product-details/dh7O7lCzkmelZTY7FOse',
             },
             {
-                imageURL: 'https://firebasestorage.googleapis.com/v0/b/react-next-pj-app.appspot.com/o/images%2F1704699432228AM1232WA032-01.jpg?alt=media&token=1ae3e2bd-6260-437e-8702-0c420449b631',
+                imageURL: '/main/nowon-1-5.jpg',
                 brand: 'MAISON MARGIELA',
                 name: '23FW SMALL CHAIN WALLET WHITE SA3UI0009 P4455 T1003',
                 originPrice: 988000,
@@ -45,7 +45,7 @@ const NowOnData = [
                 src: '/product-details/fmTdtgKnoXLquVfiSxMb',
             },
             {
-                imageURL: 'https://firebasestorage.googleapis.com/v0/b/react-next-pj-app.appspot.com/o/images%2F1704699496351AM1222SW003-01.jpg?alt=media&token=902ed8a1-d9b7-4d4b-95d5-b2488961ab68',
+                imageURL: '/main/nowon-1-6.jpg',
                 brand: 'MAISON MARGIELA',
                 name: '23FW LOGO SWEATSHIRT BURGUNDY S51GU0117 S25570 227',
                 originPrice: 793000,
@@ -60,7 +60,7 @@ const NowOnData = [
         description: 'MAISON KITSUNE 23FW COLLECTION',
         list: [
             {
-                imageURL: 'https://firebasestorage.googleapis.com/v0/b/react-next-pj-app.appspot.com/o/images%2F1704711382585AMK232LT003-01.jpg?alt=media&token=0ff9a524-b69f-47d3-b209-24ac1e4a3d6f',
+                imageURL: '/main/nowon-2-1.jpg',
                 brand: 'MAISON KITSUNE',
                 name: '23FW CHILLAX PATCH REGULAR SWEATSHIRT SKY BLUE LM00303KM0001-P422',
                 originPrice: 271000,
@@ -68,7 +68,7 @@ const NowOnData = [
                 src: '/product-details/mxIeBMWwriFeDj3PMYGL',
             },
             {
-                imageURL: 'https://firebasestorage.googleapis.com/v0/b/react-next-pj-app.appspot.com/o/images%2F1704711412744AMK232VE001-01.jpg?alt=media&token=63e8a7d3-f281-4377-a10f-a4d009c3652f',
+                imageURL: '/main/nowon-2-2.jpg',
                 brand: 'MAISON KITSUNE',
                 name: '23FW HANDWRITING OVERSIZE VEST DARK GREY MELANGE LM00815KT1063-H170',
                 originPrice: 457000,
@@ -76,7 +76,7 @@ const NowOnData = [
                 src: '/product-details/Zkp9SZD3llcushwGveB5',
             },
             {
-                imageURL: 'https://firebasestorage.googleapis.com/v0/b/react-next-pj-app.appspot.com/o/images%2F1704711449195AMK232TB002-01.jpg?alt=media&token=a2196967-2103-40e5-b70c-21f0d81a3e4b',
+                imageURL: '/main/nowon-2-3.jpg',
                 brand: 'MAISON KITSUNE',
                 name: '23FW FOX HEAD TOTE BAG BLACK LW05101WW0050-P199',
                 originPrice: 131000,
@@ -84,7 +84,7 @@ const NowOnData = [
                 src: '/product-details/JnS6P0NOIPXKjR9IZQvO',
             },
             {
-                imageURL: 'https://firebasestorage.googleapis.com/v0/b/react-next-pj-app.appspot.com/o/images%2F1704711617762AMK232SW014-01.jpg?alt=media&token=236bef24-8418-4014-8421-96deefe265ca',
+                imageURL: '/main/nowon-2-4.jpg',
                 brand: 'MAISON KITSUNE',
                 name: '23FW CAMPUS FOX REGULAR SWEATSHIRT LIGHT GREY MELANGE LM00305KM0001-H120',
                 originPrice: 316000,
