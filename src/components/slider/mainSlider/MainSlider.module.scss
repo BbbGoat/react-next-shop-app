@@ -46,6 +46,7 @@
                 font-size: 2.5rem;
                 margin-bottom: 20px;
                 word-break: keep-all;
+                text-wrap: balance;
             }   
             .description {
                 font-size: 1.4rem;
@@ -124,6 +125,31 @@
             vertical-align: middle;
             background: #000;
             transform: rotate(120deg) translate(-10%, 50%);
+        }
+    }
+}
+
+@import '../../../styles/mixin';
+
+@include mobile {
+    .slider {
+        .titWrap {
+            padding: 0;
+            
+            span {
+                padding: 3rem;
+                font-size: 1.2rem;
+            }
+            .titInner {
+                padding: 0 3rem 3rem;
+
+                .title {
+                    font-size: 2rem;
+                }
+                .description {
+                    font-size: 1.2rem;
+                }
+            }
         }
     }
 }

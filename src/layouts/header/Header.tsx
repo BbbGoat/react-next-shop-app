@@ -16,6 +16,7 @@ import { REMOVE_ACTIVE_USER, SET_ACTIVE_USER } from '@/redux/slice/authSlice'
 import { toast } from 'react-toastify'
 import { selectCartTotalQuantity } from '@/redux/slice/cartSlice'
 import { LiaUserSlashSolid } from 'react-icons/lia'
+import InnerHeader from '../innerHeader/InnerHeader'
 
 const Header = () => {
 
@@ -157,15 +158,15 @@ const Header = () => {
             {
               isLogedIn ? (
                 <>
-                  <div className={styles.logoutButton}>
+                  <div className={styles.btnBox}>
                     <button onClick={logoutUser} style={{cursor: 'pointer', border: 'none', backgroundColor: 'transparent'}} title='로그아웃' aria-label='로그아웃'>
                       {/* <LiaUserSlashSolid size={25} /> */}
                       로그아웃
                     </button>
                   </div>
-                  <div className={styles.logoutButton}>
+                  <div className={styles.btnBox}>
                     <button onClick={()=>router.push('/order-history')} style={{cursor: 'pointer', border: 'none', backgroundColor: 'transparent'}} title='마이페이지' aria-label='마이페이지'>
-                      마이페이지
+                      MY
                     </button>
                   </div>
                   <button className={styles.adminButton} type='button' title='관리자 페이지' aria-label='관리자 페이지' >
@@ -194,6 +195,7 @@ const Header = () => {
           </div>
 
         </div>
+      <InnerHeader />
       </div>
     </header>
   )

@@ -1,6 +1,4 @@
 .header {
-    // background: #fff;
-    // border-bottom: 1px solid var(--border-gray);
     height: 70px;
 
     .wrapper {
@@ -77,10 +75,7 @@
                     background-color: transparent;
                     margin-right: 20px;
                 }
-                .loginButton {
-                    margin-right: 20px;
-                }
-                .logoutButton {
+                .btnBox {
                     margin-right: 20px;
                     text-wrap: nowrap;
                 }
@@ -122,5 +117,28 @@
 @import '../../styles/mixin';
 
 @include mobile {
-    
+    .header {
+        height: 92px;
+        .wrapper {
+            border-bottom: 0;
+            height: 60px;
+
+            .flex {
+                .logo {
+                    width: auto;
+                }
+                .list {
+                    .btnBox {
+                        font-size: 1rem;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+        .navBar {
+            .category {
+                display: none;
+            }
+        }
+    }
 }
