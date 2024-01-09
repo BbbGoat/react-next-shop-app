@@ -204,6 +204,7 @@
 
             button {
                 font-size: 1.2rem;
+                width: auto;
                 height: 31px;
             }
             button + button {
@@ -292,6 +293,7 @@
             min-height: auto;
 
             button {
+                width: 60px;
                 height: 36px;
             }
         }
