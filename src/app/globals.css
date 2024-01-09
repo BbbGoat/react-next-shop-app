@@ -1,5 +1,5 @@
 :root {
-  --font-family: sans-serif;
+  --font-family: 'Pretendard';
 
   --dark-blue: #0a1930;
   --light-blue: #1f93ff;
@@ -28,14 +28,10 @@
 
 html {
   font-size: 12px;
-  /* 추후에 아래 제거 */
-  /* overflow-x: hidden; */
 }
 
 body {
   font-family: var(--font-family);
-  /* 추후에 아래 제거 */
-  /* overflow-x: hidden; */
 }
 
 a {
