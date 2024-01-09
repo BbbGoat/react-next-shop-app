@@ -208,7 +208,7 @@ const ProductDetailsClient = () => {
         <Button width="100%" secondary onClick={() => addToCart()}>
           장바구니
         </Button>
-        <Button width="100%">바로구매</Button>
+        <Button width="100%"  onClick={()=>checkout()}>바로구매</Button>
       </div>
 
       <section className={styles.section2}>
