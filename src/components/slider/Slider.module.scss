@@ -17,6 +17,7 @@
 
 @include mobile {
     .wrapper {
+        grid-row-gap: 50px;
     }
 }
 @include tablet {

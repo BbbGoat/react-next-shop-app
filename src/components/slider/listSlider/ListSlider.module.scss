@@ -117,15 +117,44 @@
 // 미디어쿼리
 @import '../../../styles/mixin';
 
-// @include mobile {
-//     .desktopSwiper {
-//         display: none;
-//     }
-//     .mobileSwiper {
-//         display: block;
-//     }
-// }
+@include mobile {
+    .slider {
+        .heading {
+            .title {
+                font-size: 2rem;
+            }
+            .subtitle {
+                font-size: 1.2rem;
+            }
+        }
+        .container {
+            margin-top: 0;
 
+            .item {
+                max-width: 130px;
+
+                .thumb {
+                    height: 173px;
+                }
+                .info {
+                    .name {
+                        font-size: 1.1rem;
+                    }
+                    .priceBox {
+                        .salePrice {
+                            .totalPrice {
+                                font-size: 14px;
+                            }
+                            .discount {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 @media screen and (max-width: 912px) {
     .desktopSwiper {
         display: none;
