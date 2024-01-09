@@ -20,8 +20,7 @@ const Slider = () => {
       <ProductSlider
         sliderName='newArrival' 
         title='new arrivals' 
-        subtitle='새로운 상품' 
-        // data={NewArrivalsData} 
+        subtitle='새로운 상품'
         slidesPerView={9}
       />       
       
