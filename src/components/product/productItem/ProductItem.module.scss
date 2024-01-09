@@ -75,3 +75,34 @@
         }
     }
 }
+
+
+// 미디어쿼리
+@import '../../../styles/mixin';
+
+@include mobile {
+    .item {
+        .info {
+            .brand {
+                font-size: 1.2rem;
+            }
+            .name {
+                font-size: 1.1rem;
+                min-height: 32px;
+            }
+            .priceBox {
+                .originPrice {
+                    font-size: 10px;
+                }
+                .salePrice {
+                    .totalPrice {
+                        font-size: 14px;
+                    }
+                    .discount {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}
