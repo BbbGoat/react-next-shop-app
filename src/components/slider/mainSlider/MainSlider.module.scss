@@ -151,5 +151,19 @@
                 }
             }
         }
+        .navWrap {
+            float: right;
+            margin-right: 25px;
+        }
+        .pagination {
+            font-size: 1.4rem;
+
+            .divider {
+                margin-right: 3px;
+            }
+            span {
+                width: 1.2rem;
+            }
+        }
     }
 }
