@@ -75,6 +75,9 @@
                     background-color: transparent;
                     margin-right: 20px;
                 }
+                .loginButton {
+                    margin-right: 20px;
+                }
                 .btnBox {
                     margin-right: 20px;
                     text-wrap: nowrap;
@@ -131,6 +134,38 @@
                     .btnBox {
                         font-size: 1rem;
                         text-align: center;
+                    }
+                    .adminButton {
+                        svg {
+                            width: 22px;
+                        }
+                    }
+                    .loginButton {
+                        margin-right: 10px;
+
+                        .adminButton {
+                            margin-right: 10px;
+
+                            svg {
+                                width: 22px;
+                            }
+                        }
+                        a {
+                            svg {
+                                width: 22px;
+                            }
+                        }
+                    }
+                    .cartButton {
+                        a {
+                            svg {
+                                width: 22px;
+                            }
+                        }
+                        strong {
+                            font-size: 1.2rem;
+                            line-height: 1.5;
+                        }
                     }
                 }
             }
