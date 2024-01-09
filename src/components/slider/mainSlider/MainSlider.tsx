@@ -81,7 +81,6 @@ const MainSlider = ({sliderData}: IMainSliderProps) => {
             )
           })
         }
-        
       </Swiper>
       
       {/* 2. 네비게이션(+페이지네이션) 영역 */}
