@@ -14,7 +14,6 @@
         .title {
             font-size: 2.5rem;
             font-weight: 600;
-            // padding-bottom: 20px;
         }
         .subtitle {
             font-size: 1.4rem;
@@ -24,7 +23,6 @@
 }
 .container {
     margin-top: 30px;
-    // padding: 0 10px;
 }
 .item {
     min-width: 157px;
@@ -94,6 +92,52 @@
                     font-weight: 700;
                     color: rgb(86, 86, 86);
                     margin-right: 10px;
+                }
+            }
+        }
+    }
+}
+
+
+// 미디어쿼리
+@import '../../../styles/mixin';
+
+@include mobile {
+    .slider {
+        margin-top: 50px;
+        margin-bottom: 50px;
+
+        .heading {
+            .title {
+                font-size: 2rem;
+            }
+            .subtitle {
+                font-size: 1.2rem;
+            }
+        }
+    }
+    .container {
+        margin-top: 0;
+    }
+    .item {
+        .thumb {
+            height: auto;
+        }
+        .info {
+            .name {
+                font-size: 1.1rem;
+            }
+            .priceBox {
+                .originPrice {
+                    font-size: 10px;
+                }
+                .salePrice {
+                    .totalPrice {
+                        font-size: 14px;
+                    }
+                    .discount {
+                        font-size: 14px;
+                    }
                 }
             }
         }

@@ -269,12 +269,32 @@
                         font-size: 1.1rem;
                     }
                     .priceBox {
+                        .originPrice {
+                            font-size: 10px;
+                        }
                         .salePrice {
                             .totalPrice {
                                 font-size: 14px;
                             }
                             .discount {
                                 font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+            .thumbSwiperWrap {
+                .thumb {
+                    .titWrap {
+                        .titInner {
+                            padding: 0 0 2rem 2rem;
+
+                            .title {
+                                font-size: 2rem;
+                                margin-bottom: 10px;
+                            }
+                            .description {
+                                font-size: 1.2rem;
                             }
                         }
                     }
