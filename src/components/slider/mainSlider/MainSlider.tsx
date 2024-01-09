@@ -59,7 +59,7 @@ const MainSlider = ({sliderData}: IMainSliderProps) => {
             const { image, image2, image3, heading, title, desc, name } = data;
             return(
               <SwiperSlide key={idx}>
-                <Link href={`/product-details/${name}`}>
+                {/* <Link href={`/product-details/${name}`}> */}
                   <picture>
                     <source srcSet={image} media='(min-width:1200px)'/>
                     <source srcSet={image2} media='(min-width:960px)'/>
@@ -76,7 +76,7 @@ const MainSlider = ({sliderData}: IMainSliderProps) => {
                       </div>
                     </div>
                   </div>
-                </Link>
+                {/* </Link> */}
               </SwiperSlide>
             )
           })
