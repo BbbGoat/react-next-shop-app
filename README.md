@@ -1,7 +1,7 @@
 ## 🛒 이커머스 쇼핑몰 사이트
 
 Next.js로 개발한 대규모 이커머스 쇼핑몰 사이트입니다.<br>
-firebase를 이용해서 이메일과 OAuth 소셜 로그인 기능을 구현하였으며<br>
+firebase로 이메일과 OAuth 소셜 로그인 기능을 구현하였으며<br>
 대량의 상품 데이터와 이미지를 firestore Database, storage에 저장하고 연동했습니다.<br>
 상품의 결제기능은 TossPayment 테스트용 API를 사용했으며<br>
 관리자 페이지에서 상품의 배송상태, 결제내용, 신규상품등록 등을 다룰 수 있습니다.<br>
