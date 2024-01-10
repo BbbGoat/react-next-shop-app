@@ -22,9 +22,11 @@ bun dev
 
 ## 📇 사용언어
 
-개발: <img src="https://img.shields.io/badge/Nextjs-47A248?style=flat-square&logo=Nextjs&logoColor=white"/> Next.js / typescript<br>
-스타일링: sass<br>
-데이터베이스: firebase<br>
-상태관리: redux-toolkit<br>
-라이브러리: cartjs notiflix toastify swiper simple-star-rating ... etc<br>
-배포: vercel
+개발: <img src="https://img.shields.io/badge/Next.js-47A248?style=flat-square&logo=Next.js&logoColor=white"/> <img src="https://img.shields.io/badge/ypescript-47A248?style=flat-square&logo=Typescript&logoColor=white"/><br>
+스타일링: <img src="https://img.shields.io/badge/Sass-47A248?style=flat-square&logo=Sass&logoColor=white"/><br>
+데이터베이스: <img src="https://img.shields.io/badge/Firebase-47A248?style=flat-square&logo=Firebase&logoColor=white"/><br>
+상태관리: <img src="https://img.shields.io/badge/Redux toolkit-47A248?style=flat-square&logo=Redux&logoColor=white"/><br>
+라이브러리: <img src="https://img.shields.io/badge/Chartjs-47A248?style=flat-square&logo=chartjs&logoColor=white"/> <img src="https://img.shields.io/badge/Notiflix-47A248?style=flat-square&logo=notiflix&logoColor=white"/>
+<img src="https://img.shields.io/badge/Toastify-47A248?style=flat-square&logo=toastify&logoColor=white"/> <img src="https://img.shields.io/badge/Swiper-47A248?style=flat-square&logo=swiper&logoColor=white"/>
+<img src="https://img.shields.io/badge/simplestarrating-47A248?style=flat-square&logo=simplestarrating&logoColor=white"/> ... etc<br>
+배포: <img src="https://img.shields.io/badge/Vercel-47A248?style=flat-square&logo=vercel&logoColor=white"/>
