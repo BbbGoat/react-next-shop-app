@@ -195,7 +195,7 @@ const Header = () => {
           </div>
 
         </div>
-      <InnerHeader />
+        <InnerHeader />
       </div>
     </header>
   )
