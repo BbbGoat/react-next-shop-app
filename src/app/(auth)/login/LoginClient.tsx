@@ -104,6 +104,15 @@ const LoginClient = () => {
                                 <path d="M1.5 1L9.5 9L1.5 17" stroke="#000" strokeWidth="1.5" />
                             </svg>
                         </Link>
+
+                        <div className={styles.testBox}>
+                            <p style={{fontWeight: 600}}>
+                                * 테스트용 ID | PW
+                            </p>
+                            <p>
+                                test@email.com | 123456
+                            </p>
+                        </div>
                     </div>
 
                     <div className={styles.buttonGroup}>
